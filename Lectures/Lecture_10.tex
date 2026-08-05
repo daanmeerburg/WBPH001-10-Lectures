@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 10}
+
+\title{\textbf{Lecture 10: Relativistic Energy and Momentum}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 12.1--12.2}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:recap}{Recap lecture 9}
+    \item \href{sec:EandP}{Relativistic Energy and Momentum}
+    \item \href{sec:Transformations}{Transformations of $E$ and $p$.}
+\end{enumerate}
+
+\section{Recap lecture 9}\label{sec:recap}
+In lecture 9, we discussed classical statics (if all forces on a system cancel) and dynamics (if there is a net force that makes the system move). For the rest of the lectures on relativity, we will focus on dynamics. Let us briefly recap the main aspects of dynamics. 
+If there is a net-force, we can derive two conserved quantities. One is the integral of the force over space. This quantity is related to the energy of the system, which is conserved. If we integrate the force over time, we find impulse, which is a change in momentum, which again is conserved.
+\be
+\int_{t_1}^{t_2} {\bf F} dt &=& {\bf p}(t_2)-{\bf p}(t_1). \\ 
+\int_{\bf r_0}^{\bf r} {\bf F}({\bf r'}) \cdot d{\bf r'} &=& \frac{1}{2}m v^2-E. 
+\ee
+Here $E$ is the total energy of a system and $\int_{\bf r_0}^{\bf r} {\bf F}({\bf r'}) = - V({\bf r})$ the potential. ${\bf p}(t)$ is the momentum at time $t$. 
+
+We can use conservation of momentum and energy (e.g., kinetic energy in elastic scatterings) to solve problems that involve the interactions between particles (or collections of particles). In classical mechanics, energy and momentum are independently conserved. There is always one equation that defines energy conservation (as $E$ is a scalar), while there can be up to $3$ equations that determine momentum conservation, since ${\bf p}$ is a vector. In principle, the equations above are directly derived from Newton's laws, and thus the dynamics of a system can be solved with forces as well (as opposed to conservation laws). In addition, there are several additional ways to simplify the solutions to a problem. For example, in one dimension, you can use the fact that the relative velocity between two particles that collide will be the same but negative after the collision. If you move to the center of mass frame, you should find that after and before the collision, the velocities of the individual particles should be the same as before the collision, but in opposite directions. 
+
+\subsubsection*{Example 1: Two masses in 1-D}
+
+
+\section{Relativistic Energy and Momentum}
+
+The main result of this lecture will be to show that the relativistic momentum and energy are given by 
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+{\bf p} = \gamma m{\bf v}, \;\;\;\; E = \gamma m c^2.
+\ee
+\end{tcolorbox}
+Here $\gamma$ is the Lorentz factor. In the limit $v\ll c$, we find ${\bf p} = m{\bf v}$ and $E = mc^2$. The former is identical to the classical momenta we discussed in the previous lecture (which we can now refer to as Newtonian momenta); it is a vector and consists of at most $3$ components. The energy, on the other hand, appears to be a new result, and its implications will become clear once we start taking a closer look at the non-relativistic limit. \\
+
+% Notably, the part of the energy that is caused by the integral of the force is absent since it encodes potential energy, and net forces introduce acceleration. Check this. 
+
+\noindent
+{\bf Momentum} We will derive the form of the momentum directly from four vectors in a couple of lectures from now. Here, we will use a handwavy argument to explain why the form of the relativistic momentum should hold. Imagine two identical particles moving with large speed but opposite direction along the vertical ($y$) axis. They move with equally small, but opposite speeds in the horizontal $(x)$ direction. Their paths are arranged in such a way that they glance off each other and reverse direction. We should also imagine a series of equally spaced vertical lines for reference. Both particles have identical clocks that tick every time they cross one of these vertical lines. 
+
+We now move to a new frame comoving with one of the particles in the $y$ direction. In this frame, the collision simply flips the sign of the $x$ component of both particles' velocities. Therefore, the magnitudes of their $x$ momenta must be equal. Otherwise, the total momentum would point in a different direction before and after the collision, contrary to momentum conservation. At the same time, the speeds of the two particles are not equal. One particle is nearly at rest, moving only slowly in the $x$ direction. The other moves at very high speed, mostly in the vertical direction. The fast particle's clock runs slowly relative to the nearly stationary particle's clock, by a factor $\gamma^{-1}$. Since the clock ticks each time it crosses a vertical line, its horizontal velocity is also smaller by a factor $\gamma^{-1}$. The Newtonian expression for $x$ momentum therefore cannot be correct: it would assign the fast-moving particle a smaller $x$ momentum than the slow-moving particle. If we include a factor of $\gamma$ in the expression for momentum,
+\be
+p_x =\gamma m v_x \equiv \frac{m v_x}{\sqrt{1-v^2/c^2}}.
+\ee
+In this way, for the slow-moving particle, we have $\gamma \sim 1$ and for the fast-moving particle, we have a factor $\gamma$ that cancels the $\gamma^{-1}$ from the clock running slow. 
+
+For the three-dimensional form of $\bf p$, we use the fact that the vector ${\bf p}$ must point in the same direction as the velocity vector $\bf v$. Any other direction would immediately mean that there is no preferred direction, which is not the case; $\bf v$ is the preferred direction. We thus recover the expression we quoted at the start of this lecture:
+\be
+{\bf p} = \gamma m {\bf v} \equiv \frac{m {\bf v}}{\sqrt{1-v^2/c^2}}.
+\ee
+Note that $v = |{\bf v}|$, so all components of the velocity have to be considered in this Lorentz factor. \\
+
+\noindent 
+{\bf Energy} Consider the following example. We have two particles, both of mass $m$, moving in opposite directions (from the left and the right), towards each other, with speed $v_m$ (in frame $S$). The masses stick and form a new particle of mass $M$. In the classical scenario, the mass $M$ would simply be $2m$; the sum of the masses of two incoming particles, and the total momentum would be zero before and after they stick (given the symmetry of the setup). Now we move to a new frame, comoving with one of the two particles, such that the resulting mass $M$ moves to the right with speed $v_M' = v$. If we assume special relativity holds, we should now apply the velocity transformation rule to the speed of the particle moving to the right. This particle should now have a speed (in SR units):
+\be
+v_m'= \frac{2v_m}{1+v_m^2}. 
+\ee
+The Lorentz factor associated with this new speed is 
+\be
+\gamma_{v'_m} \equiv \frac{1}{\sqrt{1-v_m'^2}} = \frac{1+v_m^2}{1-v_m^2}.
+\ee
+Now we apply conservation of this collision using relativistic momentum conservation:
+\be
+\gamma_{v_m'} m v_m' + 0 = \gamma_{v_M'} M v_M'.
+\ee
+Here we used that after the collision, only mass $M$ is moving, and by construction, this should be moving with speed $v'_M = v_m$ as we wrote above. This leads to the following equation:
+\be
+m\left( \frac{1+v_m^2}{1-v_m^2}\right)\left(\frac{2v_m}{1+v_m^2}\right) = \frac{M v_m}{\sqrt{1-v_m^2}}.
+\ee
+We can solve for $M$
+\be
+M = \frac{2m}{\sqrt{1-v_m^2}}.
+\ee
+In other words, conservation of momentum suggests the mass is not $2m$. What about energy? In frame $S$, assuming $E = \gamma m$ (in SR units), we have 
+\be
+2 \gamma_{v_m} m  = \gamma_0 M = 2 \gamma_{v_m} m
+\ee
+where we used the just derived expression for the mass $M$. So indeed energy is conserved in frame $S$. What about the frame where the right mass is at rest? We have:
+\be
+\gamma_{v_m'} m  + \gamma_0 m = \gamma_{v_M'} M,
+\ee
+or 
+\be
+\left(\frac{1+v_m^2}{1-v_m^2}\right)m + m = \frac{M}{\sqrt{1-v_m^2}} = \frac{2m}{1-v_m^2}, 
+\ee
+where again I used that $v_M' = v_m$ and the expression for the mass above.  The LHS can be manipulated    
+\be
+\left(\frac{1+v_m^2}{1-v_m^2}\right)m + m = \left(\frac{1+v_m^2}{1-v_m^2}\right)m + \left(\frac{1-v_m^2}{1-v_m^2}\right)m  = \frac{m(1+v_m^2) + m (1-v_m^2)}{1-v_m^2} = \frac{2m}{1-v_m^2}.\nonumber
+\ee
+So indeed, also in frame $S'$, energy is conserved. Hence, $\gamma m$ or $\gamma m c^2$ (SI) should be a plausible candidate for relativistic energy, if we maintain that relativistic energy and momentum should be conserved quantities. 
+
+It is worth noting that conservation of relativistic energy is much easier since it is conserved period. Unlike the classical kinetic counterpart $E = \frac{1}{2} mv^2$, which could be converted into internal energy, such as heat. As we see with the example of two particles colliding and merging, such heat may be generated, but it is then converted into mass. 
+
+We can expand $E$ around small values of the velocity, i.e., $v \ll c$. Now, considering SI units, we have 
+\be
+E\equiv \gamma m c^2   &=& \frac{mc^2}{\sqrt{1-v^2 /c^2}} \nonumber \\
+&=& mc^2 \left(1 + \frac{v^2}{2c^2} + \frac{3 v^4}{8c^4} + \dots\right) \nonumber \\
+&=& mc^2 + \frac{1}{2} mv^2 + \dots
+\ee
+where the dots represent higher-order terms in $v/c$. For elastic scattering in Newtonian physics, no heat is generated, so mass is conserved. The first term on the right-hand side expresses that concept: $mc^2$ is the rest energy and is the same before and after the collision. The second term is the classical kinetic energy. Hence, conservation of energy in the limit $v\ll c$ reduces to conservation of kinetic energy. Similarly, the relativistic momentum ${\bf p}=\gamma m{\bf v}$ reduces to the classical three-momentum for $v\ll c$. This should be the case. We observe energy and momentum conservation in everyday life, where we mostly encounter non-relativistic dynamics. Hence, we should expect our more advanced theory to explain these common observations as well. Morin calls this the correspondence principle. More generally, Newtonian dynamics is an effective description at speeds much smaller than $c$ and on scales where quantum effects can be neglected. Special relativity remains applicable to particles that accelerate in flat spacetime, but it does not include gravity; general relativity does. General relativity, in turn, is expected to require a quantum description at sufficiently small scales or high curvatures.
+
+We can now define kinetic energy as (in SR)
+\be
+E_k = \gamma m - m
+\ee
+i.e., the total relativistic energy minus rest energy. This is not guaranteed to be observed in relativistic dynamics, since we already saw the mass may not be conserved. For example, in the center of mass frame $S$, there was kinetic energy before (in both particles of mass $m$), but not after (in the final particle of mass $M$). 
+
+In SR, we can write 
+\be
+E^2 - |{\bf p}|^2 &=& \gamma^2 m^2 - \gamma^2 m ^2 |{\bf v}|^2 \nonumber \\
+&=& \gamma^2 m^2(1-v^2) = m^2. \label{eq:mass}
+\ee
+(in SI this would be $m^2 c^4$, i.e the square of the rest energy). We will later see that $m^2$ is frame independent (on par with $\Delta s^2$). This replaces the relation between $E_k = p^2/2m$ in Newtonian physics. We can rewrite it as 
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+E^2 = |{\bf p}|^2+ m^2.
+\ee
+\end{tcolorbox}
+If you know two out of three quantities $E$, $p$, and $m$, this relation will give you the third. For massless particles, such as photons, we have 
+\be
+E^2  = |{\bf p}|^2 = p^2.
+\ee
+For a particular dynamics problem involving photons, this is a valuable relation to have (and know), since our expressions for the relativistic energy and momentum both depend on mass and therefore are of no use to describe a massless particle, such as a photon. 
+
+Finally, we can write:
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+\frac{\bf p}{E} = {\bf v}.
+\ee
+\end{tcolorbox}
+This is a very quick way to determine the velocity. \\
+
+\noindent
+{\bf Size of $mc^2$}: You might already be aware of the massive amounts of energy inside a kilogram of material, but let us get some numbers. For 1 kg of mass, we have $E  = 1 [{\rm kg}] (3\times 10^8)^2 [{\rm m/s}]^2 \simeq 10^{17}$ Joules. A typical household uses between 2000 en 3000 KWh per year. This is equivalent to $2 \times 10^6 [{\rm J/s}] \times (60\times 60) [{\rm s}] \simeq 10^{10}$ Joules per year. So if we were able to convert all that mass into usable energy, we would be able to provide electricity to about $10^{17}/10^{10} = 10^7$ households. This would almost be sufficient for a country the size of the Netherlands. Unfortunately, we do not know how to do this. But it is clear that even if we were able to convert a tiny fraction into usable energy, this would be almost an infinite resource. Effectively, of course, indirectly, this is already what is powering the universe, through fusion inside stars such as our sun.  \\ 
+
+\noindent
+{\bf Mass}: Some times $m_0$ is referred to rest mass. However, Morin (and I agree) argues that there is really no need to define rest mass. Relativistic mass would then be $m_{\rm rel} = \gamma m_0$, such that ${\bf p} = m_{\rm  rel}{\bf v}$. The problem with this notion is two-fold. First of all, we already have a quantity that is the equivalent of $m_{\rm rel}$ (in SR units), which is $E = \gamma m$. Secondly, we have defined mass through Eq.~\eqref{eq:mass}, and this quantity is frame invariant. Defining a mass that depends on $\gamma$ defines a mass that is frame-dependent. Both arguments suggest we should stick to mass being just mass, either at rest or in motion, while energy $E=\gamma m$, with rest energy $m$.   
+
+\section{Transformation Rules}
+
+Consider a particle in frame $S'$ in 2d spacetime with energy $E'$ and momentum $p'$. Frame $S'$ is moving with velocity $\beta$ compared to frame $S$. We will use SR units throughout. What are energy $E$ and momentum $p$ in frame $S$?
+
+Let $v'$ be the speed of the particle in frame $S'$. The particles speed in $S$ can be obtained using the velocity-addition / Einstein velocity transformation:
+\be
+v = \frac{v' + \beta}{1+\beta v'}.
+\ee
+The Lorentz factor associated with this velocity is given by
+\be
+\gamma_v &=& \frac{1}{\sqrt{1-\left(\frac{v' + \beta}{1+\beta v'}\right)^2}} = \frac{1}{\sqrt{\left(\frac{1+\beta v'}{1+\beta v'}\right)^2-\left(\frac{v' + \beta}{1+\beta v'}\right)^2}} \nonumber \\
+&=& \frac{1+\beta v'}{\sqrt{(1+\beta v')^2 -(v'+\beta)^2}} =  \frac{1+\beta v'}{\sqrt{(1 + 2 \beta v'+ \beta^2 v'^2)-(v'^2+2v'\beta + \beta^2)}}\nonumber \\
+&=& \frac{1+\beta v'}{\sqrt{(1-v'^2)(1-\beta^2)}} = \gamma_{\beta} \gamma_{v'} (1+\beta v'). 
+\ee
+The energy and momentum in frame $S'$ are given by 
+\be
+E' &=& \gamma_{v'} m,\nonumber \\
+p' &=& \gamma_{v'} m v',
+\ee
+while in $S$ they are given by 
+\be
+E &=& \gamma_v m =  \gamma_\beta \gamma_{v'} (1 + \beta v') m, \nonumber \\ 
+p &=& \gamma_v m v = \gamma_\beta \gamma_{v'} (1 + \beta v') m \left(\frac{v'+\beta}{1+\beta v'}\right)  = \gamma_\beta \gamma_{v'} (v' + \beta) m.
+\ee
+Now we use the expressions for $E'$ and $p'$ to write
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+E &=& \gamma_\beta (E'+\beta p') \\
+p &=& \gamma_\beta(p' +\beta E').
+\ee
+\end{tcolorbox}
+These are the transformation rules for energy and momentum.  They look exactly like the one for space and time. This is no coincidence, as we will see once we start to write $E$ and $p$ in terms of 4-vectors. You can show that 
+\be
+E^2 - p^2 = E'^2-p'^2
+\ee
+by applying the transformation rules. This is similar to $\Delta t^2 -\Delta x^2  = \Delta t'^2 -\Delta x'^2$. 
+
+What about $p_y$ and $p_z$ when $\beta$ is along $x$? $p_y$ and $p_z$ depend on velocity, which is, in fact, transformed even if the velocity is in the $x$ direction. Consider $v_y'$ (we will just use $v'$ for the $x'$ component to keep notation intact). We can then write:
+\be
+p_y' &=& \gamma_{v'} m v_y'  \\
+p_y  &=& \gamma_{v} m v_y = \gamma_{v'} \gamma_{\beta} (1+\beta v') m \frac{v_y'}{\gamma_{\beta}(1+\beta v')} = \gamma_{v'} m v_y'
+\ee
+So indeed $p_y = p_{y}'$. The same is true for $p_z = p_{z}'$.
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+A particle of rest mass $m$ moves in the lab with $\beta=3/5$.
+\begin{enumerate}
+    \item Compute $\gamma$, $E$, and $p$ in units with $c=1$.
+    \boardanswer{$\gamma=1/\sqrt{1-9/25}=5/4$, so $E=\gamma m=5m/4$ and $p=\gamma m\beta=3m/4$.}
+    \item Verify the invariant relation $E^2-p^2=m^2$.
+    \boardanswer{$E^2-p^2=(25m^2/16)-(9m^2/16)=m^2$.}
+    \item Transform the energy and momentum to the particle rest frame.
+    \boardanswer{Boosting with the particle gives $p'=0$ and $E'=m$, as expected for the rest frame.}
+    \item Explain why energy and momentum transform together rather than separately.
+    \boardanswer{They are components of the four-momentum $P=(E,{\bf p})$. A Lorentz transformation mixes temporal and spatial components.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

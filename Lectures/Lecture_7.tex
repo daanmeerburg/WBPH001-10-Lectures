@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\pagestyle{fancy}
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 7}
+
+\title{\textbf{Lecture 7: Units and Dimensional Analysis}}
+\author{Based on Morin and the lecture slides}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item Short recap: spacetime units and invariant intervals
+    \item Unit systems and unit conversion
+    \item Dimensions and dimensional consistency
+    \item Dimensional analysis as a way to infer scaling laws
+    \item Worked examples: motion, pendulum, and the Trinity test
+\end{enumerate}
+
+\section{Relativity Recap}
+In special relativity, it is often convenient to measure space and time in the same units by setting $c=1$. A light-second is the distance light travels in one second:
+\be
+1\,\mathrm{light\text{-}second} = 299792458\,\mathrm{m}.
+\ee
+With this convention the spacetime interval between two events in one spatial dimension is
+\be
+\Delta s^2 = \Delta t^2 - \Delta x^2.
+\ee
+All inertial observers agree on $\Delta s^2$, even though they need not agree on $\Delta t$ or $\Delta x$ separately.
+
+\subsection{Coordinate time, proper time, and spacetime interval}
+It is useful to distinguish three related ideas:
+\begin{itemize}
+    \item \textbf{Coordinate time} is the time difference measured in a reference frame by synchronized clocks.
+    \item \textbf{Proper time} is the time measured by a single clock that is present at both events.
+    \item \textbf{Spacetime interval} is the invariant quantity associated with the pair of events.
+\end{itemize}
+For timelike-separated events, the proper time of an inertial clock connecting the events is equal to the interval:
+\be
+\Delta \tau^2 = \Delta s^2.
+\ee
+
+\section{Units}
+A unit system is a set of agreed conventions. Common examples include SI or MKS, CGS, and British engineering units. The same physical statement can be written in any unit system, but the numerical value of a quantity changes when the unit changes.
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+Quantity & SI/MKS & CGS & British engineering \\
+\hline
+Length & meter & centimeter & foot \\
+Mass & kilogram & gram & slug \\
+Time & second & second & second
+\end{tabular}
+\end{center}
+
+Mistakes in units are not cosmetic. They can change a physical prediction by many orders of magnitude.
+
+\subsection{Unit operator method}
+The safest way to convert units is to multiply by factors equal to one. Treat units algebraically and cancel them explicitly.
+
+\paragraph{Example: waterfall height.}
+Angel Falls has height $3212\,\mathrm{ft}$. Using $1\,\mathrm{m}=3.281\,\mathrm{ft}$,
+\be
+3212\,\mathrm{ft}
+\left(\frac{1\,\mathrm{m}}{3.281\,\mathrm{ft}}\right)
+\simeq 979\,\mathrm{m}.
+\ee
+
+\paragraph{Example: speed limit.}
+A speed of $70\,\mathrm{mph}$ is
+\be
+70\,\frac{\mathrm{mile}}{\mathrm{hr}}
+\left(\frac{1609\,\mathrm{m}}{1\,\mathrm{mile}}\right)
+\left(\frac{1\,\mathrm{km}}{1000\,\mathrm{m}}\right)
+\simeq 113\,\frac{\mathrm{km}}{\mathrm{hr}}.
+\ee
+
+\section{Derived Units}
+Derived units can be remembered from the physical laws that define them:
+\be
+F &=& ma, \qquad [N] = [kg\,m\,s^{-2}],\\
+E &=& \frac{1}{2}mv^2, \qquad [J] = [kg\,m^2\,s^{-2}],\\
+f &=& \frac{1}{t}, \qquad [Hz] = [s^{-1}],\\
+P &=& \frac{F}{A}, \qquad [Pa] = [kg\,m^{-1}\,s^{-2}].
+\ee
+
+\section{Dimensional Analysis}
+Every physical quantity has a dimension. For example,
+\be
+[x] = L,\qquad [v] = LT^{-1},\qquad [a] = LT^{-2},\qquad [E]=ML^2T^{-2}.
+\ee
+Mathematical relations between physical quantities must be dimensionally consistent. Only quantities with the same dimensions can be added or subtracted.
+
+\begin{tcolorbox}[colback=blue!5!white]
+Dimensional analysis can tell us which combinations of variables are possible and how quantities scale. It cannot determine dimensionless numerical constants or capture all of the physics.
+\end{tcolorbox}
+
+\section{Example 1: Motion from Rest}
+Suppose an object starts from rest, moves for a time $t$, and reaches speed $v$. Which formula could describe the distance traveled?
+\be
+x = \frac{1}{2}v t^2
+\qquad\text{or}\qquad
+x = \frac{1}{2}v t.
+\ee
+The first has dimensions
+\be
+[v t^2] = LT^{-1}T^2 = LT,
+\ee
+which is not a length. The second has dimensions
+\be
+[v t] = LT^{-1}T = L.
+\ee
+Dimensional analysis therefore rejects the first expression. It cannot tell us whether the factor $1/2$ is correct.
+
+\section{Example 2: Period of a Pendulum}
+Let $\Theta$ be the period of a simple pendulum. We ask which quantities it can depend on. A reasonable starting list is:
+\begin{itemize}
+    \item $L$: length of the pendulum;
+    \item $m$: mass of the bob;
+    \item $\phi$: amplitude angle;
+    \item $g$: gravitational acceleration.
+\end{itemize}
+Assume
+\be
+\Theta = C L^w m^x \phi^y g^z,
+\ee
+where $C$ is a dimensionless constant. Since $\phi$ is dimensionless,
+\be
+T = L^w M^x (LT^{-2})^z
+  = L^{w+z} M^x T^{-2z}.
+\ee
+Equating powers gives
+\be
+1=-2z,\qquad 0=w+z,\qquad 0=x.
+\ee
+Thus
+\be
+z=-\frac{1}{2},\qquad w=\frac{1}{2},\qquad x=0,
+\ee
+and
+\be
+\Theta = C\sqrt{\frac{L}{g}}\,f(\phi).
+\ee
+Dimensional analysis tells us that the period is independent of the mass and scales as $\sqrt{L/g}$. For small amplitudes, Newtonian mechanics gives $f(\phi)\simeq 1$ and $C=2\pi$.
+
+\section{Example 3: Trinity Test}
+The first atomic bomb was detonated on July 16, 1945 near Alamogordo, New Mexico. Photographs of the expanding blast wave were later published. Taylor used the radius of the shock front as a function of time to estimate the energy released.
+
+Suppose the relevant variables are:
+\begin{itemize}
+    \item $r$: radius of the shock front;
+    \item $\rho$: density of air;
+    \item $E$: energy release;
+    \item $t$: time.
+\end{itemize}
+Assume
+\be
+r = C \rho^x E^y t^z.
+\ee
+The dimensions are
+\be
+L = (ML^{-3})^x (ML^2T^{-2})^y T^z
+  = M^{x+y}L^{-3x+2y}T^{-2y+z}.
+\ee
+Equating powers of $M$, $L$, and $T$ gives
+\be
+x+y=0,\qquad -3x+2y=1,\qquad -2y+z=0.
+\ee
+Solving,
+\be
+x=-\frac{1}{5},\qquad y=\frac{1}{5},\qquad z=\frac{2}{5}.
+\ee
+Therefore
+\be
+r = C \rho^{-1/5}E^{1/5}t^{2/5}.
+\ee
+Equivalently,
+\be
+E = \tilde{C}\frac{\rho r^5}{t^2}.
+\ee
+The dimensionless constant $\tilde{C}$ is not determined by dimensional analysis. It must come from a more detailed calculation or from data.
+
+\section*{Exercises}
+\begin{enumerate}
+    \item Check the dimensions of the relativistic energy-momentum relation $E^2=p^2c^2+m^2c^4$.
+    \item Estimate the period of a $1\,\mathrm{m}$ pendulum using the result above.
+    \item Derive the scaling relation for the escape velocity from a planet in terms of $G$, $M$, and $R$.
+    \item The vaccine problem from earlier lectures has a proper lifetime of $5$ years and a travel distance of $11.9$ light-years. Use $\Delta s^2=\Delta t^2-\Delta x^2$ to estimate the minimum speed required.
+\end{enumerate}
+
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+Use dimensional analysis to estimate the orbital period $T$ of a planet moving in a nearly circular orbit of radius $r$ around a star of mass $M$.
+\begin{enumerate}
+    \item Assume the relevant dimensional quantities are $r$, $M$, and Newton's constant $G$.
+    \boardanswer{Use $[r]=L$, $[M]=M$, and $[G]=L^3M^{-1}T^{-2}$.}
+    \item Find the combination with dimensions of time.
+    \boardanswer{The only combination with dimensions of time is $T\propto\sqrt{r^3/(GM)}$.}
+    \item Compare your result with Kepler's third law.
+    \boardanswer{This gives $T^2\propto r^3/(GM)$, which is the scaling of Kepler's third law for circular orbits.}
+    \item Which dimensionless numerical factor cannot be found from dimensional analysis alone?
+    \boardanswer{Dimensional analysis cannot determine the factor $2\pi$ in $T=2\pi\sqrt{r^3/(GM)}$.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

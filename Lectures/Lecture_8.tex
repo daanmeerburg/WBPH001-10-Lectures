@@ -1,0 +1,248 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\pagestyle{fancy}
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 8}
+
+\title{\textbf{Lecture 8: Fermi Problems and Guesstimation}}
+\author{Based on the lecture slides}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item What a Fermi problem is
+    \item Enrico Fermi and order-of-magnitude reasoning
+    \item A method for estimates
+    \item Worked examples: Earth, piano tuners, ambulances, and galaxy collisions
+    \item Using estimates as physics arguments
+\end{enumerate}
+
+\section{Fermi Problems}
+A Fermi problem is an estimation problem where exact information is unavailable or unnecessary. The goal is to obtain a quantitative answer within an order of magnitude. This is an important skill in physics because it tells us whether a proposed answer is plausible before we do a detailed calculation.
+
+\begin{tcolorbox}[colback=blue!5!white]
+The point is not to guess. The point is to break a large question into smaller questions, write clear assumptions, keep units visible, and check whether the final scale makes sense.
+\end{tcolorbox}
+
+\section{Enrico Fermi}
+Enrico Fermi was famous for quick order-of-magnitude estimates. One well-known story concerns the Trinity test in 1945. Fermi estimated the explosive yield by dropping small pieces of paper before and during the passage of the blast wave, measuring their displacement, and relating that displacement to the pressure of the shock.
+
+The historical details are less important for us than the method: simple observations, simple physics, and a controlled approximation can already tell us a lot.
+
+\section{A Practical Method}
+When solving a Fermi problem:
+\begin{enumerate}
+    \item Break the problem into smaller pieces.
+    \item Use quantities you roughly know. If you do not know them directly, estimate them from something nearby.
+    \item Round aggressively, but not always in the same direction.
+    \item Use scientific notation.
+    \item Keep units attached to every intermediate result.
+    \item Check the final result against common sense or known scales.
+\end{enumerate}
+
+Typical useful approximations are
+\be
+\pi \simeq 3,\qquad c\simeq 3\times 10^8\,\mathrm{m/s},\qquad
+1\,\mathrm{mile}\simeq 1.6\,\mathrm{km}.
+\ee
+
+\section{Example 1: Diameter of the Earth}
+Estimate the diameter of the Earth from the distance between New York and Los Angeles.
+
+\subsection*{Assumptions}
+\begin{itemize}
+    \item New York and Los Angeles are separated by about three time zones.
+    \item The distance between them is about $5000\,\mathrm{km}$.
+    \item There are 24 time zones around the Earth.
+\end{itemize}
+
+The distance per time zone is therefore roughly
+\be
+\frac{5000\,\mathrm{km}}{3} \simeq 1700\,\mathrm{km}.
+\ee
+The circumference of the Earth is then
+\be
+C_{\oplus} \simeq 24 \times 1700\,\mathrm{km}
+\simeq 4\times 10^4\,\mathrm{km}.
+\ee
+Since $C_{\oplus}=2\pi R_{\oplus}$,
+\be
+R_{\oplus} \simeq \frac{4\times 10^4\,\mathrm{km}}{6}
+\simeq 6.5\times 10^3\,\mathrm{km},
+\ee
+and
+\be
+D_{\oplus}\simeq 1.3\times 10^4\,\mathrm{km}.
+\ee
+The actual value is about $12742\,\mathrm{km}$.
+
+\section{Example 2: Piano Tuners in Chicago}
+Estimate the number of piano tuners in Chicago.
+
+\subsection*{Assumptions}
+\begin{itemize}
+    \item Chicago has about $2\times 10^6$ people.
+    \item There are about 4 people per household.
+    \item About 1 household in 20 has a piano.
+    \item Each piano is tuned once per year.
+    \item A tuning takes about 2 hours.
+    \item A tuner works about $8$ hours/day, $5$ days/week, and $50$ weeks/year.
+\end{itemize}
+
+The number of pianos is
+\be
+N_{\mathrm{piano}}
+\simeq
+2\times 10^6
+\left(\frac{1\,\mathrm{household}}{4\,\mathrm{people}}\right)
+\left(\frac{1\,\mathrm{piano}}{20\,\mathrm{households}}\right)
+\simeq 2.5\times 10^4.
+\ee
+So Chicago needs roughly $2.5\times 10^4$ tunings per year. A tuner can do
+\be
+\left(2000\,\frac{\mathrm{hr}}{\mathrm{yr}}\right)
+\left(\frac{1\,\mathrm{tuning}}{2\,\mathrm{hr}}\right)
+\simeq 10^3\,\frac{\mathrm{tunings}}{\mathrm{yr}}.
+\ee
+Therefore,
+\be
+N_{\mathrm{tuners}}
+\simeq \frac{2.5\times 10^4}{10^3}
+\simeq 25.
+\ee
+
+\section{Example 3: Ambulance Stations in the Netherlands}
+Estimate how many ambulance stations are needed if an ambulance must be able to reach an emergency within about 15 minutes.
+
+\subsection*{Assumptions}
+\begin{itemize}
+    \item Approximate the Netherlands by a rectangle of width $200\,\mathrm{km}$ and height $300\,\mathrm{km}$.
+    \item The area is therefore $A\simeq 6\times 10^4\,\mathrm{km^2}$.
+    \item Because of response time, use about $12$ minutes of driving.
+    \item The average ambulance speed is about $50\,\mathrm{km/hr}$.
+    \item Each station covers roughly a circle of radius $r$.
+\end{itemize}
+
+The reachable radius is
+\be
+r \simeq
+50\,\frac{\mathrm{km}}{\mathrm{hr}}
+\left(\frac{12\,\mathrm{min}}{60\,\mathrm{min/hr}}\right)
+\simeq 10\,\mathrm{km}.
+\ee
+The area covered per station is approximately
+\be
+B \simeq \pi r^2 \simeq 3\times 10^2\,\mathrm{km^2}.
+\ee
+Thus the number of stations is
+\be
+N \simeq \frac{A}{B}
+\simeq
+\frac{6\times 10^4}{3\times 10^2}
+\simeq 2\times 10^2.
+\ee
+This is close to the actual scale, which is why this is a good Fermi problem: simple assumptions already give the right order of magnitude.
+
+\section{Example 4: Galaxy Collisions}
+If two galaxies collide, how many individual stars are expected to collide?
+
+\subsection*{Assumptions}
+\begin{itemize}
+    \item A Milky-Way-like galaxy contains about $10^{11}$ stars.
+    \item The galaxy has radius $R_{\mathrm{gal}}\simeq 5\times 10^4$ light-years.
+    \item One light-year is about $10^{16}\,\mathrm{m}$, so $R_{\mathrm{gal}}\simeq 5\times 10^{20}\,\mathrm{m}$.
+    \item The typical stellar radius is of order the solar radius, $R_{\star}\simeq 10^9\,\mathrm{m}$.
+\end{itemize}
+
+The volume of the galaxy is roughly
+\be
+V_{\mathrm{gal}} \simeq 3R_{\mathrm{gal}}^3
+\simeq 3(5\times 10^{20}\,\mathrm{m})^3
+\sim 5\times 10^{62}\,\mathrm{m^3}.
+\ee
+The number density of stars is then
+\be
+n_{\star} \simeq \frac{10^{11}}{5\times 10^{62}}
+\sim 10^{-52}\,\mathrm{m^{-3}}.
+\ee
+During a head-on passage through another galaxy, a star sweeps out a volume
+\be
+V_{\mathrm{swept}}
+\sim R_{\mathrm{gal}} \times 3R_{\star}^2
+\sim (5\times 10^{20})(3\times 10^{18})
+\sim 10^{39}\,\mathrm{m^3}.
+\ee
+The collision probability for one star is
+\be
+P \sim n_{\star}V_{\mathrm{swept}}
+\sim 10^{-52}10^{39}
+\sim 10^{-13}.
+\ee
+Multiplying by $10^{11}$ stars gives far less than one direct stellar collision per galaxy collision, at most of order $10^{-2}$ to $10^{-1}$ with these crude assumptions. Galaxies can pass through each other while individual stars almost never hit.
+
+\section{Physical Meaning: The Bullet Cluster}
+The fact that stars rarely collide in galaxy-cluster mergers is physically useful. In systems such as the Bullet Cluster, galaxies pass through one another with little direct stellar collision, while gas does collide and emits X-rays. Gravitational lensing shows that most of the mass follows the collisionless component rather than the gas. This is one of the classic pieces of evidence for dark matter.
+
+\section{Handy Scales}
+The following approximate scales are useful for quick estimates:
+\begin{itemize}
+    \item Earth diameter: $10^7\,\mathrm{m}$.
+    \item Human height: $10^0$--$10^1\,\mathrm{m}$.
+    \item Sugar cube: $10^{-2}\,\mathrm{m}$.
+    \item Atom: $10^{-10}\,\mathrm{m}$.
+    \item Proton: $10^{-15}\,\mathrm{m}$.
+    \item Water density: $10^3\,\mathrm{kg/m^3}$.
+    \item Human mass: $10^2\,\mathrm{kg}$.
+    \item Earth mass: $10^{25}\,\mathrm{kg}$.
+    \item Sun mass: $10^{30}\,\mathrm{kg}$.
+\end{itemize}
+
+\section*{Exercises}
+\begin{enumerate}
+    \item Estimate how many breaths you take in a year.
+    \item Estimate the mass of air in this lecture room.
+    \item Estimate the number of photons emitted per second by a $100\,\mathrm{W}$ light bulb, assuming visible photons have energy of a few eV.
+    \item Estimate how many relativistic muons created in the upper atmosphere reach sea level, and identify where special relativity enters the estimate.
+\end{enumerate}
+
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+Estimate the total number of heartbeats made by all people in the Netherlands in one year.
+\begin{enumerate}
+    \item State your assumptions clearly.
+    \boardanswer{Use about $2\times10^7$ people, an average heart rate of about $70$ beats/min, and one year $\simeq5\times10^5$ min.}
+    \item Keep only one or two significant digits in intermediate estimates.
+    \boardanswer{Per person: $70\times5\times10^5\simeq3.5\times10^7$ beats/year.}
+    \item Give the final answer as an order of magnitude.
+    \boardanswer{All people: $(2\times10^7)(3.5\times10^7)\simeq7\times10^{14}$, so order of magnitude $10^{15}$ heartbeats/year.}
+    \item Identify the assumption that dominates the uncertainty.
+    \boardanswer{The average heart rate dominates, because it varies strongly with age, activity, sleep, and health.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

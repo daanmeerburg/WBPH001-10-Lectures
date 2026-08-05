@@ -1,0 +1,368 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\pagestyle{fancy}
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 2}
+
+\title{\textbf{Lecture 2: Foundations of Special Relativity}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 11.1–11.3}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:background}{Background}
+    \item \href{sec:GR}{Galilean Relativity}
+    \item \href{sec:MM}{Michelson and Morley experiment} 
+    \item \href{sec:SR}{Special Relativity}
+    \item \href{sec:Rsim}{Relativity of Simultaneity}
+    \item \href{sec:tD}{The Light Clock and Time Dilation}
+    \item \href{sec:lC}{Length Contraction} 
+\end{enumerate}
+
+\section{Some background}\label{sec:background}
+\subsection{Vectors}
+\textbf{Position vector:} In 3D space, a vector $\vec{r}$ can be written as:
+\be
+\vec{r} = x \hat{i} + y \hat{j} + z \hat{k}
+\ee
+\textbf{Velocity vector:}
+\be
+\vec{v} = \dv{\vec{r}}{t} = v_x \hat{i} + v_y \hat{j} + v_z \hat{k}.
+\ee
+When we work with multiple coordinate systems, we need to know how to transform from one to the other. For example, in spherical coordinates, which contain the modulus of the radial vector $r$ and two angles, one in the $x-y$ plane ($-\pi \leq \phi\leq \pi$), and one in the $z$ and the $x-y$ plane ($0 \leq \Theta \leq \pi$). In scattering processes, we typically describe a system where a particle interacts with another particle and gets scattered. If we use Cartesian coordinates ($x,y,z$), but we describe the scattering processes using angles with respect to e.g., one of the Cartesian axes, we need to know how to transform the components. In a 2D plane (note that 2-body particle scatterings can always be rotated to a 2D coordinate system), if we have a vector $\vec{r}$ point in the positive direction in a Cartesian coordinate system, and this vector is making an angle $\Theta$ with the $x$-coordinate axis, we can compute the $x$ and $y$ components as:
+\be
+x &=& |\vec{r}| \cos \Theta, \nonumber \\
+y &=& |\vec{r}| \sin \Theta. \nonumber
+\ee
+Does this make sense? 
+
+\subsection{Events}
+An event is something that takes place in a well-defined place and time. 
+
+\subsection{Reference Frames}
+A reference frame is a rigid cubic lattice of synchronized clocks.
+The coordinates of an event can be described by time and space, $(t, x, y, z)$. Later, after deriving the Lorentz transformations, we will see when such objects behave as four-vectors. An inertial reference frame is one in which an object not acted upon by any net external force moves with constant velocity, either at rest or in straight-line motion.
+
+\subsection{SR Units and spacetime diagrams}
+In SR, space and time will be treated on equal footing (and transformation rules will be symmetrical between space and time, as opposed to Galilean transformations (see below)). To better understand problems in SR, it is often useful to draw a {\bf spacetime diagram}. In this diagram, space and time have the same units, which is accomplished by setting the speed of light $c = 1$. SI distances can then be found by multiplying whatever time interval is used in SR units on the spatial axis by the speed of light. For example, 1 light year is the distance light travels in one year. We often use this metric in astronomy and cosmology since objects in our universe are very far away and become a little cumbersome to deal with in SI units (e.g., the distance to the sun is $1.5\times 10^{11}$ meters, but only 8 light minutes). In Morin, spacetime diagrams will only be introduced in Ch.~11.7, but I will often draw these diagrams to clarify the problem, and therefore I am introducing this here. In lecture 3 we will already use diagrams as a guide for the Lorentz transformations, and in lecture 4 we will develop the full two-observer diagram. In a spacetime diagram, light always propagates with a $45^{\circ}$ angle w.r.t. the spatial axis (horizontal). 
+
+\subsection{Worldline and worldregion}
+A {\bf worldline} is a line that connects events in a spacetime diagram. The slope of the worldline presents the inverse velocity (speed in a typical 2D spacetime diagram) of an object that follows the worldline. For that reason, no physical object can have a worldline that makes an angle $< 45^{\circ}$, for such an object would move faster than the speed of light. Only massless objects can move exactly with $ 45^{\circ}$, such as a photon (light). A {\bf worldregion} is a region carved out by an object of finite size in a spacetime diagram. 
+
+
+
+
+\section{Galilean Relativity}\label{sec:GR}
+\subsection{Principle of Galilean Relativity}
+The laws of physics (mechanics) are the same in all inertial frames. An inertial frame is a frame moving at constant velocity. 
+
+\subsection{Galilean Transformation (1D motion along $x$)}
+
+Consider a frame at rest $S$ and another frame $S'$ moving with velocity $\beta$.
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\begin{align}
+\Delta x' &= \Delta x - \beta \Delta t \\
+\Delta t' &= \Delta t, \\
+v' &= v - \beta
+\end{align}
+\end{tcolorbox}
+\noindent 
+where $v$ is the velocity of an object in frame $S$ and $v'$ in frame $S'$. Question: Why is there a minus sign?  \\
+Galilean invariance means that the laws of physics are assumed to be invariant under this transformation (i.e., moving from one inertial frame to another). \\
+
+\noindent
+{\bf Example 1: Walking on a Train}
+A person walks forward at $2$ m/s on a train moving at $15$ m/s relative to the ground. What is the person's velocity relative to the ground?
+\be
+v_{\text{ground}} &= v_{\text{train}} + v_{\text{person}} = 15 + 2 = 17 \text{ m/s}
+\ee
+
+\noindent
+{\bf Example 2: Dropping a Ball on a Moving Truck}
+A person on a truck moving at 10 m/s drops a ball. What is its trajectory in the ground frame?
+\begin{itemize}
+    \item \textbf{Truck frame:} Ball falls vertically.
+    \item \textbf{Ground frame:} Ball has horizontal velocity 10 m/s $\Rightarrow$ parabolic path.
+\end{itemize}
+
+\subsection{Limitations of Galilean Relativity}
+ Maxwell's equations imply that light travels at speed $c$ in all directions. From all other  `waves' we were familiar with at the time, we knew that their speed of propagation might be fixed, but would be relative. The time it takes for a sound wave to propagate between two observers will depend on how fast and in what direction these observers are moving through a frame that is at rest with respect to that of air. Sound waves can propagate through various media (including air, but also water). What is the medium waves of light propagate in? And what is our relative motion with respect to this ether? This was the question Michelson and Morley aimed to address. 
+
+\section{Michelson-Morley Experiment}\label{sec:MM}
+
+The Michelson-Morley experiment was designed to detect the Earth's motion through the ``ether'' by comparing the time taken for light to travel along two perpendicular arms of an interferometer. The idea was that if the Earth moves through the ether with velocity $v$, the speed of light would differ along and perpendicular to the motion.
+
+\subsubsection{Setup of the Interferometer}
+\begin{itemize}
+
+\item Two arms of equal length $L$, one parallel and one perpendicular to the Earth's motion through the ether.
+\item Light is split into two beams that travel down each arm and reflect back.
+\item An interference pattern is observed to detect time differences.
+\end{itemize}
+
+\subsubsection{Time for Light to Travel Along the Parallel Arm}
+
+Let $c$ be the speed of light in the ether. Along the parallel arm:
+
+\begin{itemize}
+  \item On the outbound trip, light travels against the ether wind: effective speed is $c - v$.
+  \item On the return trip, light travels with the ether wind: effective speed is $c + v$.
+\end{itemize}
+Thus, the total time $t_\parallel$ for the parallel arm is:
+\be
+t_\parallel = \frac{L}{c - v} + \frac{L}{c + v} = L\left( \frac{1}{c - v} + \frac{1}{c + v} \right).
+\ee
+Using (show):
+\be
+\frac{1}{c - v} + \frac{1}{c + v} = \frac{2c}{c^2 - v^2},
+\ee
+we find:
+\be
+t_\parallel = \frac{2Lc}{c^2 - v^2} = \frac{2L}{c} \cdot \frac{1}{1 - (v/c)^2}.
+\ee
+
+\subsubsection{Perpendicular Arm}
+Perpendicular to the motion, light must follow a diagonal path to compensate for the ether drift. Using Pythagoras' theorem, the effective velocity of light perpendicular to motion: \( \sqrt{c^2 - v^2} \). This is true in both directions, hence the time for a round trip along the perpendicular arm is:
+\be
+t_\perp = \frac{2L}{\sqrt{c^2 - v^2}} = \frac{2L}{c} \cdot \frac{1}{\sqrt{1 - (v/c)^2}}.
+\ee
+
+\subsubsection{Time Difference Between Arms}
+
+Let $\Delta t = t_\parallel - t_\perp$:
+\be
+\Delta t = \frac{2L}{c} \left( \frac{1}{1 - (v/c)^2} - \frac{1}{\sqrt{1 - (v/c)^2}} \right).
+\ee
+In Morin, it is shown that for $v\ll c$, we can use a Taylor series expansion. For reference (since you have not seen Taylor series), we can write (see clips)
+\be
+\left(1-\left(\frac{v}{c}\right)^2\right)^n \sim 1-n\left(\frac{v}{c}\right)^2,
+\ee
+hence 
+\be
+\left(1-\left(\frac{v}{c}\right)^2\right)^{-1} - \left(1-\left(\frac{v}{c}\right)^2\right)^{-1/2}  \simeq \frac{1}{2}\left(\frac{v}{c}\right)^2.
+\ee
+Using this in the above, then leads to 
+\be
+\Delta t \simeq \frac{L v^2}{c^3},
+\ee
+which indeed has the right dimensions of time. Michelson and Morley found no measurable shift:
+\[
+\Delta t \approx 0 \Rightarrow \text{No detectable ether }
+\]
+This null result implied that either the Earth is always at rest in the ether (improbable) or that the ether does not exist. Morin discusses some other suggested solutions, such as frame dragging or having a contraction of length that would exactly cancel and result in a null result. 
+
+
+
+
+\section{Special Relativity}\label{sec:SR}
+The two important postulates that lay at the foundation of the theory of special relativity are: 
+\begin{tcolorbox}[colback=blue!5!white]
+\begin{enumerate}
+    \item \textbf{Constancy of the Speed of Light:} The speed of light in vacuum is the same in any inertial frame.
+    \item \textbf{Principle of Relativity:} The laws of physics are the same in all inertial frames.   
+\end{enumerate}
+\end{tcolorbox}
+
+\noindent  
+\textbf{These two assumptions contradict the Newtonian view of absolute space and time.} It is `special' because it only concerns non-accelerating frames. This means we can not include gravity for the moment (Diederik might discuss this at the very end if there is time).  
+
+
+\section{Fundamental effects}
+\subsection{Relativity of Simultaneity}\label{sec:Rsim}
+Two laser hits both ends of a moving train (receivers). 
+
+
+\begin{itemize}
+    \item \textbf{In frame (S') moving w train:} Light source midway between two receivers. From the observer's point of view in this frame, the light will hit the receivers at the same time. 
+
+
+    \item \textbf{In ground frame (S'):} The train is moving to the right with speed $v$. Hence, the receiver is moving to the right. As it takes a finite time for the light to travel between the source and the receiver, during this time, the receiver has moved closer. Since the speed of light is constant independent of frame, the relative speed is $v+c$. For the receiver on the right, it is $c-v$. As a result, the moment the light hits the receiver is not the same in this frame. 
+\end{itemize}
+
+Note that what we describe here refers to the `observed' time and place, i.e., as measured with a ruler and a clock in a reference frame. The actual observers, who are typically located in the frame, will see things as information reaches their sensors (eyes in our case, but could also be some apparatus). Seeing is therefore not the same as observing. In Moore, this is something that is discussed at some length, but Morin spends only a footnote on this distinction. We might come back to this when we discuss spacetime diagrams (where we can use the so-called radar method to make this distinction clearer).  
+
+\begin{tcolorbox}[colback=blue!5!white]
+\begin{itemize}
+\item {\bf Seeing:}
+When the light reaches the observer's eyes   
+\item {\bf Observing:} 
+What a clock positioned at the event synchronised with the frame of the observer reads off
+\end{itemize}
+\end{tcolorbox}
+
+In Morin, a rear-clock-ahead example is given. We will get back to this example in the next lecture\footnote{This example can be easier to understand when using diagrams, which we will get to in lecture 4}. 
+% But the main gist of the example is to show that there is a difference between the observed time (as measured by a pair of synchronized clocks in a reference frame) and the time as displayed on the clock (which can be measured by a pair of eyes). 
+
+
+\subsection{Time dilation}\label{sec:tD}
+Consider a `light clock' on a train moving to the right. A light clock is made up of two mirrors separated by a vertical distance $L$. 
+\begin{itemize}
+
+\item \textbf{In frame comoving with train (S'):}
+In this frame, the time it takes for a light beam to travel up and down is given by:
+\be
+\Delta t' = \frac{2L}{c}.
+\ee
+\noindent 
+\item \textbf{In ground frame (S):} The clock moves horizontally with speed $v$ to the right. The speed of light in this frame is still the same. We use Pythagoras' theorem to obtain the vertical speed only 
+\be
+v' = \sqrt{c^2-v^2}.
+\ee
+Therefore time it takes 
+\be
+\Delta t = 2L/\sqrt{c^2-v^2}.
+\ee
+\end{itemize}
+The relation between the two times is 
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+\Delta t =  \gamma \Delta t'
+\ee
+\end{tcolorbox}
+\noindent
+with $\gamma = (1-v^2/c^2)^{-1/2}$, the Lorentz factor. \textbf{This is time dilation. A moving clock ticks more slowly.}\\
+
+\noindent
+Perhaps the most well-known example that deals with the aspect of time dilation is the twin paradox. In this example, a twin, Annie and Joy, are separated at the age of 20 as one of the two twins, Joy, travels to a distant planet 20 lightyears away with constant velocity $v$. After 50 years, Annie is 70 years old. Joy is about to return after her interplanetary travels. According to Annie, who has studied SR, Joy should have carried a clock that runs slowly. Hence, she should have aged less. At the same time, Joy, who has also studied SR, argues that Annie should have aged less, since in her frame, Annie is moving away. Who is correct? \\
+
+\noindent
+The twin paradox will come back in different forms throughout this course. While the set-up might sometimes be more involved (triplets, both moving observers, etc.), in the end, it all comes down to the same principle. Clocks are either inertial or not. If they are not, they will always tick more slowly than an inertial clock. We refer to the time measured along any clock's worldline as proper time, while the time read directly from the time axis of a chosen inertial frame is coordinate time. Moore makes an effort to emphasize this distinction; in Morin it is less explicit, although it is present. A third time-related quantity is the spacetime interval $s$ or $\Delta s$, which we will discuss in the next lecture. For two timelike-separated events, $\Delta s/c$ equals the proper time along the inertial worldline connecting them. All three quantities coincide for a clock at rest in the chosen inertial frame. \\
+
+\noindent 
+The twin paradox might be far-fetched (we do not have a spaceship that can bring Joy back and forth to a distant planet in a reasonable amount of time). However, time dilation is real. Morin (and also Moore) provides the example of an atmospheric muon, which has a half-life time that would indicate only a number of muons that are generated high in the atmosphere would make it to the surface. However, since these muons are traveling close to the speed of light, their internal clock runs slow. In their frame, they reach the surface earlier than in the frame fixed to the surface of the Earth, and hence many more reach the surface than you expect if you apply Galilean logic. We will work out this example in the next lecture. 
+
+% \begin{tcolorbox}[colback=blue!5!white]
+% \color{sectiontitlecolor}\textbf{xxx} 
+% \end{tcolorbox}
+
+\subsection{Length Contraction}\label{sec:lR}
+
+Again, we have two observers. 
+\begin{itemize}
+\item \textbf{In frame comoving with train (S'):}
+Two mirrors are separated by a horizontal distance $L'$ (motion is parallel to the separation). The time it takes for a light beam to go back and forth is given by:
+\be
+\Delta t' = \frac{2L'}{c}.
+\ee
+\item \textbf{In ground frame (S):} The length of the train in this frame is assumed to be $L$ (which may or may not be the same as $L'$). The relative speed as measured in the frame of the beam moving to the front of the train is $c-v$ (the front is moving away), while after it is reflected, the relative speed is $v+c$ (the back of the train is moving towards the beam). The total time it takes is therefore
+\be
+\Delta t = \frac{L}{c-v} + \frac{L}{c+v} = \frac{2 L c}{c^2-v^2} \equiv \frac{2L}{c} \gamma^2.
+\ee
+\end{itemize}
+However, the time in the train should runs slow according to our notion of time dilation:
+\be
+\Delta t = \gamma \Delta t',
+\ee
+combining these two, then given us:
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+L  = \gamma^{-1} L'. 
+\ee
+\end{tcolorbox}
+\noindent
+This is length contraction, i.e., in the frame at rest, the length of the train is contracted. Note that in the previous example using a light clock to derive time dilation, the orientation of the beam was rotated by $45^{\circ}$. Length is only contracted in the direction of motion. At some level, this is the only distinction between space and time in SR: we have multiple spatial dimensions and only one time dimension. We will later see that this means that while spatial components might not transform if there is no motion parallel to those spatial dimensions, velocities (or acceleration) that depend on both space and time will transform, even if the motion is not parallel to the direction of the velocity vector. \\
+
+\noindent 
+Similar to proper time, which is measured by a single inertial clock present at both events, we refer to the length of an object as proper length measured with a ruler that is at rest with respect to the object, i.e., an objects length in a given inertial frame is defined to be the distance between any two simultaneous events that occur at its ends. \\
+
+\noindent 
+Note also that contraction is symmetric, i.e., for a person on the train, anything observed at rest will be contracted in precisely the same way as the person observing the moving train. This can be best shown when drawing a so-called 2 observer spacetime diagram, something we will do later. It will allow us to discuss another paradox, known as the pole and the barn paradox.  
+
+% \section{Worked Examples}
+
+% \subsection*{Example 1: Time Dilation in a Light Clock}
+
+% \textbf{Given:}
+% \begin{itemize}
+%     \item $L_0 = 1.5$ m
+%     \item $v = 0.8c$
+% \end{itemize}
+
+% \textbf{Compute:}
+% \[
+% t_0 = \frac{2L_0}{c} = \frac{3}{c}, \quad
+% \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} = \frac{1}{\sqrt{1 - 0.64}} = \frac{1}{0.6} \approx 1.667
+% \]
+
+% \[
+% t = \gamma t_0 = \frac{5}{c}
+% \]
+
+% \textbf{Interpretation:} The moving clock appears to tick more slowly by a factor of $1.667$.
+
+% \subsection*{Example 2: Simultaneity}
+
+% \textbf{Scenario:} A train of length 300 m moves at $0.6c$. Lightning strikes both ends simultaneously in the ground frame.
+
+% \textbf{Question:} Are the events simultaneous in the train frame?
+
+% \textbf{Answer:} No. Observer on the train receives light from the front first (they are moving toward it), hence concludes front lightning struck first.
+
+% \section*{Summary}
+% \begin{itemize}
+%     \item Classical mechanics fails to explain the invariance of light speed.
+%     \item Einstein's postulates require a new view of space and time.
+%     \item Simultaneity is relative.
+%     \item Time dilation follows naturally from a simple light-clock argument.
+% \end{itemize}
+
+% \section*{Challenge Problem (Optional)}
+% A muon is created 10 km above Earth's surface, traveling downward at $v = 0.995c$. Its rest lifetime is $\tau_0 = 2.2 \, \mu s$.
+
+% \begin{itemize}
+%     \item How far would it travel classically?
+%     \item How far does it actually travel due to time dilation?
+%     \item Does it reach the ground?
+% \end{itemize}
+
+% \vfill
+% \centering
+% \textit{Next Lecture: Length Contraction and Further Implications of Lorentz Symmetry}
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+Two events are recorded in frame $S$ using units with $c=1$:
+\[
+A=(t,x)=(0,0), \qquad B=(5,3).
+\]
+\begin{enumerate}
+    \item Draw the two events on a spacetime diagram and add the light cone from $A$.
+    \boardanswer{$A$ is at the origin and $B$ is at $t=5$, $x=3$. Since $|x|<t$, $B$ lies inside the future light cone of $A$.}
+    \item Decide whether the separation is timelike, spacelike, or lightlike.
+    \boardanswer{$\Delta s^2=\Delta t^2-\Delta x^2=25-9=16>0$, so the separation is timelike.}
+    \item Is there an inertial frame in which the two events happen at the same place? Is there one in which they happen at the same time? Explain using the diagram.
+    \boardanswer{Because the separation is timelike, there is a frame in which the events happen at the same place. There is no inertial frame in which timelike-separated events are simultaneous.}
+    \item What is the proper time or proper distance associated with this separation?
+    \boardanswer{The proper time is $\Delta\tau=\sqrt{16}=4$ in units with $c=1$. Proper distance is used for spacelike intervals, so it is not the relevant quantity here.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\pagestyle{fancy}
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 1}
+
+\title{\textbf{Lecture 1: Welcome, Course Overview, and Historical Context}}
+\author{Mechanics and Relativity WBPH001-10}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item Course structure, resources, and expectations
+    \item What kind of physics we are doing in this course
+    \item Newtonian mechanics, electromagnetism, and the problem of light
+    \item The ether, Michelson--Morley, and Lorentz
+    \item Einstein's special relativity and the road to general relativity
+    \item Preview of the tools used in the relativity part of the course
+\end{enumerate}
+
+\section{Course Structure}
+Mechanics and Relativity is a two-part course. The first part develops special relativity and the physical reasoning tools that go with it. The second part develops mechanics in more depth. The two parts are connected: relativity forces us to sharpen the meaning of time, space, energy, momentum, forces, and frames of reference.
+
+Lectures introduce the main ideas and examples. Tutorials are the place to turn the ideas into working skills. The exam questions are based on the lectures, the assigned reading, and the tutorial exercises. Students are encouraged to read the assigned sections before each lecture and to work actively during tutorials.
+
+\begin{tcolorbox}[colback=blue!5!white]
+\textbf{Practical point.} The detailed schedule, tutorial enrollment, assessment rules, and announcements live on Brightspace and rooster.rug.nl. Use those as the authoritative sources for room changes, group information, and exam logistics.
+\end{tcolorbox}
+
+\section{Resources}
+The main textbook for the relativity part is Morin, with emphasis on the chapters on special relativity. Lecture notes, recordings, old exams, tutorial material, and additional resources are made available through Brightspace or Overleaf.
+
+Useful supplementary resources include popular-level books and reputable online explanations, but they should be used as support rather than as substitutes for working through the calculations. Relativity is a subject where a verbal explanation can feel convincing while still hiding a wrong sign, a wrong frame, or a wrong clock.
+
+\section{What is Physics?}
+Physics asks quantitative questions about the natural world. In this course the central questions are:
+\begin{itemize}
+    \item How do objects move and interact?
+    \item How do different observers describe the same physical process?
+    \item Which quantities depend on the reference frame, and which quantities are invariant?
+    \item How do units, dimensions, and limiting cases help us check an argument?
+\end{itemize}
+
+Every physical quantity has both a number and a unit:
+\be
+\text{physical quantity} = \text{numerical value} \times \text{unit}.
+\ee
+For example, a distance might be $3.14\,\mathrm{m}$, a speed $105\,\mathrm{km/h}$, and a magnetic flux $0.1\,\mathrm{Wb}$. The numerical value changes if we change units, but the physical statement should not. This is why units and dimensions are not bookkeeping decoration: they are part of the physics.
+
+\section{Classical Mechanics}
+Classical mechanics has several equivalent formulations. Newtonian mechanics describes motion through forces and Newton's laws. Lagrangian mechanics reformulates motion using generalized coordinates and the principle of least action. Hamiltonian mechanics uses generalized coordinates and momenta, and becomes especially useful in more advanced physics.
+
+The Newtonian picture is an extraordinarily successful approximation, but it is not the final word. It must be modified when speeds approach the speed of light, $c$, and when quantum effects become important. In this course we begin by studying the first of these modifications.
+
+\section{Electricity, Magnetism, and Light}
+Before the nineteenth century, electricity, magnetism, and optics were largely separate subjects. Coulomb's law described electrostatic forces, magnetic compasses were known, and wave optics had been developed by Young and Fresnel. During the nineteenth century these phenomena became unified.
+
+Maxwell's equations describe electric and magnetic fields,
+\be
+\vec{E}(t,x,y,z), \qquad \vec{B}(t,x,y,z),
+\ee
+and show that light is an electromagnetic wave. In vacuum, the propagation speed is
+\be
+c = \frac{1}{\sqrt{\mu_0 \epsilon_0}} \simeq 3 \times 10^8\,\mathrm{m/s}.
+\ee
+This was a conceptual shock. In Newtonian mechanics, the speed of a wave is normally measured relative to a medium. Sound is measured relative to air, water waves relative to water. What, then, is the medium for light?
+
+\section{The Ether Problem}
+The proposed medium for electromagnetic waves was called the ether. If the ether existed, the speed of light should depend on the motion of the observer through the ether. Since the Earth rotates and orbits the Sun, one might expect slightly different light speeds in different directions.
+
+The Michelson--Morley experiment was designed to detect this difference. The result was null: no ether wind was observed. This result was deeply puzzling in the Galilean worldview, where velocities simply add.
+
+Lorentz proposed transformations of space and time that could explain the null result, but the deeper interpretation came from Einstein.
+
+\section{Special Relativity}
+Einstein's 1905 paper on the electrodynamics of moving bodies replaced the ether picture with a new principle:
+\begin{tcolorbox}[colback=blue!5!white]
+\textbf{Principle of relativity.} The laws of physics are the same in all inertial reference frames.
+\end{tcolorbox}
+
+Together with the frame-invariance of the speed of light, this principle leads to the Lorentz transformations. The consequences are profound:
+\begin{itemize}
+    \item time intervals are not absolute;
+    \item lengths are not absolute;
+    \item simultaneity is frame dependent;
+    \item the invariant object is not space or time separately, but spacetime.
+\end{itemize}
+
+Special relativity is ``special'' because it is restricted to inertial observers: observers that are not accelerating and are not in a gravitational field.
+
+\section{Gravity and General Relativity}
+Newton's theory of universal gravitation describes gravity as a force acting between masses. Einstein's general relativity combines the principle of relativity with gravity. The equivalence principle states, in one form, that locally the laws of physics in a gravitational field are indistinguishable from those in an accelerated frame.
+
+In general relativity, spacetime is dynamical. Matter and energy determine curvature, and curvature determines motion. Symbolically,
+\be
+G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}.
+\ee
+General relativity predicts phenomena that go beyond Newtonian gravity plus special relativity, including the anomalous precession of Mercury's perihelion, the bending of light, black holes, and gravitational waves.
+
+\section{Preview of the Relativity Tools}
+The next lectures introduce the working language of special relativity:
+\begin{itemize}
+    \item \textbf{Events:} things that happen at a definite place and time.
+    \item \textbf{Reference frames:} coordinate systems with synchronized clocks.
+    \item \textbf{Spacetime diagrams:} diagrams with time and space shown on comparable axes.
+    \item \textbf{Worldlines:} curves representing the history of objects in spacetime.
+    \item \textbf{Invariant quantities:} quantities on which all inertial observers agree.
+\end{itemize}
+
+A recurring theme is the difference between seeing and observing. Seeing refers to light reaching an eye or detector. Observing, in the relativity sense, means assigning coordinates using clocks and rulers in a specified reference frame.
+
+\section*{In-Class Discussion}
+\begin{enumerate}
+    \item If the laws of mechanics are the same in all inertial frames, why did light create a problem?
+    \item What would an ether wind have meant for the speed of light measured on Earth?
+    \item Which parts of physics remain unchanged when we move from Newtonian mechanics to special relativity?
+\end{enumerate}
+
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+The Michelson--Morley experiment found no ether wind.
+\begin{enumerate}
+    \item Explain why this was surprising if Galilean velocity addition applies to light.
+    \boardanswer{If light behaved like ordinary waves in a medium, Earth's motion through the ether should change the measured speed of light in different directions. The null result contradicted this Galilean expectation.}
+    \item State the two postulates of special relativity.
+    \boardanswer{The laws of physics are the same in all inertial frames, and all inertial observers measure the same speed of light in vacuum.}
+    \item Draw a simple spacetime diagram showing two light pulses emitted from the same event in opposite directions.
+    \boardanswer{The pulses are two lightlike worldlines starting at the same event, with slopes $+1$ and $-1$ in units where $c=1$.}
+    \item Which part of the Newtonian picture has to be changed: the laws of mechanics, the idea of inertial frames, or the absoluteness of space and time?
+    \boardanswer{The absoluteness of space and time must be changed. Inertial frames remain central, and the laws of physics are still required to be frame independent.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

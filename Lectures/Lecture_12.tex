@@ -1,0 +1,298 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 12}
+
+\title{\textbf{Lecture 12: Force and Rocket motion}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 12.5--12.6}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:recap}{Recap lecture 11}
+    \item \href{sec:force}{Force}
+    \item \href{sec:rocket}{Relativistic Rocket}
+\end{enumerate}
+
+\section{Recap lecture 11}\label{sec:recap}
+
+In the last lecture, we talked about collisions and decays and applied conservation of relativistic energy and momentum. Since mass is not conserved between interactions (it is frame-independent), the results of interactions can differ quite significantly from the Newtonian results. The key point to remember for any problem involving interactions is to keep track of the energy and momenta of all objects (particles) involved. You can then simply apply:
+\be
+P_{\rm before} = P_{\rm after}, 
+\ee
+with $P$ the energy-momentum 4-vector: 
+\be
+P = (E,p_x,p_y,p_z) = (\gamma m, \gamma m v_x, \gamma m v_y, \gamma m v_z),
+\ee
+for a massive particle. For a massless particle, we use that $|{\bf p}|^2 = E^2$. 
+
+In many cases, we do not need to know the exact velocities of the objects involved to determine properties of the objects after a collision or decay. Unknowns can often be found using $m^2=E^2-|{\bf p}|^2$. Since this is a common recipe for solving these problems, working directly with the energy-momentum four-vector can be especially advantageous. We have learned about the inner product in Minkowski space:
+\be
+A\cdot B = A_0B_0- A_1 B_1 - A_2 B_2 -A_3 B_3
+\ee
+and 
+\be
+P\cdot P = P^2 = m^2.
+\ee
+In other words, suppose I have a system of particles that interact via some complicated way and result in yet another system of particles, with different masses, equating the conservation of energy and momentum for the sum of these particles can lead to a complicated system of equations. However, using the 4-vector directly often significantly simplifies the problem. Consider, for example, a process of two particles colliding and decaying into another particle and a photon. We can write (now using a subscript as the particle label, not to be confused with components) 
+\be
+P_{1} + P_2 = P_3 + P_{\gamma}. 
+\ee
+If we now square the left and the right (without knowing anything about the interaction), we get
+\be
+P_1^2 + 2 P_1 \cdot P_2 + P_2^2 = P_3^2 + 2 P_3 \cdot P_{\gamma} + P_{\gamma}^2. 
+\ee
+We know that $P_1^2 = m_1^2$, $P_2^2  = m_2^2$ and $P_3^2 = m_3^2$. Since the photon $\gamma$ is massless, we have $P_{\gamma}^2 = 0$. We thus find:
+\be
+m_1^2 + m_2^2 + 2 P_1 \cdot P_2 = m_3^2 + 2 P_3 \cdot P_{\gamma} 
+\ee
+If the process happens in a plane (2D to 2D)\footnote{It is possible to have 3D to 3D, and also 3D to 2D and 2D to 3D. In the latter two cases, the outgoing or incoming momenta of the particles must cancel exactly. }, collecting all the terms in the cross product of the ingoing and outgoing particles, is all that is necessary. Since there will be 4 more equations coming from conservation of momentum (3) and energy (1), there will be additional ways to eliminate variables. 
+
+Finally, in class, we had someone ask about the possibility of generating a massive particle out of two photons. Since we discussed colliding particles that could generate a particle with a higher mass than the sum of two colliding particles, would it be possible to generate a massive particle out of two massless particles? 
+
+Suppose we have such an interaction. For photon $1$, we write $P_1$, and photon $2$, we write $P_2$. We thus have 
+\be
+P_1 + P_2 = P_{\rm final}
+\ee
+where $P_{\rm final}$ could be the sum of the energy-momenta of several objects. 
+We can square the LHS:
+\be
+(P_1 + P_2) \cdot (P_1 + P_2) = P_1^2 + 2 P_1 \cdot P_2 + P_2^2 = 0 + 2 P_1 \cdot P_2 + 0, 
+\ee
+where the zeros follow from the fact that the photons are massless. The only remaining term on the left-hand side is therefore
+\be
+2 P_1 \cdot P_2 = 2(E_1 E_2 + E_1 E_2) = 4 E_1 E_2.
+\ee
+Here, I assumed photon $1$ is moving exactly opposite to photon $2$, i.e. $(P_1)_1 = - (P_2)_1$. Given the definition of the inner product, you get a minus sign, which leads to the expression above. 
+
+If we now assume $E_1=E_2=E$ and the photons produce a single particle at rest, the squared four-momentum on the right-hand side equals $M^2$, so
+\be
+M = 2E.
+\ee
+So you can produce a massive particle with a mass equal to the sum of the energies of the photons.  
+
+If the photons instead move in the same direction, then $(P_1+P_2)^2=0$, so their combined invariant mass is zero and they cannot by themselves produce a massive final state. A non-collinear collision gives a positive invariant mass. Alternatively, another initial particle can absorb recoil so that the total initial four-momentum has a positive invariant mass.
+
+Additional conservation laws must also be satisfied. The initial photons have zero electric charge, baryon number, and lepton number. Consequently, photon--photon collisions often produce a particle--antiparticle pair, such as an electron and a positron, whose total conserved quantum numbers vanish. A single neutral resonance can be produced when the inverse two-photon decay channel is allowed; examples include the neutral pion and the Higgs boson.
+
+
+\section{Force}\label{sec:force}
+From Newton's second law, $F= \frac{dp}{dt}$ in one spatial dimension. This reduces to $F = ma$, if the mass is constant as a function of time. In SR, $p = \gamma m v$ and $\gamma$ can change with time (it depends on $v$). We can compute the derivative of $\gamma$:
+\be
+\frac{d\gamma}{dt} = \frac{dv}{dt} \frac{d\gamma}{dv} = \frac{\dot{v} v}{(1-v^2)^{3/2}} = \gamma^3 v a.\label{eq:dgamma} 
+\ee
+Here we used the chain-rule and $\dot{v} = a$. Assuming the mass is constant in time, we have 
+\be
+F = \frac{dp}{dt} = m\frac{d(\gamma v)}{dt} &=& m(\gamma \dot{v} + \gamma^3 v^2 a) \nonumber \\
+&=& m a \gamma (1+ \gamma^2 v^2) \nonumber \\
+&=& m a \gamma (\frac{1-v^2}{1-v^2} + \frac{v^2}{1-v^2})\nonumber \\
+&=& m a \gamma^3. \label{eq:dpdt}
+\ee 
+Here, we used the product-rule when going from the LHS to the RHS on line one. If $v\ll1$ (or $c$), we find $F = ma$, the Newtonian result. 
+
+Next, let us now consider $dE/dx$ (recall that in classical mechanics we defined the integral of $F$ over space as the energy):
+\be
+\frac{dE}{dx} = m \frac{d\gamma}{dx} = m \frac{d\gamma}{dt}\frac{dt}{dx} = m \gamma^3 v a \frac{1}{v} = m \gamma^3 a
+\ee
+Here we used the chain rule several times and we relied on the result of Eq.~\ref{eq:dgamma}. Hence, we find 
+\be 
+F = \frac{dE}{dx}.
+\ee
+In other words, we find the relation between momentum, energy, and force is the same as in the non-relativistic limit. 
+
+Note that once we had found a new expression for force $F = \gamma^3 ma$, we could have derived an expression for relativistic energy by integrating $\int_{x_1}^{x_2}F dx$. This is equivalent to the work-energy theorem in Newtonian dynamics. 
+
+We can expand this to two dimensions (can also be done for 3). We again adopt Newton's second law as a guiding principle:
+\be
+{\bf F} = \frac{d{\bf p}}{dt}.
+\ee
+The components of the relativistic (3) momentum are given by 
+\be
+p_{x,y} = \frac{m v_{x,y}}{\sqrt{1- v_x^2 - v_y^2}}. 
+\ee
+We consider a particle moving in the $x$ direction (so $v_y = 0$). We apply a force $F=(F_x,F_y)$. Using the components of the momentum vector, we write:
+\be
+F_x &=& \left.\frac{d p_x}{dt}\right|_{v_y = 0} = \left.m\left(\frac{\dot{v}_x}{\sqrt{1-v^2}} + v_x\frac{d}{dt} \left[(1-v_x^2 -v_y^2)^{-1/2}\right] \right)\right|_{v_y = 0} \nonumber \\
+&=& \left.m\left(\frac{\dot{v}_x}{\sqrt{1-v^2}} + \frac{v_x (v_x \dot{v}_x + v_y \dot{v}_y)}{(\sqrt{1-v^2})^3}\right)\right|_{v_y = 0} = m\left(\frac{\dot{v}_x}{\sqrt{1-v^2}} \left(1+\frac{v^2}{1-v^2}\right)\right) \nonumber \\
+&=& m \gamma^3 a_x.
+\ee
+Here we used that $v_x^2 = v^2$ if $v_y = 0$ and in going from the second line to the third, we used similar mathematics to Eq.~\eqref{eq:dpdt}. 
+
+Similarly, we write 
+\be
+F_y &=& \left.\frac{d p_y}{dt}\right|_{v_y = 0} = \left.m\left(\frac{\dot{v}_y}{\sqrt{1-v^2}} + \frac{v_y}{(\sqrt{1-v^2})^3}\frac{d}{dt} \left[(1-v_x^2 -v_y^2)^{-1/2}\right] \right)\right|_{v_y = 0} \nonumber \\
+&=& m\frac{\dot{v}_y}{\sqrt{1-v^2}} = m\gamma a_y
+\ee
+So we have that ${\bf F} = m(\gamma^3 a_x, \gamma a_y)$. The acceleration in the $x$ and $y$ directions is not the same. This is a consequence of setting $v_y = 0$ initially, since the derivative of $\gamma$ to $v_y$ disappears. The particle responds differently to forces in the $x$ and $y$ directions if those directions have different initial velocities.  
+
+How do these forces transform when moving from one frame to the other? Suppose we start in a frame $S$ where the components of the force are given by our previous result, $(F_x, F_y) = m(\gamma^3 a_x, \gamma a_y)$. We can pick another frame $S'$  moving with velocity ${\bf v} = (v_x,v_y) = (v_x,0)$. In this frame  $\gamma = 1$. Recall that in our derivation of the acceleration, we assumed $v_y = 0$ initially, and hence the $\gamma$ truly equals 1. Hence, we have 
+\be
+(F'_x, F'_y) = m(a'_x, a'_y).
+\ee
+Let us now find the transformations by relating the two accelerations in the two frames. Let us first consider $a_y'$. $S'$ is only moving in the $x$ direction, so we have $dy' = dy$. At the same time, the particle in this new frame is at rest, so we have that $dt= \gamma dt'$ or $dt' = dt/\gamma$. Combining this, we find $a_y'\equiv d^2y'/dt'^2 = dy^2/(dt/\gamma)^2 = \gamma^2 a_y$. 
+
+For $a_x'$, consider the particle moving from one point to another in frame $S'$, as it accelerates from rest (since $v_x' = 0$ also). The distance between two points a time interval $dt$ apart, is given by\footnote{As a reminder, $v = at$ (for $v =0$ initially), and since $v = dx/dt$ we integrate to find $x = \frac{1}{2} a t^2$. }  $a_x' dt'^2/2$. The distance as observed in $S$ between these two points will be contracted by a factor $\gamma$. In frame $S$, this distance should be $a_x(dt)^2/2$. Hence we can write:
+\be
+\frac{1}{2} a_x (dt)^2 = \gamma^{-1} \left(\frac{1}{2} a_x' (dt')^2\right),
+\ee
+or 
+\be
+a_x' = \gamma a_x \left(\frac{dt}{dt'}\right)^2 = \gamma^3 a_x.
+\ee
+We can thus write
+\be
+(F_x',F_y') = m(\gamma^3a_x,\gamma^2a_y).
+\ee
+In other words, we have 
+\be
+F_x = F_x'\;\;\;\;\;{\rm and}\;\;\;\;\; F_y = \frac{F_y'}{\gamma}.
+\ee
+So by moving to a frame $S'$ that has relative motion in the $x$ direction with respect to frame $S$, we find that the longitudinal force (along $x$) remains intact, while the transverse force is larger by a factor of $\gamma$ in the particle frame.  
+
+\section{Relativistic Rocket}\label{sec:rocket}
+
+We have considered interactions where the masses of our particles are constant or when, after e.g., decay, the masses change abruptly. Here, we will consider continuous change in the mass, and Morin generally refers to this as rocket motion. The example is similar to example 6 of lecture 9, where we explored momentum and kinetic energy conservation of a rocket expelling mass to reach some velocity. Recall that we found:
+\be
+v_{\rm max} = u \ln (M/M_{\rm final}). 
+\ee
+We can rewrite this as 
+\be
+M_{\rm final} = Me^{-\frac{v_{\rm max}}{u}}.
+\ee
+The larger $v_{\rm max}$, the smaller $M_{\rm final}$ (as expected). Let us see how this compares to a relativistic rocket, expelling photons.  
+
+\subsubsection*{Example 1: Relativistic Rocket motion}
+Consider a spaceship of initial mass $M$. Suppose it has an engine that emits photons to propel itself. Each time this happens, the spaceship changes its velocity from  $v$ to $v'$ and its mass from $M$ to $M'$. How much mass $M-M_{\rm final}$ do we have to emit to increase the speed to some final velocity $v_{\rm max}$?
+
+You can consider this a dynamics problem as observed in the ground plane. We have a situation before and after:
+\begin{itemize}
+\item Before: spaceship of mass $M$ travelling with velocity $v$.  
+\item After: spaceship of mass $M'$ travelling with velocity $v'$ and a photon of energy $E'$, heading in the opposite direction.  
+\end{itemize}
+
+So, as observed from the ground, we have 
+\be
+P = (\gamma M, \gamma M v),
+\ee
+and (recall a photon has $E = |p|$)
+\be
+P' = (\gamma'M' + E', \gamma' M' v' - E').
+\ee
+Conservation allows us to write:
+\be
+\gamma M &=& E'+\gamma'M' , \\
+\gamma M v &=& \gamma'M'v' -E'.
+\ee
+Now we add these equations and rewrite:
+\be
+(\gamma'M' - \gamma M) + (\gamma'M'v' - \gamma M v)=0. 
+\ee
+Because we want to consider a continuous change, we will make the diffs infinitesimal, e.g., $dm = M' - M$ and $dv = v' - v$: 
+\be
+(\gamma'M' - \gamma M) + (\gamma'M'v' - \gamma M v) = d(\gamma m) + d(\gamma m v). 
+\ee
+Using the product rule:
+\be
+d(\gamma m) + d(\gamma m v) = m d\gamma + \gamma dm + m v d\gamma + \gamma v dm + \gamma m  dv. 
+\ee
+The chain rule related changes in $v$ to changes in the Lorentz factor $\gamma$:
+\be
+d \gamma = \frac{d\gamma}{dv} dv 
+\ee
+and we already know the result from last week, when we considered the transformation laws for $E$ and $p$:
+\be
+\frac{d \gamma}{ dv} = \frac{d}{dv} (1-v^2)^{-1/2} = \gamma^3 v.
+\ee
+We can thus write:
+\be
+\gamma(1+v) dm + m \gamma^3 (1+v) dv = 0,
+\ee
+or 
+\be
+\frac{dm}{m} + \frac{dv}{1-v^2} = 0. 
+\ee
+Now we integrate this from the initial mass $M$ to some final mass $M_{\rm final}$, starting with zero velocity, reaching $v_{\rm max}$. The mass integral is known; what about the velocity integral? We can write:
+\be
+\frac{1}{1-v^2} = \frac{1}{(1-v)(1+v)} = \frac{a}{1-v} + \frac{b}{1+v}. 
+\ee 
+All we need to do is find $a$ and $b$. We write:
+\be
+\frac{a(1+v) + b(1-v)}{(1-v)(1+v)} \rightarrow (a+b) + (a-b) v = 1, 
+\ee
+which results in $a = b = 1/2$. 
+
+Now we can perform the integral:
+\be
+\ln \left( \frac{M_{\rm final}}{M}\right) = -\frac{1}{2} \ln \left( \frac{1+v_{\rm max}}{1-v_{\rm max}}\right),
+\ee
+which leads to 
+\be
+M_{\rm final} = M \sqrt{\frac{1-v_{\rm max}}{1+v_{\rm max}}}\label{eq:RM}
+\ee
+The result does not depend on the energy of the photons. In addition, for the energy of the spaceship, we can write:
+\be
+E= \gamma M_{\rm final} = \gamma M \sqrt{\frac{1-v_{\rm max}}{1+v_{\rm max}}} = \frac{M}{1+v_{\rm max}}. 
+\ee
+If we take the limit $v_{\rm max} \rightarrow 1$ (the spaceship reaches the speed of light), then we find that about half of the total energy remains, and the other half has been converted into photons. 
+
+But can this actually happen? Well, if you look at equation \eqref{eq:RM}, we can rewrite this as 
+\be
+\left(\frac{M_{\rm final}}{M}\right)^2 = \frac{1-v_{\rm max}}{1+v_{\rm max}}, 
+\ee
+and after some algebra we find 
+\be
+v_{\rm max}  = \frac{1-(M_{\rm final}/M)^2}{1+(M_{\rm final}/M)^2}.
+\ee
+So for $v_{\rm max} \rightarrow 1$, would still require either $M\rightarrow \infty$ or $M_{\rm final} \rightarrow 0$. The first translates to infinite energy to start off with. The later requires to use all mass; once you are massless we know we could travel with the speed of light. Hence there is no contradiction here. 
+
+
+How does this compare to our classical set-up? It is not immediately clear from the equation, but for low $v_{\rm max}$ they actually agree to second order in $v_{\rm max}$. For the classical set-up, we need to realize that $u \rightarrow c$, so in SR units
+\be
+M_{\rm final} = Me^{-v_{\rm max}}= M\left( 1 - v_{\rm max} + \frac{v_{\rm max}^2}{2} + \mathcal{O}(v_{\rm max}^3)\right).
+\ee
+Similarly, for the relativistic results, we have:
+\be
+M_{\rm final} = M \sqrt{\frac{1-v_{\rm max}}{1+v_{\rm max}}} = M\left( 1 - v_{\rm max} + \frac{v_{\rm max}^2}{2} + \mathcal{O}(v_{\rm max}^3)\right). 
+\ee
+So indeed, in the limit of $v_{\rm max}\ll c$, we find both results agree. 
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+A constant force $F$ acts on a particle of rest mass $m$ in the lab frame, starting from rest at $t=0$.
+\begin{enumerate}
+    \item Use $F=dp/dt$ to find $p(t)$.
+    \boardanswer{Starting from rest, $p(t)=Ft$.}
+    \item Use $p=\gamma mv$ to find $v(t)$.
+    \boardanswer{With $c=1$, $p=mv/\sqrt{1-v^2}$. Solving gives $v(t)=Ft/\sqrt{m^2+F^2t^2}$.}
+    \item Show that $v(t)$ approaches $c$ but never exceeds it.
+    \boardanswer{Restoring $c$, $v(t)=cFt/\sqrt{m^2c^2+F^2t^2}$, so $v<c$ for finite $t$ and $v\to c$ as $t\to\infty$.}
+    \item Discuss what happens to the coordinate acceleration as time increases.
+    \boardanswer{The coordinate acceleration decreases with time because more work goes into increasing $\gamma$ rather than increasing $v$.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

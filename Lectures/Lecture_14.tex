@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 14}
+
+\title{\textbf{Lecture 14: 4-vectors continued}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 13.4 --13.6}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:recap}{Recap lecture 13}
+    \item \href{sec:E&M}{Energy and Momentum}
+    \item \href{sec:F&A}{Force and Acceleration}
+    \item \href{sec:physics}{Physical Laws}
+\end{enumerate}
+
+\section{Recap lecture 13}\label{sec:recap}
+In Lecture 13, we defined 4-vectors. We explained their properties and provided examples. In SR, the most important 4-vectors are the spacetime interval $dS = (dt,dx,dy,dz)$, the 4-velocity $V = (\gamma, \gamma{\bf v})$ and the 4-momentum $P \equiv mV = (m\gamma, m\gamma{\bf v}) = (E, {\bf p})$. By starting with the spacetime interval and using successive derivatives on the spacetime interval $dS$ with respect to proper time $d\tau$, we can construct an infinite tower of 4-vectors. Taking derivatives with respect to $\tau$ or multiplying by $m$ (as is done for the 4-momentum) results in a new 4-vector, as both $d \tau$ and $m$ are frame-independent quantities (and hence should not be affected by a Lorentz transformation).  
+
+Using 4-vectors, you find that there is a natural definition of relativistic energy and (3) momentum, as the time and spatial components of the 4-momentum vector. While we used heuristic arguments to build these quantities in Lecture 11, we obtained them here by simple manipulation of the spacetime interval 4-vector. 
+
+Similarly, by taking yet another derivative, either from $V$ or $P$, with respect to $\tau$, we found that you can find an expression for the 4-acceleration and the 4-force, respectively. The spatial components of the 4-force are equivalent to the force we derived in lecture 12, showing consistent results. Furthermore, the 4-force $F$ can also be related to the 4-acceleration $A$ as $F=mA$, which again shows consistency with our idea of Newton's notion of forces. 
+
+
+
+We also introduced a bit of tensor notation, e.g. 
+\be
+dS^2 = \eta_{\mu \nu} dx^{\mu} dx^{\nu}.
+\ee
+Combined with the tensor notation for Lorentz transformations, this allowed us to find some formal proofs of the nature and properties of 4-vectors. We do not expect you to fully comprehend the tensor algebra presented in this course. It serves as a complementary component to the details shown in Morin's book. 
+
+
+\section{Energy and Momentum}\label{sec:E&M}
+
+Since $P$ is a 4-vector and we argued the norm of a 4-vector is frame-independent, you could move to a frame where an object is at rest ($P(v\neq 0) \rightarrow P'(v' = 0)$). In this frame, we have $P' = (m,0,0,0)$, and hence $P'^2 = m^2 = P^2$. We already knew this, of course, but it is nice to see how this could have been derived very easily by a simple transformation. 
+
+If you have a collection of particles, knowledge of the norm is useful. Suppose you have a collection of particles $n$, then for any subset of particles $m<n$, we know 
+\be
+\left(\sum_{i = 1}^m E\right)^2 - \left( \sum_{i=1}^m {\bf p}\right)^2 = {\rm invariant}.
+\ee
+This is true because it presents the squared norm of the sum of the energy-momentum 4-vectors of the subset $m$ of $n$ particles. As we had shown in lecture 13, a linear combination of 4-vectors is again a 4-vector. 
+
+In the center of mass (CM) frame (lecture 9) $\sum {\bf p} = 0$, the above would reduce to the square of the energies, which reduces to $m^2$ for a single particle. 
+
+Since $P$ is a 4-vector, according to the definition of a 4-vector, its components should transform according to the Lorentz transformations, i.e., (motion $\beta$ in the $x$ direction) 
+\be
+E &=& \gamma(E' + \beta p_x'),\nonumber \\
+p_x &=& \gamma(p_x'+\beta E'), \nonumber \\
+p_y &=& p_y', \nonumber \\
+p_z &=& p_z' .
+\ee
+This is equivalent to the transformation rules we derived in lectures 10 and 11. 
+
+Since $E$ and $\bf p$ are part of the same 4-vector, if one of the two is conserved in every frame in a collision, then so is the other. To see this, you can consider the 4-momentum change 4-vector $\Delta P \equiv P_{\rm after}-P_{\rm before}$. If, e.g., $E$ is conserved in every frame, then $\Delta P_0 = 0$ in every frame. By virtue of one of the theorems discussed in the previous lecture, we know that the other component should be zero, and hence ${\bf p}$ should also be conserved in every frame. 
+
+\section{Force and Acceleration}\label{sec:F&A}
+We will assume $m$ is constant and does not depend on time. Recall the 4-force in an instantaneous inertial frame $S'$ where $v' = 0$:
+\be
+F'  = \gamma\left( \frac{dE'}{dt}, {\bf F}' \right) = (0,{\bf F}').
+\ee
+Next, consider another frame $S$, in which the particle moves with velocity $v$ ($=\beta$) in the $x$ direction. Since $F'$ is a 4-vector, it transforms according to the Lorentz transformations:
+\be
+F_0 &=& \gamma(F_0' + \beta F_1') = \gamma \beta F_x', \nonumber \\
+F_1 &=& \gamma(F_1' + \beta F_0')  = \gamma F_x', \nonumber \\
+F_2 &=& F_2' = F_y',\nonumber \\
+F_3 &=& F_3' = F_z'.
+\ee
+In addition, we also know that 
+\be
+F_0 &=& \gamma \frac{dE}{dt}, \nonumber \\
+F_1 &=& \gamma F_x, \nonumber \\
+F_2 &=& \gamma F_y, \nonumber \\
+F_3 &=& \gamma F_z.
+\ee
+We can now equate the two, to find 
+\be
+\frac{dE}{dt} &=& \beta F_x', \nonumber \\
+F_x &=& F_x',\nonumber \\
+F_y &=& F_y' /\gamma,\nonumber \\
+F_z &=& F_z'/\gamma. 
+\ee
+This is the same as we found in lecture 12, when we showed that the force in the longitudinal direction ($x$) remains the same, while the force along the transverse direction ($y,z$) is amplified by a factor $\gamma$ in the particle frame $S'$. 
+
+The ratio of $F_y/F_x = \gamma^{-1}F_y'/F_x'$, i.e. the ratio of the forces decreases by a factor $\gamma$ when going from $S'$ to $S$ (hence the norm of the vector $(F_x, F_y)$ will decrease). 
+
+The first line combined with the second line tells us that $dE = F_x dx$, which is the work-energy result we derived in lecture 12 and is analogous to the result for classical motion in lecture 9. 
+
+Note that we can not write $F_y' = F_y/\gamma$ (by switching the two frames). This is because when considering forces on the particle, there is one specific frame, the particle frame ($S'$), where the forces apply, which is part of the underlying assumption when the 4-vectors were derived.  
+
+We can apply the same analysis for the acceleration 4-vector. In frame $S'$, the instantaneous inertial frame of the particle, we have 
+\be
+A' = (0, {\bf a}'),
+\ee
+because $v' = 0$ in $S'$. 
+In the frame $S$, where the particle is moving with velocity $v = \beta$ in the $x$ direction, we can relate the components of $A$ to those of $A'$ using the Lorentz transformations:
+\be
+A_0 &=& \gamma(A_0' + \beta A_1') = \gamma \beta a_x', \nonumber \\
+A_1 &=& \gamma(A_1' + \beta A_0')  = \gamma a_x', \nonumber \\
+A_2 &=& A_2' = a_y',\nonumber \\
+A_3 &=& A_3' = a_z'.
+\ee
+From the expression for the acceleration 4-vector derived in lecture 13, we also have 
+\be
+A_0 &=& \gamma^4 v a_x, \nonumber \\
+A_1 &=& \gamma^4 a_x, \nonumber \\
+A_2 &=& \gamma^2 a_y, \nonumber \\
+A_3 &=& \gamma^2 a_z. \label{eq:a4v}
+\ee
+Equating the two again, yields:
+\be
+a_x &=& a'_x/\gamma^3, \nonumber \\
+a_y &=& a'_y/\gamma^2, \nonumber \\
+a_z &=& a'_z/\gamma^2. \label{eq:AtoA'}
+\ee
+We recover the same results found in Lecture 12. In contrast to the force transformation, we find $a_y/a_x=\gamma a_y'/a_x'$. This means that ${\bf F}=m{\bf a}$ does not generally apply in SR. If it were true in one frame, it would not be true in another. \\
+
+\subsubsection*{Example 1: Acceleration for circular motion}
+
+Consider a particle moving around a circle $x^2+y^2=r^2$ ($z=0$) with constant speed as observed in a lab frame $S$.\footnote{The local relation $d\tau=\sqrt{1-v^2}\,dt$ is valid for any timelike worldline. Here the speed $v$ is constant, although the velocity vector ${\bf v}$ changes direction.} At the instant the particle crosses the negative $y$ axis, find the three-acceleration and four-acceleration in $S$ and in the instantaneous inertial frame comoving with the particle.
+
+First, we write for the radial position of the particle at some instant
+\be
+{\bf r} = r(\hat{x}\cos \omega t + \hat{y} \sin \omega t), 
+\ee
+with $\omega$ the angular velocity. 
+To get the velocity, we differentiate with respect to $t$:
+\be
+{\bf v} = \frac{d{\bf r}}{dt} = \omega r(-\hat{x} \sin \omega t + \hat{y} \cos \omega t).
+\ee
+Hence we have $|{\bf v}| = v = \omega r$. To obtain the acceleration, we differentiate again:
+\be
+{\bf a} = \frac{d{\bf v}}{dt} = -\omega^2 r (\hat{x}\cos \omega t + \hat{y} \sin \omega t).
+\ee
+Thus we find $|{\bf a}| = a = v^2/r$. In the moment that the particle is crossing the negative $y$ axis, the acceleration is zero in the $x$ direction, and all the acceleration is in the positive $y$ direction. With $\Theta = \omega t$, we have $\Theta = \frac{3\pi}{2}$ and hence
+\be
+{\bf a} = (0, v^2/r,0).
+\ee
+From Eq.~\eqref{eq:a4v}, we then find 
+\be
+A = (0,0,\gamma^2 v^2/r,0).
+\ee
+
+To obtain the coordinates in the $S'$ frame, we use that the components of $A$ are related to the components of $A'$ through a Lorentz transformation in the $x$ direction. This means that the $A_2 = A_2'$ (and all the other components that are zero remain zero). Thus, we have:
+\be
+A' = (0,0,\gamma^2 v^2/r,0)
+\ee
+The 3 acceleration in $S'$, where $v'=0$ and $\gamma' = 1$, should be related to the spatial components of $A'$:
+\be
+{\bf a}' = (0,\gamma^2 v^2/r,0).
+\ee
+This result is consistent with Eq.~\eqref{eq:AtoA'}. 
+
+\section{The form of physical laws}\label{sec:physics}
+
+One of the key postulates of SR is that all inertial frames are equivalent. If a physical law holds in one inertial frame, it will hold in all frames. If not, we would be able to differentiate between frames. For example, we found that ${\bf F} = m{\bf a}$ can not be a physical law (although we long defended it to be!) since ${\bf F}$ transforms differently from ${\bf a}$ as we showed in the previous section. It might be true in one frame, but it certainly can not be true in all frames. 
+
+As a guiding principle, for a statement or physical law to hold in all frames, it should involve 4-vectors (as these transform according to the Lorentz transformations). Suppose in one frame we have a statement that relates two 4-vectors, $A = B$. Does this hold in all inertial frames? Yes, since we can apply the Lorentz transformation (and an infinite series if we absolutely want to) and find 
+\be
+A = B \rightarrow \Lambda A = \Lambda B \rightarrow A'  = B', 
+\ee
+where we have again used $\Lambda$ as our Lorentz transformation matrix. This relation therefore also holds in a new frame $S'$. Only relations that are physically and mathematically valid in one frame are valid in all frames. For example, $P=mV$ and the four-vector equation $F=mA$ are covariant relations, whereas the three-vector equation ${\bf F}=m{\bf a}$ is not generally valid in SR.
+
+We have also seen that scalars are frame independent, so physical laws may contain scalars such as $m$, or may be scalar equations such as $P\cdot P=m^2$. If they are true in one frame, they hold in all frames. In SR, we concern ourselves with scalars and four-vectors. Physical laws may also involve higher-rank tensors: scalars are rank-zero tensors, while four-vectors are rank-one tensors. Such higher-rank tensors can be built from four-vectors.
+
+There is nothing really new here. In Newtonian mechanics, we have ${\bf F} = m{\bf a}$ as a possible physical law because both sides are 3-vectors. ${\bf F} = m(2a_x,a_y, a_z)$ is not a possible law because $(2a_x, a_y, a_z)$ is not a 3-vector, since it depends on which axis you label the $x$ axis. It makes no sense for a physical law to depend on your arbitrary choice of coordinates. 
+
+
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+A particle has four-momentum $p^\mu=mU^\mu$ and four-force $K^\mu=dp^\mu/d\tau$.
+\begin{enumerate}
+    \item Use $U^\mu U_\mu=c^2$ to show that $U_\mu K^\mu=0$.
+    \boardanswer{Differentiate $U^\mu U_\mu=c^2$ with respect to $\tau$: $2U_\mu\,dU^\mu/d\tau=0$. Since $K^\mu=m\,dU^\mu/d\tau$ for constant $m$, $U_\mu K^\mu=0$.}
+    \item Interpret this orthogonality in the instantaneous rest frame of the particle.
+    \boardanswer{In the instantaneous rest frame, $U^\mu=(c,0,0,0)$, so orthogonality implies the time component of the four-force vanishes there.}
+    \item Explain why this result constrains the time component of the four-force.
+    \boardanswer{The four-force cannot have an arbitrary component parallel to four-velocity; its time component is fixed by the spatial force and velocity.}
+    \item Compare this with the Newtonian statement that force is parallel to acceleration.
+    \boardanswer{In SR the four-acceleration is orthogonal to four-velocity, and the spatial force need not be parallel to the coordinate acceleration.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

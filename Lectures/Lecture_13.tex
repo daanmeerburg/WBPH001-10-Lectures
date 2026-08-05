@@ -1,0 +1,380 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 13}
+
+\title{\textbf{Lecture 13: 4-vectors}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 13.1--13.3}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:recap}{Recap lecture 12}
+    \item \href{sec:definition}{Definition of 4-vectors}
+    \item \href{sec:examples}{Examples of 4-vectors}
+    \item \href{sec:examples}{Properties of 4-vectors}
+\end{enumerate}
+
+\section{Recap lecture 12}\label{sec:recap}
+In Lecture 12, we discussed forces. Starting from Newton's second law, which allows us to relate $F = \frac{dp}{dt}$, we were able to show that $F = m \gamma^3 a$. For more than one dimension, we were also able to determine the force when the particle only moves in one direction initially:
+\be
+{\bf F}=(m\gamma^3 a_x, m\gamma a_y) \label{eq:3force}.
+\ee
+Note that we are considering instantaneous forces, since as soon as you apply the force, the motion of the particle in any direction would no longer be $v_x$ or $v_y$. 
+
+Let us unpack this a little more. Even if a particle is accelerating, you can always describe its motion instantaneously in a local inertial frame — the frame that is momentarily comoving with it. This is just like in classical mechanics: even if a car is turning, you can always “zoom in” at one instant and say, “right now, its velocity is $v$ in this direction.” In SR, this gives us the instantaneous rest frame of the particle. At that instant, the usual Lorentz rules apply. What SR does not do is describe what an accelerated observer’s coordinate system looks like globally. 
+
+So why do we care? Even in SR, forces and accelerations are meaningful because they describe how a worldline curves through spacetime (which is geometrically flat, i.e., without gravity). They are locally defined, geometric quantities — not tied to any non-inertial frame.
+
+While we considered a specific example of a particle moving in one direction with speed $v_x$, the mathematics is agnostic about what this direction is. For any given constant velocity, I can always consider a coordinate frame in which a particle is moving in one direction (simply by aligning the $x$ coordinate axis with the direction of motion). So while the result above seems somewhat arbitrary (with $v_y = 0$), it is actually quite general. This is both true for 2D and 3D problems (and hence we expect ${\bf F} = (m\gamma^3 a_x, m \gamma a_y, m \gamma a_z)$ for a particle moving in $v_x$ and $v_y = v_z = 0$). 
+
+We also showed that the transformation to a frame comoving with the particle does not transform the Force in that direction, but changes the forces along the transverse directions:
+\be
+F_x = F_x'\;\;\;\;\;{\rm and}\;\;\;\;\ F_y = \gamma^{-1}F_y'.
+\ee
+The force in the transverse direction is thus larger by a factor $\gamma$ in the particle's frame. Again, we can always define a coordinate system for which the following transformation rules apply. If we consider a frame that is not the particle's rest frame (but $S''$), we just apply the transformation rules twice:
+\be
+F_x'' = F_x\;\;\;\;\;{\rm and}\;\;\;\;\ \gamma''F_y'' = \gamma F_y.
+\ee
+
+Finally, we considered an example of where the mass of a system changes continuously. These examples are generally labeled as rocket motion. We adopted the example that we considered in lecture 9, where an engine on a rocket expels fuel to propel forward, and replaced the fuel with photons. The main goal was to obtain an expression for the final mass of the rocket, given some velocity $v_{\rm max}$. While the final expression deviates from the expression we derived in lecture 9, we showed that in the non-relativistic limit $v\ll c$, both results agree to second order in $v_{\rm max}$. 
+
+\section{Definition of 4-vectors}\label{sec:definition}
+
+Following Morin, the 4-tuplet $A= (A_0, A_1, A_2, A_3)$ is a four (4)-vector if the $A_{\mu}$ transform under a Lorentz transformation in the same way as the components of the infinitesimal interval $d S = (dt, dx, dy,dz)$ transform. That is, considering motion $\beta$ in the `$x$' direction only (in SR units), 
+\be
+A_0 &=& \gamma (A_0' + \beta A_1'),\nonumber \\
+A_1 &=& \gamma (A_1' + \beta A_0'), \nonumber \\
+A_2 &=& A_2', \nonumber \\ 
+A_3 &=& A_3'. 
+\ee
+A similar set of transformations should also apply for motion in the other two spatial directions. 
+
+As mentioned before, the first component $_0$ is the time or temporal component. The other 3 components are the spatial components. Note that we use Greek indices for the components of a 4-vector, which is common practice in field theory (both quantum and GR). This leaves Roman indices if we consider the spatial components. While we have decided to follow Morin on notation for 4-vectors in capital (italic) letters, which allows us to distinguish a 4-vector from e.g. the 3 momentum vector ${\bf p}$, by also using Greek and Roman indices for 4-vector and 3-vector components, respectively, will help with clarity. 
+
+\section{Examples of 4-vectors}\label{sec:examples}
+Given the definition of the 4-vector as being a vector that transforms in the same way as the infinitesimal interval, we know $dS$ must be a 4-vector. Any multiplicative of this vector is still a 4-vector. However, for any 4-tuplet that gets multiplied by a matrix that is not a multiple of the identity matrix, this would no longer be a 4-vector. 
+
+Let us write this formally in the following way\footnote{This part is to show how Morin's arguments are written in a more formalized way, and should be considered complementary. I will not ask you to fully grasp the nature of tensor algebra for this course (but beware that this will become an integral part of the physics curriculum eventually).}. We will use superscript indices for a column vector, as is common, i.e., 
+\be
+V = \begin{pmatrix}
+V^0 \\
+V^1 \\
+V^2 \\
+V^3
+\end{pmatrix}.
+\ee
+A 4-vector $ V^\mu $ transforms as
+\be
+V'^{\mu} = \Lambda^{\mu}{}_{\nu} \, V^{\nu} \label{eq:LTs},
+\ee
+where $ \Lambda^{\mu}{}_{\nu} $ is a Lorentz transformation matrix that satisfies
+\be
+\Lambda^{\mu}{}_{\rho} \, \Lambda^{\nu}{}_{\sigma} \, \eta_{\mu\nu} = \eta_{\rho\sigma} \label{eq:metrucinv},
+\ee
+where $\eta_{\mu \nu}$ is our Minkowski spacetime metric tensor ${\rm diag}(\eta) = (1,-1,-1,-1)$ (so a 4 $\times$ 4 matrix with zeros everywhere except on the diagonal). Note that this relation has to hold to preserve the metric in each inertial frame. If this were not true, $\Delta s'^2 \neq \Delta s^2$. We can write:
+\be
+dS^2 = \eta_{\mu \nu} dx^{\mu}dx^{\nu},
+\ee
+with $dx^0 = dt$ and $dx^i$ the spatial intervals. We also use $S$, which is Morin's notation for 4-vectors. 
+
+This all looks very new (which it is!) and perhaps abstract. For that reason, let us make this more concrete. Let us consider the 2D Lorentz transformations. We have already shown in Lecture 3 that we could write:
+\be
+\begin{pmatrix}
+\Delta t' \\
+\Delta x'
+\end{pmatrix} =
+\begin{pmatrix}
+\gamma & -\beta \gamma \\
+-\beta \gamma  & \gamma
+\end{pmatrix}\begin{pmatrix}
+\Delta t \\
+\Delta x
+\end{pmatrix},
+\ee
+Hence, we associate 
+\be
+\Lambda = \begin{pmatrix}
+\gamma & -\beta \gamma \\
+-\beta \gamma  & \gamma
+\end{pmatrix} \label{eq:Gamma}
+\ee
+and (for example)
+\be
+V' = \begin{pmatrix}
+\Delta t' \\
+\Delta x'
+\end{pmatrix},
+\ee
+while 
+\be
+V = \begin{pmatrix}
+\Delta t \\
+\Delta x
+\end{pmatrix}.
+\ee
+Note that then also, e.g., $V^0 = \Delta t$ etc. 
+
+We can now also show explicitly that Eq.~\eqref{eq:metrucinv} holds. So, for completeness, we will use 
+\be
+\Lambda = 
+\begin{pmatrix}
+\gamma & -\gamma\beta \\[4pt]
+-\gamma\beta & \gamma
+\end{pmatrix},
+\qquad
+\eta =
+\begin{pmatrix}
+1 & 0 \\[4pt]
+0 & -1
+\end{pmatrix},
+\ee
+
+Using matrix notation, with $dx^{\mu}$ a column vector, to show that Eq.~\eqref{eq:metrucinv} holds, we need to compute $\Lambda^{T}\eta\Lambda$, where $\Lambda^T$ is the transposed (= flipping rows and columns) matrix of Eq.~\eqref{eq:Gamma}. This follows from our matrix notation for the spacetime interval:
+\be
+dS^2 = dx^T \eta dx, 
+\ee
+since we have to transpose the column vector $dx^{\mu}$ to a row vector to be able to ensure proper matrix multiplication order; this is very similar to the inner product in Euclidean space, where, using vector notation, we have ${\bf a} \cdot {\bf b} = {\bf a}^T {\bf b}$. We can then write 
+\be
+dS'^2 = (dx')^T\eta dx'  = (\Lambda dx)^T \eta (\Lambda dx), 
+\ee
+and we use that $(AB)^T = B^TA^T$, then
+\be
+dS'^2  = dx^T \Lambda^T \eta \Lambda dx.
+\ee
+Hence to prove the invariance of $dS$, it suffices to prove $\Lambda^{T}\eta\Lambda = \eta$. 
+
+Since $\Lambda$ is symmetric, $\Lambda^{T} = \Lambda$, and hence
+\be
+\Lambda^{T}\eta =
+\begin{pmatrix}
+\gamma & -\gamma\beta \\[4pt]
+-\gamma\beta & \gamma
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\[4pt]
+0 & -1
+\end{pmatrix}
+=
+\begin{pmatrix}
+\gamma & \gamma\beta \\[4pt]
+-\gamma\beta & -\gamma
+\end{pmatrix}.
+\ee
+
+Next multiply by $\Lambda$:
+\be
+\Lambda^{T}\eta\Lambda
+=
+\begin{pmatrix}
+\gamma & \gamma\beta \\[4pt]
+-\gamma\beta & -\gamma
+\end{pmatrix}
+\begin{pmatrix}
+\gamma & -\gamma\beta \\[4pt]
+-\gamma\beta & \gamma
+\end{pmatrix}.
+\ee
+
+We then compute each component of the new matrix\footnote{Note that by virtue of Eq.~\eqref{eq:metrucinv} these are all lower indices, since we are computing the components of $\eta_{\rho \sigma}$}:
+\be
+(\Lambda^{T}\eta\Lambda)_{00} &=& (\gamma)(\gamma) + (-\gamma\beta)(\gamma\beta)
+= \gamma^2 - \gamma^2\beta^2
+= \gamma^2(1 - \beta^2)
+= 1, \\[6pt]
+(\Lambda^{T}\eta\Lambda)_{01} &=& (\gamma)(-\gamma\beta) + (\gamma\beta)(\gamma)
+= -\gamma^2\beta + \gamma^2\beta
+= 0, \\[6pt]
+(\Lambda^{T}\eta\Lambda)_{10} &= &(-\gamma\beta)(\gamma) + (-\gamma)(-\gamma\beta)
+= \gamma^2\beta - \gamma^2\beta
+= 0, \\[6pt]
+(\Lambda^{T}\eta\Lambda)_{11} &=& (-\gamma\beta)(-\gamma\beta) + (-\gamma)(\gamma)
+= \gamma^2\beta^2 - \gamma^2
+= -\gamma^2(1 - \beta^2)
+= -1.
+\ee
+
+Therefore, we immediately see that 
+\be
+\Lambda^{T}\eta\Lambda =
+\begin{pmatrix}
+1 & 0 \\[4pt]
+0 & -1
+\end{pmatrix}
+= \eta,
+\ee
+and the metric is preserved. If you use rapidity, the above can be shown in much fewer steps. 
+
+We can use the formal notation to identify which 4-tuplets are 4-vectors. Let $ A^{\mu}{}_{\nu} $ be some arbitrary $ 4 \times 4 $ matrix, and define a new quantity
+\be
+W^{\mu} = A^{\mu}{}_{\nu} \, V^{\nu}.
+\ee
+We can now ask, is $ W^{\mu}$ a 4-vector? 
+
+Under a Lorentz transformation,
+\be
+V'^{\nu} = \Lambda^{\nu}{}_{\rho} \, V^{\rho}.
+\ee
+Then,
+\be
+W'^{\mu} = A^{\mu}{}_{\nu} \, V'^{\nu} 
+= A^{\mu}{}_{\nu} \, \Lambda^{\nu}{}_{\rho} \, V^{\rho}.
+\ee
+If $W^{\mu}$ were a 4-vector, it would have to transform as
+\be
+W'^{\mu} = \Lambda^{\mu}{}_{\sigma} \, W^{\sigma} 
+= \Lambda^{\mu}{}_{\sigma} \, A^{\sigma}{}_{\rho} \, V^{\rho}.
+\ee
+In other words
+\be
+\Lambda^{\mu}{}_{\sigma} \, A^{\sigma}{}_{\rho} = A^{\mu}{}_{\nu} \, \Lambda^{\nu}{}_{\rho},
+\ee
+i.e., the arbitrary matrix and the Lorentz transformation matrix need to commute. Since these are matrices, this is not trivial. The only matrices $A$ that commute with all Lorentz transformations are scalar multiples of the identity matrix:
+\be
+A = c \, I,
+\ee
+where $c$ is a scalar constant. Therefore,
+\be
+W^{\mu} = c \, V^{\mu},
+\ee
+is still a 4-vector, but for any other choice of $A$, the resulting object will \emph{not} transform as a 4-vector.
+
+As we will see, by construction, Lorentz transformations are operations other than multiplication with the identity matrix that preserve the 4-vector nature. In addition, coordinate transformations, which can be established via matrix multiplication, such as rotations, also preserve the 4-vector nature. Lorentz transformations are a special kind of coordinate transformation that leave the spacetime interval invariant. Coordinate transformations leave the observables invariant.    
+
+\vspace{2em}
+
+\noindent 
+{\bf Velocity 4-vector}: We could imagine a velocity 4-vector made up of the spacetime interval 4-vector $dS = (dt, dx,dy,dz)$ and dividing this by the proper time, i.e., $V = \frac{dS}{d\tau}$.  Since $d\tau$ is frame independent (it does not change when moving frames), we know that $V$ should be a 4-vector (since $dS$ is a 4-vector). For constant speed we have $d\tau = \sqrt{1-v^2}dt = \gamma^{-1} dt$ (lecture 4) and we can thus write:
+\be
+V = \frac{dS}{d\tau} = \gamma\left(1, \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}\right) = (\gamma, \gamma {\bf v}).
+\ee
+This is referred to as the velocity 4-vector. In the rest frame of an object, we have $V = (1,0,0,0)$. Note also that 
+\be
+V\cdot V \equiv \eta_{\mu \nu} V^{\mu} V^{\nu} = \gamma^2(1-{\bf v} \cdot {\bf v}) = 1, 
+\ee
+as it should, since $V^2 = dS^2/d\tau^2 = 1$. 
+
+\vspace{2em}
+
+\noindent 
+{\bf Energy-Momentum 4-vector}: Now we can immediately define a new 4-vector by multiplying by the mass $m$, which again is a frame-independent quantity (and hence does not change under a Lorentz transformation). We define
+\be
+P = mV = m\gamma(1,{\bf v}) = (E, {\bf p}). 
+\ee
+Hence, by simply demanding that the 4-momentum vector be a 4-vector, we find expressions for the relativistic energy and (3)momentum. From the above $V\cdot V$ we also immediately deduce that $P\cdot P = m^2$, as we discussed before. In the rest frame of the object $P = (m,0,0,0)$. 
+
+
+\vspace{2em}
+
+\noindent 
+{\bf Acceleration 4-vector}: We can take another derivative with respect to proper time $d\tau$ of the 4-velocity. Since $d\tau$ is frame independent, we expect this to be another 4-vector. We write 
+\be
+A = \frac{dV}{d\tau} = \frac{d}{d\tau}(\gamma, \gamma{\bf v}) = \gamma\left(\frac{d\gamma}{dt}, \frac{d(\gamma{\bf v})}{dt}\right).
+\ee
+Here we used the exact local relation $d\tau=\gamma^{-1}dt$. It holds instantaneously along any timelike worldline, even when the velocity changes with time. We already derived the time derivative $d\gamma/dt=\gamma^3v\dot v$. We can use this to write
+\be
+A = (\gamma^4 v \dot{v}, \gamma^4 v \dot{v} {\bf v}+ \gamma^2{\bf a}).
+\ee
+Here $d{\bf v}/dt = {\bf a}$ and $dv/dt = \dot{v}$. $A$ is known as the acceleration 4-vector. In the rest frame, $A = (0,{\bf a})$. If we assume the instantaneous velocity ${\bf v}  = (v_x,0,0)$ then we have $v = v_x$ and $\dot{v}_x = a_x$. Note that ${\bf a}$ is still allowed to point in any direction. We can write
+\be
+A = (\gamma^4 v_x a_x, \gamma^4 a_x, \gamma^2 a_y, \gamma^2 a_z).
+\ee
+
+In principle, if you keep applying derivatives with respect to $\tau$, you can make an infinite tower of 4-vectors. But they have little relevance in the real world. 
+
+\vspace{2em}
+
+\noindent 
+{\bf Force 4-vector}: Now you wonder, how is this related to the relativistic force we computed in the previous lecture? Let us write down a 4-force, 
+\be
+F \equiv \frac{dP}{d\tau} = \gamma\left(\frac{dE}{dt}, \frac{d{\bf p}}{dt}\right). \label{eq:4force}
+\ee
+Here ${\bf F} \equiv d{\bf p}/dt$ is the relativistic 3 force we computed in the previous lecture. Does it have the same components? 
+
+First, we need to realize that we can write 
+\be
+F\equiv \frac{dP}{d\tau} = \frac{d (mV)}{d\tau} = m A.
+\ee
+Indeed, the new 4-force still appears to be related to our Newtonian form, where the 4-force is given by the product of the mass and the acceleration 4-vector. We can now use this relation to equate $F$ for the $A$ we derived above:
+\be
+F = mA = m(\gamma^4 v_x a_x, \gamma^4 a_x, \gamma^2 a_y, \gamma^2 a_z).
+\ee
+Using Eq.~\eqref{eq:4force} we then find
+\be
+{\bf F} = m(\gamma^3 a_x, \gamma a_y, \gamma a_z),
+\ee
+which is equivalent to Eq.~\eqref{eq:3force} (well, really the equation lower in the text). In the instantaneous inertial frame comoving with the object, $F = (0,{\bf F})$ (since $dE/dt = 0$). In addition, in that frame $A = {\bf a}$ and ${\bf F} = m{\bf a}$. 
+
+\section{Properties of 4-vectors}\label{sec:properties}
+
+We discuss some of the properties of 4-vectors. 
+
+\begin{itemize}
+\item {\bf Linear combination} A linear combination of two 4-vectors is still a 4-vector, because the Lorentz transformations are linear. When we sum two 4-vectors, we have to sum the components. Consider, for example, the sum of two 4-vectors $A$ and $B$. We write $C = aA + bB$. Let's take a look at the first spatial component $_1$. We have (we will omit a factor of $\gamma$, since it can be absorbed in $a$ and $b$)
+\be
+C_1 &=& aA_1 + bB_1 = a(A'_1 + \beta A_0') + b(B'_1 + \beta B_0') \nonumber \\
+&=& (aA_1'+bB_1') + \beta(aA_0'+bB_0') = C_1'+\beta C_0'.
+\ee
+Hence, $C_1$ transforms according to the Lorentz transformations. You can convince yourself that this is also true for the other 3 components. 
+
+\item {\bf Inner product invariance}
+In Minkowski, we had defined the inner product between two vectors in lecture X (check), between two arbitrary 4-vectors $A$ and $B$:
+\be
+A\cdot B = A_0 B_0 - A_1B_1 - A_2B_2-A_3 B_3 = A_0 B_0 - {\bf A} \cdot {\bf B}\equiv \eta_{\mu \nu} A^{\nu} B^{\mu}.
+\ee
+What happens to this inner product if we go to a new frame $S$ that is moving in the $x$ direction? We apply the Lorentz transformation to the 4-vectors. We use notation from Eq.~\eqref{eq:LTs} and the fact that the metric is preserved under Lorentz transformations
+\be
+A\cdot B\equiv \eta_{\mu \nu} A^{\mu} B^{\nu} = \eta_{\mu \nu} \Lambda^{\mu}{}_{\rho} \, A'^{\rho}  \Lambda^{\nu}{}_{\delta} \, B'^{\delta}  = \eta_{\rho \delta} A'^{\rho} B'^{\delta} \equiv A'\cdot B'.
+\ee
+In Morin, the invariance of the inner product is shown explicitly -- please take a look if you find this too abstract. The invariance of the inner product of 4-vectors in Minkowski is analogous to the invariance of the inner product in Euclidean space of ${\bf A}\cdot {\bf B}$ under rotations. The Minkowski inner product is also invariant under rotations. 
+
+\item {\bf Norm } The norm $|A| = \sqrt{A\cdot A}$ is also invariant, with the well known examples $\Delta t^2 - \Delta x^2$ and $E^2 - p^2$. 
+
+\item {\bf Theorem} If a component of a 4-vector is zero in every frame, then all 4 components are zero in every frame.  
+
+Suppose $A_1$ is zero in every frame, then all three spatial components have to be zero since I could rotate to another inertial frame to make $A_1$ non-zero. $A_0$ must also be zero, otherwise I could apply a Lorentz transformation to make any of the spatial components in this new frame non-zero. The reverse is also true, if $A_0$ is 0 in every frame, then also all the spatial components have to be zero, otherwise I could apply a Lorentz transformation to go to a frame where $A_0\neq 0$. 
+\end{itemize}
+
+
+   
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+Two particles have four-velocities $U_1^\mu$ and $U_2^\mu$. In the rest frame of particle 1, particle 2 moves with speed $v_{\rm rel}$.
+\begin{enumerate}
+    \item Write $U_1^\mu$ and $U_2^\mu$ in the rest frame of particle 1.
+    \boardanswer{Using $c=1$, $U_1=(1,0,0,0)$ and $U_2=(\gamma_{\rm rel},\gamma_{\rm rel}v_{\rm rel},0,0)$ after aligning the $x$ axis with particle 2.}
+    \item Compute the Minkowski inner product $U_1\cdot U_2$.
+    \boardanswer{With the $(+---)$ convention, $U_1\cdot U_2=\gamma_{\rm rel}$.}
+    \item Show how this invariant determines $\gamma_{\rm rel}$.
+    \boardanswer{Because the inner product is invariant, $\gamma_{\rm rel}=U_1\cdot U_2$ can be computed in any frame.}
+    \item Explain why this is a frame-independent way to define relative speed.
+    \boardanswer{Once $\gamma_{\rm rel}$ is known, $v_{\rm rel}=\sqrt{1-1/\gamma_{\rm rel}^2}$. Since $\gamma_{\rm rel}$ came from an invariant, so does the relative speed.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

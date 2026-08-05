@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 6}
+
+\title{\textbf{Lecture 6: Recap Chapter 11}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 11.1--11.9}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:train1}{Story of two trains}
+    \item \href{sec:train2}{Story of two trains and one observer}
+    \item \href{sec:diagrams}{Two observer diagrams to the rescue.}
+\end{enumerate}
+
+\section{Story of two trains}\label{sec:train1}
+We follow the example of Morin chapter 11.3, page 521. This example was discussed during lecture 6, but the example was originally planned in lecture 3. We repeat it here using a slightly different notation, which can be useful once we compare the results to those obtained using a spacetime diagram. We will use SR units, i.e., $c = 1$.\\
+
+\noindent
+{\bf Example:} In the book, there is an example of two trains ($a$ and $b$) of length $L$. Both trains are moving to the right, where $v_a > v_b$ (as measured from a frame at rest) and the train $a$ will overtake train $b$. The first question is how long it takes for train $a$ to overtake train $b$. We identify the event of the front of train $a$ passing the rear of train $b$ as $P$ and the event the rear of train $a$ passes the front of train $b$ as $R$. In any such problems, you should always first pick a frame. Morin considers the frame comoving with train $b$, but one should be able to find the same solution if one considers any other inertial frame. The comoving frame should have velocity $-v_b$ for the train to be at rest. The velocity addition rule then states the velocity of $(a)$ as measured in $(b)$:
+\be
+v_a^{(b)} = \frac{v_a - v_b}{1-v_a v_b}. 
+\ee
+In the frame comoving with train $b$, train $a$ will be contracted. The contraction is given by:
+\be
+L' = \gamma^{-1} L = \sqrt{{1-(v_a^{(b)})^2}}L.
+\ee
+In order to overtake train $b$, the total distance that train $a$ needs to travel is its own length $L'$ and the length of train $b$, $L$, or $D = L + L'$. The time it therefore takes to overtake is given by:
+\be
+\Delta t^{(b)}_{PR} = \frac{D}{v_a^{(b)}} = \frac{L(\gamma^{-1}+1)}{v_a^{(b)}}. 
+\ee
+Inserting the example values for $v_a = 4/5$ and $v_b = 3/5$, you will see this equals $\Delta t^{(b)}_{PR} = 5L$. \\
+
+\section{Two trains and one observer}\label{sec:train2}
+The second question appears more complicated, but again the key is to choose a useful frame. Consider an observer $X$ inside train $b$. The observer starts walking from left to right when the front of train $a$ reaches the rear of train $b$ (event $P$), and reaches the front of train $b$ when the rear of train $a$ passes it (event $R$). What is the time $\Delta t_{PR}^{(X)}$ measured by $X$ between these events? Morin chooses the frame in which $X$ is at rest. In this frame the two equal-length trains move with equal speeds in opposite directions; otherwise their front and rear endpoints could not pass $X$ symmetrically at $P$ and $R$. Call the magnitude of this speed $v^{(X)}$. The relative speed of two objects moving with speeds $v^{(X)}$ and $-v^{(X)}$ must equal the relative speed of the original trains. Therefore,
+\be
+\frac{2v^{(X)}}{1+(v^{(X)})^2} = \frac{v_a - v_b}{1-v_a v_b}.
+\ee
+This is a quadratic equation for $v^{(X)}$. The physical root, satisfying $|v^{(X)}|<1$, is
+\be
+v^{(X)}\to \frac{-\sqrt{v_a^2 v_b^2-v_a^2-v_b^2 +1}-v_av_b+1}{v_a-v_b}.
+\ee
+Using $v_a = 4/5$ and $v_b = 3/5$, gives $v^{(X)} = 1/5$. This is associated with a Lorentz factor $\gamma_X = 5/(2\sqrt{6})$. Thus, in the observer's frame, the length of the two trains is contracted, and the total time between $P$ and $R$ as observed by $X$ is given by:
+\be
+\Delta t_{PR}^{(X)} = \frac{\gamma_X^{-1} L}{v^{(X)}}, 
+\ee
+which in this example results in $\Delta t_{PR}^{(X)} = 2\sqrt{6} L$. \\
+
+\section{Diagrams to the rescue}\label{sec:diagrams}
+Now we will try to solve both questions using two observer diagrams. We choose a diagram where $b$ is at rest. The diagram is shown in Fig.~\ref{fig:train1} We show 
+\begin{itemize}
+\item World region of train $b$
+\item Coordinate axis of train $a$
+\item World region of train $a$
+\item Event $P$ and $R$. 
+\end{itemize}
+Note that drawing the coordinate axis of $a$ requires the velocity of a frame comoving with $a$ as observed from $b$. This can be computed using the velocity transformation. We find $v_a^{(b)} = 5/13$. Hence, the slope of the $t_a$ coordinate axis is $13/5$ and the slope of the $x_a$ coordinate axis is $5/13$. Now that the diagram is sketched, we can immediately read off
+\be
+\Delta t^{(b)}_{PR} = 5L.
+\ee
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{spacetime_diagram1_trains.pdf}
+    \caption{Two observer diagram showing the events $P$ and $R$, the worldline of $X$ and the worldregions of $a$ and $b$. }
+    \label{fig:train1}
+\end{figure}\\
+
+
+
+For the second question, we draw the worldline of observer $X$, which is a straight line connecting events $P$ and $R$. To find $\Delta t_{PR}^{(X)}$, we use the invariance of the spacetime interval (one could also use time dilation, but that requires computing the velocity of $X$): $\Delta s^2_X = \Delta s^2_b$. We are interested in the time elapsed for $X$. Since $X$ is at rest in frame $X$, the spatial separation in that frame is zero:
+\be
+\Delta s^2_X = (\Delta t^{(X)}_{PR})^2 = (\Delta t_{PR}^{(b)})^2 - (\Delta x_{PR}^{(b)})^2
+\ee
+We have $\Delta t_{PR}^{(b)} = 5L$ and $\Delta x_{PR}^{(b)} = L$. We find
+\be
+\Delta t^{(X)}_{PR} = \sqrt{25L^2 - L^2} = \sqrt{24L^2} = \sqrt{4\times 6} L = 2 \sqrt{6} L,
+\ee
+which is identical to what we found using the algebra above. 
+
+%The fact that the two trains are moving with the same but opposite speed w.r.t. $X$ can be seen from the diagram. The worldline of $X$ makes exactly the same (but opposite) angle with $t_B$ as it makes with $t_A$. 
+
+The use of diagrams is highly recommended when solving problems involving multiple observers. A diagram lets you analyse the problem and obtain approximate estimates without immediately applying transformation rules. The main skill is choosing which observer should define the rest frame. Selecting an appropriate tick size is also critical when drawing several worldlines in one diagram. For example, instead of drawing a diagram where $b$ is at rest, we could use the original reference frame in which $v_a=4/5$ and $v_b=3/5$. That diagram is shown in Fig.~\ref{fig:train2}. Although it is correct, it requires much more space and is more prone to mistakes.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{spacetime_diagram2_trains.pdf}
+    \caption{Another two-observer diagram illustrating the same setup, now using the original reference frame in which both trains move to the right. Although correct, this diagram requires considerable space to show the world regions of both trains as they pass. It is easier to make mistakes, and the coordinates are harder to read off.}
+    \label{fig:train2}
+\end{figure}
+
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+Two identical trains move in opposite directions with speed $v$ in the station frame. Lightning strikes the front of each train at the same station time, and the strike events occur at $x=-L$ and $x=+L$.
+\begin{enumerate}
+    \item Draw the two strike events and both train worldlines on a spacetime diagram.
+    \boardanswer{In the station frame the strikes lie on the same horizontal line $t={\rm constant}$ at $x=-L$ and $x=+L$. The right-moving train worldlines tilt to the right.}
+    \item Are the strikes simultaneous in the rest frame of the right-moving train?
+    \boardanswer{No. Events separated in space but simultaneous in the station frame are not generally simultaneous in a moving frame.}
+    \item Use the Lorentz transformation to check the sign of $\Delta t'$.
+    \boardanswer{With $\Delta t=0$ and $\Delta x=2L$, $\Delta t'=\gamma(\Delta t-v\Delta x/c^2)=-2\gamma vL/c^2<0$. The strike at $x=+L$ happens earlier in the right-moving train frame.}
+    \item Explain the result without using formulas, only the tilted axes of the moving frame.
+    \boardanswer{Lines of simultaneity for the right-moving frame tilt upward to the right. Reading along those tilted lines shows the right-side strike is assigned an earlier moving-frame time.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}

@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[usenames]{xcolor}
+\definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
+\definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
+\definecolor{subsectioncolor}{rgb}{0,0,0}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{darkgray}{gray}{0.1}
+\definecolor{lightred}{rgb}{0.9,0,0.1}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\non}{\nonumber \\ }
+\newcommand{\ee}{\end{eqnarray}}
+\newif\ifshowboardanswers
+\showboardanswersfalse
+\newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
+
+\fancyhead[L]{Special Relativity}
+\fancyhead[R]{Lecture 4}
+
+\title{\textbf{Lecture 4: Spacetime interval, proper time and spacetime diagrams}}
+\author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 11.6--11.7}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Outline}
+\begin{enumerate}
+    \item \href{sec:recap}{Recap lecture 3}
+    \item \href{sec:S}{Spacetime interval}
+    \item \href{sec:SPd}{Spacetime diagrams}
+\end{enumerate}
+
+\section{Recap Lecture 3}\label{sec:recap}
+We derived the most important transformation rules in SR:
+\begin{tcolorbox}[colback=blue!5!white]
+%\vspace{-1.3em}
+{\bf Lorentz Transformations}
+\be
+\Delta x &=& \gamma (\Delta x' + v \Delta t')\label{eq:xLT} \\
+\Delta t &=& \gamma (\Delta t' +  v\Delta x' /c^2) \\
+\Delta y &=& \Delta y' \\
+\Delta z &=& \Delta z'.
+\ee
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5!white]
+%\vspace{-1.3em}
+{\bf Einstein Velocity Transformations}
+\be
+v_x &=& \frac{v_x' + v}{1+v v_x'/c^2},\\
+v_y &=& \frac{v_y'}{\gamma(1+ v v_x'/c^2)},\\
+v_z &=& \frac{v_z'}{\gamma(1+ v v_x'/c^2)}.
+\ee
+\end{tcolorbox}
+
+\section{Space Time Interval}\label{sec:S}
+Let us consider the light clock that we discussed in lecture 2. Recall a light clock is made up of two mirrors separated by a vertical distance $L$. We will consider two frames, one is comoving with the train and the other is at rest. The goal is to define a quantity that is frame-independent. Let us call this quantity $\Delta s$. 
+\begin{itemize}
+\item \textbf{In frame comoving with train (S'):}
+The time it takes for a ray of light to move back and forth between the two mirrors in this frame is given by:
+\be
+\Delta t' = \frac{2L}{c} \equiv \frac{ \Delta s}{c}.
+\ee
+
+\noindent 
+
+\item \textbf{In ground frame (S):} Note again that since the mirrors are displaced in the vertical direction, since the train is moving in the horizontal direction, the separation between the mirrors is not contracted. One of the key postulates of ST is that the speed of light in this frame is still the same. In this frame, the light has to actually cover extra distance. Let us denote this distance as $\Delta d$. The total distance the light has to travel is thus (using Pythagoras):
+\be
+D_{\rm tot} =\sqrt{(2L)^2 + (\Delta d)^2},
+\ee
+and the $\Delta t = D_{\rm tot}/c$. We can write 
+\be
+c^2\Delta t^2 = \Delta s^2 + \Delta d^2.
+\ee
+\end{itemize}
+This results in our definition of the invariant interval (Morin nomenclature): 
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+\Delta s^2  = c^2 \Delta t^2 - \Delta d^2 \label{eq:SI}.
+\ee
+\end{tcolorbox}
+What we refer to as $\Delta d^2 = \Delta x^2 + \Delta y^2 + \Delta z^2$. In many cases, we assume 2D problems, and the interval reduces to $\Delta s^2 = c^2\Delta t^2 - \Delta x^2$. You can show that this interval is frame independent by applying the LTs, e.g.: 
+\be
+\Delta s^2  &=& c^2 \Delta t^2 - \Delta x^2 \nonumber \\
+            &=& c^2 \left[\gamma (\Delta t' + v \Delta x'/c^2)\right]^2 - \left[\gamma (\Delta x' + v\Delta t')\right]^2 \nonumber \\
+            &=& \gamma^2 \left[c^2(1-\frac{v^2}{c^2}) \Delta t'^2 -(1-\frac{v^2}{c^2})\Delta x'^2\right] \nonumber \\
+            &=& c^2 \Delta t'^2 -\Delta x'^2 \equiv \Delta s'^2.  
+\ee
+Here I used that the cross-terms $\propto \Delta x' \Delta t'$ cancel in going from line 2 to 3, and I used that $\gamma^2 = (1-(v/c)^2)^{-1}$ when going from line 3 to 4. So we have something that is indeed invariant under Lorentz transformations (similar to the radius $r$ of an object under rotations) and is therefore frame independent. \\
+
+\noindent 
+We can measure the spacetime interval with an inertial clock that is present at both events. Such an interval is unique, since the interval will be a straight worldline (see lecture 2) between two events (and there is only one such way to draw a worldline). The interval equates to the coordinate time interval $\Delta t$ only if $\Delta x = 0$, or otherwise, in a frame where there is no displacement, and say, e.g., an object or observer is at rest. Given the sign in front of $\Delta x$, it also means $c^2\Delta t^2\geq \Delta s^2$. \\
+
+\noindent 
+Given that interval, we can discuss 3 different types of separations:
+\begin{itemize}
+\item $\Delta s^2 > 0$: In this case, we call the interval (between events) timelike separated. Given the above, and applying the LTs to another frame, you can show that there exists a finite boost (frame velocity) in which the events are happening at the same place. What this actually means is that it is possible for an object with a speed $v<c$ to travel between the two events (in finite time).  The time interval associated with the inertial frame for which events are at the same spatial position is referred to as proper time ($\Delta \tau$), with $\Delta s=c\Delta\tau$. Among physically allowed worldlines connecting the same two events, the inertial straight worldline gives the largest elapsed proper time. I will discuss this later. 
+
+\item $\Delta s^2 < 0$: The interval is spacelike separated\footnote{Note that in some instances (and given you have not dealt with imaginary numbers, this can be rewritten as $\Delta \sigma^2 \equiv - \Delta s^2$ (See Moore))}. Now you can show that there is another frame for which the two events happen at the same time, i.e., $\Delta t' = 0$. In this frame, two events are a distance apart, which, given the notion of length in SR, is identical to the `proper' length (as defined in lecture 2), assuming those events indeed present the ends of an object. It is the smallest spatial interval (in all other frames, $\Delta x$ would be increased, since the interval is conserved -- and in those frames $\Delta t \neq 0$).
+\item $\Delta s^2=0$. The interval is lightlike. This concerns two events connected by a light ray, whose worldline is at $45^\circ$ with respect to the spatial axis when the axes use the same units. There is no inertial frame in which the events happen at the same place or at the same time. The relation $|\Delta x|=c|\Delta t|$ holds in every inertial frame, although the individual values of $\Delta x$ and $\Delta t$ generally change under a boost.
+\end{itemize}
+
+
+\subsection{Proper time}
+To derive an expression for proper time, we will use Moore's derivation. To distinguish between the three different (time) intervals: coordinate, spacetime, and proper, it can be useful to have a geometrical analogy. 
+\begin{itemize}
+
+\item Coordinate time can be thought of as spatial coordinate distances. If you go from one point to another in a coordinate system, you can imagine going, e.g., $n$ steps in the $x$ direction and $m$ steps in the $y$ direction. The actual coordinates of the two points in a frame will depend on the frame used. That is the same for coordinate time; depending on the frame, we will read different values for $t$. 
+
+\item The spacetime interval can be thought of as the SR equivalent of distance in geometry. For example, the distance between two points in Euclidean space is $\Delta r^2 = \Delta x^2 + \Delta y^2$, where the $\Delta$'s represent the difference between the actual coordinate values of the two points. Note also that $\Delta r^2$ is frame independent. All that will change is the values of $\Delta x^2$ and $\Delta y^2$, similar to $\Delta x^2$ and $\Delta t^2$ in SR. While Euclidean geometry is a purely spatial geometry (it only depends on spatial coordinates), Minkowski geometry depends on space and time and is the spacetime that defines SR. The associated metric is given by Eq.~\eqref{eq:SI}. I have a video clip that discusses this in a bit more depth.  
+
+\item The geometrical analogy for proper time is the path length between two points on a map. This could be equal to the distance, but if, and only if, this path is a straight line. In all cases, the path length would be longer than the distance (as is the case, for example, when you search for a route in your navigation app). As we will see, the opposite is true in spacetime. Since $\Delta s$ has units of distance while $\Delta \tau$ has units of time, the hierarchy for a timelike path is $c^2\Delta t^2\geq \Delta s^2=c^2\Delta \tau_{\rm inertial}^2\geq c^2\Delta \tau_{\rm path}^2$.
+\end{itemize}
+
+We can derive an expression for the proper time by using the fact that, as long as we consider infinitesimal (very small) steps in spacetime $ds$, any path can be written as a sum of such spacetime intervals:
+\be
+c\Delta \tau = \sum ds\rightarrow \int ds,
+\ee
+where we would replace the sum by an integral. Assuming that these small intervals are still given by Eq.~\eqref{eq:SI}, we write:
+\be
+c\Delta \tau = \int \sqrt{(c^2 dt^2 - dx^2)} = \int_{t_A}^{t_B} \left(c^2 - \left(\frac{dx}{dt}\right)^2\right)^{1/2} dt.
+\ee
+When considering 3 spatial dimensions, the above would simply be the norm of the velocity squared, i.e., 
+\begin{tcolorbox}[colback=blue!5!white]
+\vspace{-1.3em}
+\be
+\Delta \tau = \int_{t_A}^{t_B} \sqrt{1-\frac{|\vec{v}|^2}{c^2}}\,dt.
+\ee
+\end{tcolorbox}
+You can consider the case in which $|\vec{v}|$ is time independent\footnote{This is certainly true when $\vec{v}(t) = \vec{v}$, but $|\vec{v}(t)| = |\vec{v}|$ can also be true when for example each component is time dependent, but the magnitude stays the same (such as is the case for an object that rotating at a fixed frequency).}. In that case, you can pull that term out of the integral to find:
+\be
+\Delta \tau  =\sqrt{1-\frac{|\vec{v}|^2}{c^2}}\, \Delta t.
+\ee
+The multiplicative factor shows that $\Delta \tau = \Delta t$ only if $|\vec{v}| = v = 0$. Now, here we have to be a little careful, because it really has to be that it concerns an object at rest for these to be identical. The fact that say two events happened at the same place no longer suffices. Since we can have a path that connects two events at the same spatial coordinate (in a spacetime diagram parallel to the time coordinate axis), which is not a straight line, it's a path after all. You can also show that $\Delta \tau$ is frame independent. In SR units, where $c=1$, coordinate time, spacetime interval, and proper time can be expressed in the same units. 
+
+\subsection{Spacetime diagrams (Minkowski diagrams)}
+In many cases, it is extremely helpful if we can draw a diagram that helps us better understand a particular scenario in SR. Let us first introduce a standard spacetime diagram. The first step to drawing such a diagram is to use SR units. In SR units\footnote{Alternatively, you can multiply the time coordinate axis by $c$ as is done in Morin.}, both the time and spatial axes have the same units (e.g., light seconds, light years). Several example diagrams are shown in Fig.~\ref{fig:STD}. One can draw events as points in such a diagram. Multiple events can be connected via a worldline. As mentioned in lecture 2, light will make a $45^\circ$ angle with the spatial axis. No worldline that belongs to a physical object can have an angle smaller than this, as it would suggest the object is moving faster than the speed of light. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/spacetimediagrams.pdf}
+    \caption{{\bf Top left:} spacetime diagram with units in light seconds. {\bf Middle left:} An event can be labelled as a point in a spacetime diagram with coordinates $(t_A, x_A)$. {\bf Bottom left:} multiple events in order. {\bf Top right:} these multiple events can be connected via a worldline (e.g., the trajectory of a particle). {\bf Middle right:} the speed of an object is determined as $v = \Delta x/ \Delta t$. In SR, $c =1$ and hence $\Delta x = \Delta t$, and light will make a $45^\circ$ angle with the spatial coordinate axis. {\bf Bottom right:} nothing can move faster than the speed of light, and thus no physical object can have a worldline that makes an angle that is smaller than $45^\circ$ with the spatial axis.}
+    \label{fig:STD}
+\end{figure}
+\subsection{Radar Method}
+Suppose I am an observer at rest. I want to determine the coordinates of some event $E$. I can submit a ray of light in my spacetime diagram. This light ray will be `reflected' by event $E$ and bounce back to me with the speed of light. This method is called the radar method (Moore) and allows us to determine the coordinates of $E$ as depicted in Fig.~\ref{fig:RM}. The time coordinate of event $E$ can simply be determined as $t_E = \frac{1}{2}(t_A + t_B)$, as it is midway between the time measurements of the submitted and reflected ray. You should convince yourself that the spatial coordinate is determined by $x_E = \frac{1}{2}(t_B - t_A)$. The radar method helps in explaining the difference between observing and seeing. Observing would be the true time coordinate of the event in a spacetime diagram, as determined via the radar method (or more correctly, what a clock positioned at the event synchronised with the frame of the observer reads off). Seeing would be the time the light emitted from an event would reach the observer's eye ($t_B$).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/radarmethod.pdf}
+    \caption{Radar method. By reflecting a lightray of the event, an observer at rest is able to determine the coordinates of event $E$. In some sense, this is the way to synchronize clocks. }
+    \label{fig:RM}
+\end{figure}
+
+\subsection{Two observer diagram}
+In many scenarios we have sketched so far, we compare two frames $S$ and $S'$, and a simple diagram does not allow us to do this. In fact, SR is all about comparing frames. To use diagrams as a tool to better understand SR, we need to find a way to compare frames. The two observer diagram (Moore) allows us to do exactly that. A frame $S'$ is moving w.r.t. frame $S$ with velocity $\beta$ in the positive $x$ direction. What do the time $t'$ and $x'$ axes look like? The time coordinate $t'$ axis is the axis for which $x' = 0$, i.e., it should be a line for which something moving with velocity $\beta$ as seen in frame $S$ is constant in frame $S'$. This axis thus trivially should be the worldline $x = \beta t$. Next, the ticks on this axis will not be determined by ticks on the $S$ time coordinate axis. We invoke the invariance of the spacetime interval. In both frames, this interval coincides with $\Delta x = \Delta x' = 0$, but the spacetime diagram is drawn from the perspective of the observer at rest. We draw the hyperbola $\Delta s^2 = \Delta t^2 - \Delta x^2 = \Delta t'^2$ (recall $c = 1$). The intersection of these hyperbolas and the $t'$ coordinate axis are the new ticks, as we could have guessed from the LT's: $\Delta t = \gamma \Delta t'$. So in a spacetime diagram with coordinates $t$ and $x$, a frame moving with $\beta$ will measure time intervals as measured by the observer at rest that are slowed by a factor $\gamma$. This is shown diagrammatically in fig.~\ref{fig:2ODa}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/2ODa.pdf}
+    \caption{Left: the time coordinate axis $t'$ of the frame $S'$ moving to the right with speed $\beta$ can be drawn by drawing a worldline $x = \beta t$. Right: intervals of equal time (e.g., light second) as determined by the hyperbola that connects lines of equal spacetime intervals in a spacetime diagram.}
+    \label{fig:2ODa}
+\end{figure}
+
+To obtain the $x'$ coordinate axis, we can use the radar method. Let us consider two events $A = (-T,0)$ and $B = (T,0)$ in frame $S'$. Given the radar method, an event $E$ will thus happen at exactly $E=(0,T)$, i.e., this event will coincide with the $x'$ axis (when $t' = 0$). Then, since $t'_B = T$, and the worldline connecting the event $t'_B$ and $t_E'=0$ is a light ray perpendicular to the diagonal $x = t$, the angle between this line and the $x'$ axis is the same as the angle between the $t'$ and this line. This implies the slope of the $x'$ axis is the inverse of the velocity $\beta$, or $\beta^{-1}$. Hence, to obtain the $x'$ axis, we draw a line with slope $\beta^{-1}$ that goes through the origin. The situation is sketched in fig.~\ref{fig:2ODb}. 
+
+We define a diagram that shows the axes of two different reference frames as a two observer diagram. Drawing such a diagram requires the relative velocity of the two frames. Then set one frame as your rest frame $S$ with coordinates $(t,x)$, and label the moving frame as $S'$ with coordinates $(t',x')$. In principle, you can add more frames, as long as you know the relative velocity of the frame with respect to the rest frame (and it also helps if that velocity is in the positive $x$ direction). Once the axis of the moving frame has been drawn and labelled, you move on to put on the ticks. This requires drawing hyperbolas. Since this can get quite messy, hyperbolic paper exists with hyperbolas that show lines of equal spacetime interval (typically, we provide such paper on exams). A task that can be difficult sometimes is to decide on units or the size of hyperbolic paper required to sketch your diagram. Before you start sketching, please think carefully about the location of the events, both in the frame at rest as well as the moving frame. 
+
+As an example of the use of hyperbolic paper, we consider length contraction. The endpoints of an object at rest trace two worldlines separated by its proper length $L$; together they form a world region. If we want to know the length of that object in another frame, we use a two-observer diagram. The measured length is the cross-section of the world region along the $x'$ axis, because the $x'$ axis represents simultaneous events in that frame. As expected, the length is contracted. The two-observer diagram also shows the reverse situation. For an object at rest in $S'$, its endpoint worldlines are parallel to the $t'$ axis. Its length in frame $S$ is the cross-section of its world region along the $x$ axis. As Fig.~\ref{fig:2ODlengthC} shows, the object is contracted in $S$ by the same factor.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/2ODb.pdf}
+    \caption{Using the radar method with event $A$ at $(-T,0)$ and $B$ at $(T,0)$ allows us to find event $E$ that should be located on the $x'$ coordinate axis by design ($t' = 0$). From there, we immediately conclude that $\alpha_1 = \alpha_2$, suggesting that we can obtain the $x'$ axis by drawing a line that obeys $x = \beta^{-1}t$. It should have been obvious from symmetry reasons and the fact that light always makes a $45^{\circ}$ angle with the spatial coordinate axis.}
+    \label{fig:2ODb}
+\end{figure}
+
+\begin{figure}
+    \centering
+\includegraphics[width=1\linewidth]{Figures/2ODlengthC.pdf}
+    \caption{Left: spacetime diagram with object of length $3$ lightseconds. The object at rest carves out a worldregion, where the ends of the object are worldlines that are parallel to $t$. Middle: two observer diagram, showing how to read off the length of the same object in another frame moving with $\beta = 0.5$ (half the speed of light). As expected, in that frame, the length of the object is contracted. Right: same, but now an object at rest in frame $S'$. This shows indeed that now the object has a length that is contracted in frame $S$ by exactly the same amount. }
+    \label{fig:2ODlengthC}
+\end{figure}
+
+\section{Causality}
+The three different intervals can also be related to causality. Timelike separated events can be causal; that is to say, in any frame, we can draw a lightcone, which is bordered by two rays of light going in opposite directions, centered around one of the events, and the coordinates of the other event will be within this lightcone. The notion of causality simply suggests that one event could have caused another event. For spacelike separated events, this is simply not possible, given the finite speed of causal information exchange (which is capped by the speed of light $c$). Any event can have a future light cone, which contains all possible coordinate events that it could cause, and a past light cone, which contains all coordinate events that could have caused the event. 
+
+Causal events have the same temporal order in all frames. That is, if event $P$ happens at $t_1$ in frame $S$ and event $Q$ happens at $t_2$, and $t_1 < t_2$, if $P$ and $Q$ are causal (and thus timeline separated), event $P$ will happen before event $Q$ in any other frame as well. Suppose spacelike separated events, $P$ and $Q$ in frame $S$, where causal, as suggested in Fig.~\ref{fig:TO}. In this case, we would have to exchange information at ten times the speed of light (which we are aware is not possible, but bear with me). What are the coordinates of $P$ and $Q$ in any other reference frame that is moving with a speed $v <c$? We have to draw the coordinate axis of this new frame (it does not really matter what the speed of this new frame is, as long as it is less than the speed of light). In that case, we find that the temporal order has flipped! In $S'$, $Q$ now happens before $P$. This obviously is something that appears to be counterintuitive for any type of physical scenario. Since causality is capped by $c$, this indeed never happens in SR. 
+
+Can nothing move faster than the speed of light (and therefore violate causality, or flip temporal order)? The answer is no. Now, things can appear to move faster than light, and this is okay, as long as no information is being exchanged, i.e., one event does not cause another event. For example, if you have a powerful laser, you could point it at the moon. You can `move' the light of the laser across the surface of the moon at speeds that could exceed the speed of light. This is ok, there is no information exchange and no violation of causality, it is only an apparent (projected in this example) notion of motion. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/TO.pdf}
+    \caption{{\bf Left:} In frame $S$, $P$ happens before $Q$. In another frame $S'$, $Q$ happens before $P$. These events are spacelike separated and can not be causal. {\bf Right:} if they were causal, then in another frame $Q$ could cause $P$, which is something we do not experience (you break an egg, there is no frame in which the egg goes from a broken state to an unbroken state).}
+    \label{fig:TO}
+\end{figure}
+
+\section*{Board Question}
+\begin{tcolorbox}[colback=blue!5!white]
+An observer at $x=0$ sends a light pulse at $t=2$ and receives the reflected pulse at $t=10$. Use units with $c=1$.
+\begin{enumerate}
+    \item Use the radar method to assign coordinates $(t,x)$ to the reflection event.
+    \boardanswer{$t_E=(2+10)/2=6$ and $x_E=(10-2)/2=4$, so the reflection event is $(6,4)$.}
+    \item Draw the emission, reflection, and reception events on a spacetime diagram.
+    \boardanswer{Place emission at $(2,0)$, reflection at $(6,4)$, and reception at $(10,0)$. The two light rays have slopes $+1$ and $-1$.}
+    \item Compute the spacetime interval between the emission and reflection events.
+    \boardanswer{$\Delta t=4$ and $\Delta x=4$, so $\Delta s^2=\Delta t^2-\Delta x^2=16-16=0$. The interval is lightlike.}
+    \item Explain why all inertial observers agree on this interval even though they may assign different coordinates to the reflection event.
+    \boardanswer{The coordinates change under Lorentz transformations, but $\Delta s^2$ is invariant. A lightlike separation remains lightlike in every inertial frame.}
+\end{enumerate}
+\end{tcolorbox}
+
+\end{document}
