@@ -43,14 +43,52 @@ Make personal edits on `my-notes`, not on `main`. This keeps official course upd
 
 ## Receiving updates from the course repository
 
-When new lecture material or corrections are published:
+When new lecture material or corrections are published, first update the clean `main` branch of your fork:
 
 1. Open your fork on GitHub.
 2. Switch to its `main` branch.
 3. Click **Sync fork** and then **Update branch**.
-4. Merge the updated `main` branch into your `my-notes` branch.
 
-The final merge can be performed in a local Git checkout. Replace `YOUR-USERNAME` with your GitHub username:
+Next, merge the updated `main` branch into `my-notes`. Choose one of the methods below.
+
+### Recommended for beginners: GitHub Desktop
+
+[GitHub Desktop](https://desktop.github.com/) is a free graphical application for Windows and macOS. It lets you use Git without typing terminal commands.
+
+The first time you use it:
+
+1. Install GitHub Desktop and sign in to your GitHub account.
+2. In your fork on GitHub, click **Code**, select **Open with GitHub Desktop**, and choose where to save the repository on your computer.
+
+Whenever you want to incorporate new official notes:
+
+1. Synchronize `main` on the GitHub website using **Sync fork → Update branch**, as described above.
+2. Open your fork in GitHub Desktop.
+3. Select **Current Branch → main**.
+4. Click **Fetch origin**, followed by **Pull origin** if that button appears.
+5. Select **Current Branch → my-notes**.
+6. Click **Fetch origin**, followed by **Pull origin** if that button appears.
+7. Open **Current Branch** and select **Choose a branch to merge into my-notes**.
+8. Select `main`, then click **Merge main into my-notes**.
+9. Click **Push origin** to save the updated `my-notes` branch to your fork on GitHub.
+
+See GitHub's illustrated guide to [getting started with GitHub Desktop](https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop).
+
+### Browser-only method
+
+You can also merge the branches entirely on GitHub by opening a pull request **inside your own fork**:
+
+1. Open the **Pull requests** tab of your fork and click **New pull request**.
+2. Set the **base repository** to `YOUR-USERNAME/WBPH001-10-Lectures`—your fork, not `daanmeerburg/WBPH001-10-Lectures`.
+3. Set the **base branch** to `my-notes` and the **compare branch** to `main`.
+4. Create and merge the pull request in your fork.
+5. If GitHub offers to delete a branch afterward, do **not** delete `main` or `my-notes`; you will need both for later updates.
+
+This pull request belongs only to your personal fork. Do not create a pull request whose base repository is the official course repository.
+
+### Advanced: terminal commands
+
+If you are comfortable using a terminal, replace `YOUR-USERNAME` with your GitHub username and run:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/WBPH001-10-Lectures.git
@@ -63,7 +101,15 @@ git merge main
 git push origin my-notes
 ```
 
-If your changes and an official update modify the same lines, Git will report a merge conflict. You must choose which version to keep, finish the merge, and push the result to your fork. See GitHub's instructions for [synchronizing a fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork).
+If your changes and an official update modify the same lines, Git will report a merge conflict. You must choose which version to keep before the merge can be completed. See GitHub's instructions for [resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts) and [synchronizing a fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork).
+
+### New to Git and GitHub?
+
+These introductory resources explain the terminology and basic workflow:
+
+- [Introduction to GitHub](https://github.com/skills/introduction-to-github): an interactive beginner course
+- [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop): a graphical workflow without terminal commands
+- [About Git](https://docs.github.com/en/get-started/using-git/about-git): a short explanation of repositories, commits, branches, and remotes
 
 ## Using the notes with Overleaf
 
