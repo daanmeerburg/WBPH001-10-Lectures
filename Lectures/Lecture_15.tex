@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -166,6 +169,7 @@ This provides a useful local analogy with a black hole. A freely falling observe
 
 
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 An observer undergoes constant proper acceleration $a$ in flat spacetime.
@@ -180,5 +184,6 @@ An observer undergoes constant proper acceleration $a$ in flat spacetime.
     \boardanswer{Locally, a uniformly accelerated observer in flat spacetime is equivalent to an observer at rest in a gravitational field of strength $a$.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

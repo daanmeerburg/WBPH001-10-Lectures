@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -337,6 +340,7 @@ This is the required Lorentz factor. We can find the required velocity to get su
 v = \sqrt{1-(62.5)^{-2}} \simeq 0.9998,
 \ee
 which is very close to the speed of light. 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 A particle of mass $M$ is initially at rest and decays into two identical particles of mass $m$.
@@ -351,5 +355,6 @@ A particle of mass $M$ is initially at rest and decays into two identical partic
     \boardanswer{We need $M\geq2m$. Equality means the daughters are produced at rest; for motion, $M>2m$.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

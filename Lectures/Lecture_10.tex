@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -213,6 +216,7 @@ p_y' &=& \gamma_{v'} m v_y'  \\
 p_y  &=& \gamma_{v} m v_y = \gamma_{v'} \gamma_{\beta} (1+\beta v') m \frac{v_y'}{\gamma_{\beta}(1+\beta v')} = \gamma_{v'} m v_y'
 \ee
 So indeed $p_y = p_{y}'$. The same is true for $p_z = p_{z}'$.
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 A particle of rest mass $m$ moves in the lab with $\beta=3/5$.
@@ -227,5 +231,6 @@ A particle of rest mass $m$ moves in the lab with $\beta=3/5$.
     \boardanswer{They are components of the four-momentum $P=(E,{\bf p})$. A Lorentz transformation mixes temporal and spatial components.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

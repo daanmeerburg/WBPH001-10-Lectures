@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -114,6 +117,7 @@ The use of diagrams is highly recommended when solving problems involving multip
     \label{fig:train2}
 \end{figure}
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 Two identical trains move in opposite directions with speed $v$ in the station frame. Lightning strikes the front of each train at the same station time, and the strike events occur at $x=-L$ and $x=+L$.
@@ -128,5 +132,6 @@ Two identical trains move in opposite directions with speed $v$ in the station f
     \boardanswer{Lines of simultaneity for the right-moving frame tilt upward to the right. Reading along those tilted lines shows the right-side strike is assigned an earlier moving-frame time.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

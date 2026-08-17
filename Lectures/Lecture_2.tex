@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \pagestyle{fancy}
@@ -347,6 +350,7 @@ Note also that contraction is symmetric, i.e., for a person on the train, anythi
 % \vfill
 % \centering
 % \textit{Next Lecture: Length Contraction and Further Implications of Lorentz Symmetry}
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 Two events are recorded in frame $S$ using units with $c=1$:
@@ -364,5 +368,6 @@ A=(t,x)=(0,0), \qquad B=(5,3).
     \boardanswer{The proper time is $\Delta\tau=\sqrt{16}=4$ in units with $c=1$. Proper distance is used for spacelike intervals, so it is not the relevant quantity here.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \pagestyle{fancy}
@@ -213,6 +216,7 @@ The dimensionless constant $\tilde{C}$ is not determined by dimensional analysis
     \item The vaccine problem from earlier lectures has a proper lifetime of $5$ years and a travel distance of $11.9$ light-years. Use $\Delta s^2=\Delta t^2-\Delta x^2$ to estimate the minimum speed required.
 \end{enumerate}
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 Use dimensional analysis to estimate the orbital period $T$ of a planet moving in a nearly circular orbit of radius $r$ around a star of mass $M$.
@@ -227,5 +231,6 @@ Use dimensional analysis to estimate the orbital period $T$ of a planet moving i
     \boardanswer{Dimensional analysis cannot determine the factor $2\pi$ in $T=2\pi\sqrt{r^3/(GM)}$.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \pagestyle{fancy}
@@ -141,6 +144,7 @@ A recurring theme is the difference between seeing and observing. Seeing refers 
     \item Which parts of physics remain unchanged when we move from Newtonian mechanics to special relativity?
 \end{enumerate}
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 The Michelson--Morley experiment found no ether wind.
@@ -155,5 +159,6 @@ The Michelson--Morley experiment found no ether wind.
     \boardanswer{The absoluteness of space and time must be changed. Inertial frames remain central, and the laws of physics are still required to be frame independent.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

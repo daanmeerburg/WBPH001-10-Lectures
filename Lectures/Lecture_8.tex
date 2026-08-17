@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \pagestyle{fancy}
@@ -230,6 +233,7 @@ The following approximate scales are useful for quick estimates:
     \item Estimate how many relativistic muons created in the upper atmosphere reach sea level, and identify where special relativity enters the estimate.
 \end{enumerate}
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 Estimate the total number of heartbeats made by all people in the Netherlands in one year.
@@ -244,5 +248,6 @@ Estimate the total number of heartbeats made by all people in the Netherlands in
     \boardanswer{The average heart rate dominates, because it varies strongly with age, activity, sleep, and health.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

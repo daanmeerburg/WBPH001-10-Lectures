@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -362,6 +365,7 @@ Suppose $A_1$ is zero in every frame, then all three spatial components have to 
 
 
    
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 Two particles have four-velocities $U_1^\mu$ and $U_2^\mu$. In the rest frame of particle 1, particle 2 moves with speed $v_{\rm rel}$.
@@ -376,5 +380,6 @@ Two particles have four-velocities $U_1^\mu$ and $U_2^\mu$. In the rest frame of
     \boardanswer{Once $\gamma_{\rm rel}$ is known, $v_{\rm rel}=\sqrt{1-1/\gamma_{\rm rel}^2}$. Since $\gamma_{\rm rel}$ came from an invariant, so does the relative speed.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -207,6 +210,7 @@ Can nothing move faster than the speed of light (and therefore violate causality
     \label{fig:TO}
 \end{figure}
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 An observer at $x=0$ sends a light pulse at $t=2$ and receives the reflected pulse at $t=10$. Use units with $c=1$.
@@ -221,5 +225,6 @@ An observer at $x=0$ sends a light pulse at $t=2$ and receives the reflected pul
     \boardanswer{The coordinates change under Lorentz transformations, but $\Delta s^2$ is invariant. A lightlike separation remains lightlike in every inertial frame.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -211,6 +214,7 @@ to first order in $dt$. This is equivalent to Eq.~(11.63).
 Please read this section in Morin. It is a very nice derivation and quite powerful. It will not be something we will put in an exam (perhaps only a conceptual question). 
 
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 A source moves directly away from Earth with $\beta=0.60$ and emits light with wavelength $\lambda_{\rm em}=500\,{\rm nm}$ in its own rest frame.
@@ -225,5 +229,6 @@ A source moves directly away from Earth with $\beta=0.60$ and emits light with w
     \boardanswer{Ordinary addition gives $1.2c$, which exceeds the speed of light. In SR, rapidities add linearly while velocities combine nonlinearly.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

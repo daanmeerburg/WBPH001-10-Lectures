@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -280,6 +283,7 @@ Similarly, for the relativistic results, we have:
 M_{\rm final} = M \sqrt{\frac{1-v_{\rm max}}{1+v_{\rm max}}} = M\left( 1 - v_{\rm max} + \frac{v_{\rm max}^2}{2} + \mathcal{O}(v_{\rm max}^3)\right). 
 \ee
 So indeed, in the limit of $v_{\rm max}\ll c$, we find both results agree. 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 A constant force $F$ acts on a particle of rest mass $m$ in the lab frame, starting from rest at $t=0$.
@@ -294,5 +298,6 @@ A constant force $F$ acts on a particle of rest mass $m$ in the lab frame, start
     \boardanswer{The coordinate acceleration decreases with time because more work goes into increasing $\gamma$ rather than increasing $v$.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

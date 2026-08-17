@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -381,6 +384,7 @@ v_z &=& \frac{v_z'}{\gamma(1+ u v_x'/c^2)}.
 %     \item Paradoxes arise from relativity of simultaneity
 % \end{itemize}
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 Frame $S'$ moves to the right with $\beta=v/c=3/5$ relative to frame $S$. In units with $c=1$, an event $P$ has coordinates
@@ -399,5 +403,6 @@ in $S$.
     \boardanswer{Lorentz transformations preserve the light cone and the spacetime interval. Since the interval is positive and $t>0$, all inertial observers agree that $P$ lies inside the future light cone.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -191,6 +194,7 @@ We have also seen that scalars are frame independent, so physical laws may conta
 There is nothing really new here. In Newtonian mechanics, we have ${\bf F} = m{\bf a}$ as a possible physical law because both sides are 3-vectors. ${\bf F} = m(2a_x,a_y, a_z)$ is not a possible law because $(2a_x, a_y, a_z)$ is not a 3-vector, since it depends on which axis you label the $x$ axis. It makes no sense for a physical law to depend on your arbitrary choice of coordinates. 
 
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 A particle has four-momentum $p^\mu=mU^\mu$ and four-force $K^\mu=dp^\mu/d\tau$.
@@ -205,5 +209,6 @@ A particle has four-momentum $p^\mu=mU^\mu$ and four-force $K^\mu=dp^\mu/d\tau$.
     \boardanswer{In SR the four-acceleration is orthogonal to four-velocity, and the spatial force need not be parallel to the coordinate acceleration.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}

@@ -20,6 +20,9 @@
 \newcommand{\ee}{\end{eqnarray}}
 \newif\ifshowboardanswers
 \showboardanswersfalse
+% Set this to \showboardquestiontrue to include the end-of-lecture board question.
+\newif\ifshowboardquestion
+\showboardquestionfalse
 \newcommand{\boardanswer}[1]{\ifshowboardanswers\\[0.35em]\textcolor{blue}{\textbf{Answer.} #1}\fi}
 
 \fancyhead[L]{Special Relativity}
@@ -552,6 +555,7 @@ From conservation of momentum in the $y$-direction, we then get
 \ee
 i.e, $\phi = 90^{\circ} - \Theta$, in other words, the balls would bounce off at right angles. Note that the other solution is $\Theta = 0$ (since then $\sin \Theta = 0$). In that case, there is no collision. So in this set-up, we force there to be a non-zero angle, and in that case, for elastic scattering, the balls bounce off at right angles. We will reconsider this example for relativistic billiard balls. The above can also be solved in the center-of-mass frame, where the solution will be a little easier to obtain.   
 
+\ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
 A block of mass $m$ slides without friction with speed $u$ and collides elastically in one dimension with a stationary block of mass $2m$.
@@ -566,5 +570,6 @@ A block of mass $m$ slides without friction with speed $u$ and collides elastica
     \boardanswer{Momentum and energy must be replaced by relativistic momentum and total energy; kinetic energy alone is not the conserved energy.}
 \end{enumerate}
 \end{tcolorbox}
+\fi
 
 \end{document}
