@@ -6,3 +6,6 @@
 *.synctex.gz
 *.toc
 *.xdv
+/Lecture_*.pdf
+/Lectures/Lecture_*.pdf
+/Course_Schedule.pdf

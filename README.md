@@ -5,14 +5,21 @@ Lecture materials for WBPH001-10, covering mechanics and special relativity.
 ## Contents
 
 - `Lectures/`: LaTeX source for Lectures 1--15
-- `Lecture_1.pdf`--`Lecture_15.pdf`: compiled lecture notes
-- `Course_Schedule.tex` and `Course_Schedule.pdf`: course schedule
+- `Course_Schedule.tex`: LaTeX source for the course schedule
 - `Figures/` and the PDF figures in the repository root: assets required to compile the notes
+
+Compiled lecture and schedule PDFs are intentionally not stored in this repository. The PDF files that remain are source figures required by the LaTeX documents.
 
 To compile a lecture from the repository root, run, for example:
 
 ```bash
 latexmk -pdf Lectures/Lecture_4.tex
+```
+
+This creates `Lectures/Lecture_4.pdf` locally. To compile the schedule, run:
+
+```bash
+latexmk -pdf Course_Schedule.tex
 ```
 
 Corrections and updated versions may be published throughout the course.
@@ -128,7 +135,7 @@ If GitHub synchronization is unavailable on your Overleaf account, you can downl
 
 The official repository is maintained by the course instructor. Students may freely modify their own forks, but changes in a fork cannot alter the official lecture notes unless the instructor explicitly accepts them.
 
-This public repository is generated from a separately maintained private course repository. Official changes are made in the private source repository and published here automatically after a successful LaTeX build.
+This public repository is generated from a separately maintained private course repository. Official source changes are made in the private repository and published here automatically.
 
 ## Licence
 
