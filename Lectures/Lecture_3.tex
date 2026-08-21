@@ -4,8 +4,7 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
-\usepackage{tikz}
-\usepackage[usenames]{xcolor}
+\usepackage{xcolor}
 \definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
 \definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
 \definecolor{subsectioncolor}{rgb}{0,0,0}
@@ -14,6 +13,7 @@
 \definecolor{lightred}{rgb}{0.9,0,0.1}
 \usepackage{wrapfig}
 \usepackage{tcolorbox}
+\graphicspath{{Figures/}{../Figures/}}
 
 \newcommand{\be}{\begin{eqnarray}}
 \newcommand{\non}{\nonumber \\ }
@@ -27,6 +27,7 @@
 
 \fancyhead[L]{Special Relativity}
 \fancyhead[R]{Lecture 3}
+\setlength{\headheight}{14.5pt}
 
 \title{\textbf{Lecture 3: Lorentz Transformations}}
 \author{Based on Morin's \textit{Introduction to Classical Mechanics}, Ch. 11.4--11.5}
@@ -49,7 +50,7 @@ An \textbf{event} is a specific point in spacetime, defined by:
 \[
 (t, x, y, z).
 \]
-It occurs at a particular location and instant in time (which we have to add to our `position' vector). Events are the basic entities in relativity. All observers agree on whether two events occurred at the same place and time in their own frame, but may disagree on the simultaneity of events between frames. This is the reason why time has to be added. Since this is time frame dependent (as we saw in lecture 2), we refer to this time as {\bf coordinate time}. Since $\gamma \geq 1$, the clock for an observer at rest runs faster ($t \geq t'$). They are equal only if two observers are at rest with respect to each other (i.e., $S = S'$). 
+It occurs at a particular location and instant in time (which we have to add to our `position' vector). Events are the basic entities in relativity. All observers agree on whether two events occurred at the same place and time in their own frame, but may disagree on the simultaneity of events between frames. This is the reason why time has to be added. Since this time is frame dependent (as we saw in lecture 2), we refer to this time as {\bf coordinate time}. Since $\gamma \geq 1$, the clock for an observer at rest runs faster ($t \geq t'$). They are equal only if two observers are at rest with respect to each other (i.e., $S = S'$).
 
 \subsection{Time Dilation}
 Derived from the light clock in lecture 2:
@@ -106,13 +107,14 @@ L &= \frac{500}{1.667} \approx 300 \text{ m}
 Note that while the train is already moving close to the speed of light, length contraction is still relatively minor. Since the Lorentz factor scales as the square root of the velocity, the velocity has to get exponentially close to $c$ to get large effects. It is also the reason why, in everyday life, we have no experience with relativistic effects. 
 
 \section{Diagram toolkit for transformations}\label{sec:diagramtoolkit}
-Before deriving the Lorentz transformations algebraically, it is useful to know what the answer should look like on a spacetime diagram. We use units with $c=1$, so light rays always have slope $\pm 1$.
+Before deriving the Lorentz transformations algebraically, it is useful to know what the answer should look like on a spacetime diagram. Figure~\ref{fig:two-observer-diagram} shows the two-observer diagram that we will use as a guide. We use units with $c=1$, so light rays always have slope $\pm 1$.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.62\textwidth]{Figures/2ODa.pdf}
+\includegraphics[width=0.88\textwidth]{2ODa.pdf}
 \end{center}
 \caption{A two-observer diagram. The unprimed frame $S$ uses the vertical $t$ axis and horizontal $x$ axis. The moving frame $S'$ uses tilted $t'$ and $x'$ axes.}
+\label{fig:two-observer-diagram}
 \end{figure}
 
 \begin{itemize}
@@ -193,8 +195,8 @@ Finally, we need to derive a relation that is valid when $\Delta t = 0$. Morin r
 
 
 \end{tikzpicture}
-\label{fig:rca}
 \caption{A train of length $L'$ (as measured at rest in frame $S'$) is moving to the right with velocity $v$. A source on the train is emitting two pulses. They arrive at the rear and front of the train at the same time, as observed (by observer `A') in the rest frame $S$. Figure taken from R2, 2023-2024. }
+\label{fig:rca}
 \end{center}
 \end{figure}
 
@@ -270,10 +272,10 @@ We can write the Lorentz transformation in matrix notation if we use SR units:
 \ee
 with $\beta = v/c$.  Note that I have considered the inverse transformations (going from frame $S$ to $S'$). In that case we pick up a minus sign in the velocity, since from the perspective of an observer at rest in frame $S'$, anyone comoving\footnote{I will often use comoving, which often is short-hand for stating that an observer is at rest with respect to some coordinate frame, and moving with (=comoving) the frame as observed from any other inertial reference frame.} with frame $S$ is now moving in the opposite direction.  
 This looks very similar to a rotation matrix. Coordinates in a (Cartesian) plane $x,y$ can be related to coordinates in a plane that is rotated around its origin with an angle $\alpha$ 
-\be
-x_A' = x_A \cos \alpha + y_A \sin \alpha, \nonumber \\
-y_A' = -x_A \sin \alpha + y_A \cos \alpha \nonumber
-\ee
+\begin{align*}
+x_A' &= x_A \cos \alpha + y_A \sin \alpha, \\
+y_A' &= -x_A \sin \alpha + y_A \cos \alpha.
+\end{align*}
 This can be written as 
 \be
 \begin{pmatrix}
@@ -297,7 +299,7 @@ We will discuss this analogy later when we talk about rapidity in lecture 5. Thi
 If two events (at e.g., coordinates $(t_1',x_1')$, $(t_2',x_2'))$ occur simultaneously in frame $S'$, we know $(\Delta t',\Delta x') = (0,\Delta x')$, i.e. $t_1'=t_2'$. Using Eq.~\eqref{eq:tLT}, we find that in $S$, $\Delta t= \gamma v \Delta x/c^2$. Unless $\Delta x' = 0$, events would therefore not happen simultaneously in frame $S$. 
 
 \subsubsection{Time Dilation}
-Now consider an events that happen on the same location in frame $S$: $(\Delta t, \Delta x=0)$. In frame $S$, we can use Eq.~\eqref{eq:tLT} to find that $\Delta t = \gamma \Delta t'$. This is by definition time dilation, and according to an observer in frame $S$, a clock in frame $S'$ runs slow. \\
+Now consider events that happen at the same location in frame $S$: $(\Delta t, \Delta x=0)$. In frame $S$, we can use Eq.~\eqref{eq:tLT} to find that $\Delta t = \gamma \Delta t'$. This is by definition time dilation, and according to an observer in frame $S$, a clock in frame $S'$ runs slow.
 
 \noindent 
 As Morin points out, the opposite is also true, i.e., $\Delta t' = \gamma \Delta t$. This appears to be a contradiction. However, this is, in my view, the crux of relativity; who infers the other clock running slow depends on who you assume is moving w.r.t. an observer at rest. For the one that is `moving', by definition, their displacement should be non-zero. So in the first case, we assume they are at rest in their frame ($S'$) (and hence they are moving in the frame comoving with the observer, i.e., frame $S$). And $\Delta x' = 0$. To obtain the opposite, $\Delta t' = \gamma \Delta t$, you will assume the observer in frame $S$ is at rest and hence moving w.r.t. frame $S'$, $\Delta x' = 0$. Whether a clock actually runs slow requires us to `check' the clock of the other observer and compare it to our own at least twice: once to set the initial measurement, and once to set the final measurement. To compare clocks after motion, consider the following two possibilities. The first is the trivial possibility. For both observers (let's call them $A$ and $B$), $\Delta x = \Delta x'$: they are comoving. In that case, we can compare clocks at all times, assuming that they started at the same position ($x_1 = x_1'$) and $\Delta t = \Delta t'$ (or $\gamma  =1$). Another possibility to compare clocks is when we assume, e.g., $\Delta x = 0$ (observer $A$ in frame $S$ is at rest) and the other observer ($B$) is moving away (with constant velocity $v_B$) from $A$ at $t_1 = t_1'  = 0$. To compare clocks and check which clock runs slow, either $A$ or $B$ needs to start moving, because they need to be at the same spatial position ever to be able to compare clocks. So observer $B$ could go back, therefore changing its velocity from e.g. $+v_B$ to $-v_B$, or observer $A$ takes off and moves towards $B$ with $v_A > v_B$ (to catch up with $B$). This means that either $A$ or $B$ will have to accelerate, and the clock they are carrying will no longer be inertial. The result is that the person who will perform the acceleration will have a clock that runs slow, as we discussed in the twin paradox. There are some other possibilities, such as both moving away or them moving towards each other, but broadly speaking, these two situations carry the key idea of time dilation. Note that in all these examples, one assumes initially that clocks are synchronized at the beginning, and at that instant, one of the observers has a velocity that is constant. In reality, of course, this is not possible. In the twin paradox example, the twin moving away will have to accelerate (from having no velocity on Earth, to moving towards some distant planet). This should already suffice to make their clock non-inertial. But to compare actual times still requires both to be at the same spatial position. So, to truly `experience' time dilation requires at least two measurements. 
@@ -311,7 +313,7 @@ We have shown how coordinates transform in the previous section. Here, we aim to
 \be
 v = \frac{\Delta x}{\Delta t} = \frac{\gamma (\Delta x' + u \Delta t')}{\gamma (\Delta t' +  u\Delta x' /c^2)} = \frac{\frac{\Delta x'}{\Delta t'}+u}{1+u \frac{\Delta x'}{\Delta t'}/c^2} \equiv \frac{v' + u}{1+u v'/c^2},
 \ee
-where I used that $\Delta x'/\Delta t' = v'$. This is the longitudinal velocity addition rule (since the motion of the object is parallel to the motion of the frame $S'$). Note that if either $v' = c$ or if $u  = c$, $v = c$. This should be the case! One of the postulates of SR is that nothing can move faster than the speed of light, even something that is already moving with the speed of light in a frame that is at non-zero speed. We could also interchange $v'$ and $u$, it does not matter whether you interchange the motion of the frame and the object within that frame. If both $u$ and $v'$ are less than $c$, $v < c$. In the case we take small velocities compared to $c$, the denominator $1+ uv'/c^2\rightarrow 1$ and $v \simeq v'+u$, i.e., the classical result. \\
+where I used that $\Delta x'/\Delta t' = v'$. This is the longitudinal velocity addition rule (since the motion of the object is parallel to the motion of the frame $S'$). Note that if either $v' = c$ or if $u  = c$, $v = c$. This should be the case! One of the postulates of SR is that nothing can move faster than the speed of light, even something that is already moving with the speed of light in a frame that is at non-zero speed. We could also interchange $v'$ and $u$, it does not matter whether you interchange the motion of the frame and the object within that frame. If both $u$ and $v'$ are less than $c$, $v < c$. In the case we take small velocities compared to $c$, the denominator $1+ uv'/c^2\rightarrow 1$ and $v \simeq v'+u$, i.e., the classical result.
 
 \noindent
 {\bf Example:} In the book, there is an example of two trains ($a$ and $b$) of length $L$. Both trains are moving to the right, where $v_a > v_b$ (as measured from a frame at rest) and the train $a$ will overtake train $b$. The first question is how long it takes for train $a$ to overtake train $b$. In any such problems, you should always first pick a frame. Morin considers the frame comoving with train $b$, but one should be able to find the same solution if one considers any other inertial frame. The comoving frame should have velocity $-v_b$ for the train to be at rest. The velocity addition rule then states:
@@ -326,7 +328,7 @@ In order to overtake train $b$, the total distance that train $a$ needs to trave
 \be
 \Delta t = \frac{D}{v_a'} = \frac{L(\gamma^{-1}+1)}{v_a'}. 
 \ee
-Inserting the example values for $v_a = 4c/5$ and $v_b = 3c/5$, you will see this equals $\Delta t = 5L/c$. \\
+Inserting the example values for $v_a = 4c/5$ and $v_b = 3c/5$, you will see this equals $\Delta t = 5L/c$.
 
 \noindent
 The second question appears more complicated, but what matters again is to choose a clever frame. Consider an observer $O$ inside train $b$ that starts walking from left to right as soon as the front of train $a$ reaches the rear of train $b$ (which he calls event $E_1$) and $O$ reaches the front of train $b$, as soon as the rear of train $a$ passes the front, event $E_2$. What is the time between these two events as measured by $O$? Morin chooses that frame where the observer $O$ is at rest. In that frame, one train is moving to the right, and the other is moving to the left. However, given the fact that this observer starts to move once the front of train $a$ reaches the rear of train $b$ and reaches the front of train $b$ once the rear of train $a$ passes, implies that in the frame where this observer is at rest, both trains move with the same speed (but in opposite direction), otherwise the above requirement would not be met. To compute the time between events, we need to know this speed, which we call $v_O$. To find this speed, we can use the fact that two objects with the same but opposite speeds can simply use the Einstein velocity transformation, equating the speed of the frame with that of the object. The frame for which this is true is the frame where $O$ is at rest! At the same time, the relative speed between the two trains was already computed before; it was given by the velocity addition formula. Equating the two 
@@ -341,7 +343,7 @@ Using $v_a = 4c/5$ and $v_b = 3c/5$, gives $v_O = c/5$. This is associated with 
 \be
 \Delta t_O = \frac{\gamma_O^{-1} L}{v_O}, 
 \ee
-which in this example results in $\Delta t_O = 2\sqrt{6} L/c$. \\
+which in this example results in $\Delta t_O = 2\sqrt{6} L/c$.
 
 \noindent 
 We discussed earlier that LT only applies to spatial coordinates that are parallel to the direction of motion. We mentioned that this does not apply to velocities, since time is always transformed if two frames have a relative motion, and velocity depends on both space and time explicitly. We follow the same logic as before. Now consider $\Delta y$, the spatial interval in the $y$ direction. As we consider a frame $S'$ that moves in the positive $x$ direction with speed $u$, this coordinate is not affected. The time component is always affected. We thus have:
