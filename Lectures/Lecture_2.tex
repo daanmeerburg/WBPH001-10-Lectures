@@ -87,17 +87,17 @@ The laws of physics (mechanics) are the same in all inertial frames. An inertial
 
 \subsection{Galilean Transformation (1D motion along $x$)}
 
-Consider a frame at rest $S$ and another frame $S'$ moving with velocity $\beta$.
+Consider a frame $S$ and another frame $S'$ moving with velocity $u$ in the positive $x$ direction relative to $S$. The spatial coordinate and time coordinate in the two frames are then related by the Galilean transformation:
 \begin{tcolorbox}[colback=blue!5!white]
 \vspace{-1.3em}
 \begin{align}
-\Delta x' &= \Delta x - \beta \Delta t \\
+\Delta x' &= \Delta x - u \Delta t \\
 \Delta t' &= \Delta t, \\
-v' &= v - \beta
+v' &= v - u
 \end{align}
 \end{tcolorbox}
 \noindent 
-where $v$ is the velocity of an object in frame $S$ and $v'$ in frame $S'$. Question: Why is there a minus sign?  \\
+Here $u$ is the velocity of frame $S'$ relative to $S$, while $v$ and $v'$ are the velocities of an object measured in $S$ and $S'$, respectively. Question: Why is there a minus sign?  \\
 Galilean invariance means that the laws of physics are assumed to be invariant under this transformation (i.e., moving from one inertial frame to another). \\
 
 \noindent
@@ -194,29 +194,25 @@ The two important postulates that lay at the foundation of the theory of special
 \end{tcolorbox}
 
 \noindent  
-\textbf{These two assumptions contradict the Newtonian view of absolute space and time.} It is `special' because it only concerns non-accelerating frames. This means we can not include gravity for the moment (Diederik might discuss this at the very end if there is time).  
+\textbf{These two assumptions contradict the Newtonian view of absolute space and time.} It is `special' because it only concerns non-accelerating frames. This means we can not include gravity for the moment (we will discuss this at the very end of the lecture series).  
 
 
 \section{Fundamental effects}
 \subsection{Relativity of Simultaneity}\label{sec:Rsim}
-Two laser hits both ends of a moving train (receivers). 
-
-
+Consider a train moving to the right. Two lightning strikes hit the rear and front ends simultaneously in the ground frame, at the instant when an observer on the ground is midway between the strike locations and an observer on the train is at the train's midpoint.
 \begin{itemize}
-    \item \textbf{In frame (S') moving w train:} Light source midway between two receivers. From the observer's point of view in this frame, the light will hit the receivers at the same time. 
-
-
-    \item \textbf{In ground frame (S'):} The train is moving to the right with speed $v$. Hence, the receiver is moving to the right. As it takes a finite time for the light to travel between the source and the receiver, during this time, the receiver has moved closer. Since the speed of light is constant independent of frame, the relative speed is $v+c$. For the receiver on the right, it is $c-v$. As a result, the moment the light hits the receiver is not the same in this frame. 
+    \item \textbf{Ground frame ($S$):} The strikes are simultaneous by construction. The stationary ground observer is equally far from the two strike locations, so the two flashes reach that observer simultaneously.
+    \item \textbf{Train frame ($S'$):} In the ground frame, the train midpoint moves toward the light from the front strike and away from the light from the rear strike, so the train observer meets the front flash first. In the train frame, the midpoint is equidistant from the two ends and light has the same speed $c$ in both directions. The train observer therefore infers that the front strike occurred before the rear strike.
 \end{itemize}
 
-Note that what we describe here refers to the `observed' time and place, i.e., as measured with a ruler and a clock in a reference frame. The actual observers, who are typically located in the frame, will see things as information reaches their sensors (eyes in our case, but could also be some apparatus). Seeing is therefore not the same as observing. In Moore, this is something that is discussed at some length, but Morin spends only a footnote on this distinction. We might come back to this when we discuss spacetime diagrams (where we can use the so-called radar method to make this distinction clearer).  
+The order in which flashes reach someone's eyes is a reception statement; the times assigned to the strikes using synchronized clocks are coordinate statements. Seeing is therefore not the same as observing. Here the reception order, together with equal distances in the train frame and the invariant speed of light, lets the train observer infer the coordinate-time order. Moore discusses this distinction at some length, whereas Morin mentions it only in a footnote. We will return to it when discussing spacetime diagrams and the radar method.
 
 \begin{tcolorbox}[colback=blue!5!white]
 \begin{itemize}
 \item {\bf Seeing:}
 When the light reaches the observer's eyes   
 \item {\bf Observing:} 
-What a clock positioned at the event synchronised with the frame of the observer reads off
+The coordinates assigned using rulers and clocks synchronized throughout the observer's frame
 \end{itemize}
 \end{tcolorbox}
 
@@ -353,19 +349,14 @@ Note also that contraction is symmetric, i.e., for a person on the train, anythi
 \ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
-Two events are recorded in frame $S$ using units with $c=1$:
-\[
-A=(t,x)=(0,0), \qquad B=(5,3).
-\]
+Two lightning strikes hit the two ends of a train of proper length $L'=300\,{\rm m}$. The train moves at $v=0.6c$ relative to the ground, and the strikes are simultaneous in the ground frame.
 \begin{enumerate}
-    \item Draw the two events on a spacetime diagram and add the light cone from $A$.
-    \boardanswer{$A$ is at the origin and $B$ is at $t=5$, $x=3$. Since $|x|<t$, $B$ lies inside the future light cone of $A$.}
-    \item Decide whether the separation is timelike, spacelike, or lightlike.
-    \boardanswer{$\Delta s^2=\Delta t^2-\Delta x^2=25-9=16>0$, so the separation is timelike.}
-    \item Is there an inertial frame in which the two events happen at the same place? Is there one in which they happen at the same time? Explain using the diagram.
-    \boardanswer{Because the separation is timelike, there is a frame in which the events happen at the same place. There is no inertial frame in which timelike-separated events are simultaneous.}
-    \item What is the proper time or proper distance associated with this separation?
-    \boardanswer{The proper time is $\Delta\tau=\sqrt{16}=4$ in units with $c=1$. Proper distance is used for spacelike intervals, so it is not the relevant quantity here.}
+    \item What is the train length measured in the ground frame?
+    \boardanswer{$\gamma=1.25$, so $L=L'/\gamma=240\,{\rm m}$.}
+    \item Are the strikes simultaneous in the train frame?
+    \boardanswer{No. In the train frame, the front strike occurs first.}
+    \item Explain your answer qualitatively. In the ground frame, consider how the midpoint of the moving train travels relative to the light from each strike. Then use the fact that light has the same speed in every inertial frame to infer which strike occurred first in the train frame.
+    \boardanswer{In the ground frame, the train midpoint moves toward the light from the front strike and away from the light from the rear strike, so it meets the front flash first. The train midpoint is equidistant from the two ends in the train frame, and light travels at speed $c$ in both directions. Therefore, the train observer concludes that the front strike occurred first.}
 \end{enumerate}
 \end{tcolorbox}
 \fi
