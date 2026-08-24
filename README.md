@@ -1,101 +1,129 @@
 # WBPH001-10 Lectures
 
-Lecture materials for WBPH001-10, covering mechanics and special relativity.
+Lecture materials for WBPH001-10, covering mechanics and special relativity. Corrections and updated versions may be published throughout the course.
 
-## Contents
+## Choose how you want to use the notes
 
-- `Lectures/`: LaTeX source for Lectures 1--15
+### Option 1 — Read the PDFs on Brightspace
+
+This is the simplest option and is recommended if you only want to read the lecture notes.
+
+- Ready-to-read PDFs are provided on Brightspace.
+- You do not need GitHub, Git, LaTeX, or Overleaf.
+- Updated PDFs will be posted on Brightspace when appropriate.
+
+### Option 2 — Make editable notes in Overleaf
+
+Choose this option if you want to annotate or change the LaTeX source without installing LaTeX on your computer.
+
+1. Sign in to GitHub and create a **fork** of this repository under your own account.
+2. Import your fork into Overleaf.
+3. Make personal edits only in your own fork or Overleaf project.
+
+Overleaf's GitHub synchronization is a premium feature, although your institution may provide access. If it is available, Overleaf can pull updates from and push your edits to your fork. Synchronization is not continuous: you must explicitly initiate each pull or push. See the [Overleaf GitHub synchronization instructions](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization).
+
+Without GitHub synchronization, download your fork as a ZIP file and upload it to Overleaf. This requires no local software, but later course updates must be transferred manually.
+
+### Option 3 — Work and compile locally
+
+Choose this option if you are comfortable using Git and LaTeX locally. Before starting, install:
+
+- [Git](https://git-scm.com/downloads), or [GitHub Desktop](https://desktop.github.com/) if you prefer a graphical application;
+- a LaTeX distribution containing `latexmk`:
+  - Windows: [MiKTeX](https://miktex.org/download) or [TeX Live](https://tug.org/texlive/);
+  - macOS: [MacTeX](https://tug.org/mactex/);
+  - Linux: TeX Live through your distribution's package manager.
+
+The Git commands below work on macOS and Linux terminals and on Windows in Git Bash. The individual `git` commands also work in PowerShell. GitHub Desktop provides a graphical alternative to most terminal commands.
+
+## Repository contents
+
+- `Lectures/`: LaTeX source for Lectures 1–15
 - `Course_Schedule.tex`: LaTeX source for the course schedule
 - `Figures/` and the PDF figures in the repository root: assets required to compile the notes
 
-Compiled lecture and schedule PDFs are intentionally not stored in this repository. The PDF files that remain are source figures required by the LaTeX documents.
+Generated lecture and schedule PDFs are intentionally not stored here. The PDF files that remain are source figures required by the LaTeX documents.
 
-To compile a lecture from the repository root, run, for example:
+From the repository root, compile a lecture with, for example:
 
 ```bash
 latexmk -pdf Lectures/Lecture_4.tex
 ```
 
-This creates `Lectures/Lecture_4.pdf` locally. To compile the schedule, run:
+This creates `Lectures/Lecture_4.pdf`. Compile the schedule with:
 
 ```bash
 latexmk -pdf Course_Schedule.tex
 ```
 
-Corrections and updated versions may be published throughout the course.
+## Fork the repository before making changes
 
-## Make your own fork
-
-Please do not work directly from a clone of this repository. Instead, create a **fork** under your own GitHub account:
+Please do not work directly from a clone of the official repository. Instead:
 
 1. Sign in to GitHub.
-2. Click **Fork** near the top-right corner of this repository.
-3. Select your own GitHub account as the destination.
+2. Click **Fork** near the top-right of this repository.
+3. Select your GitHub account as the destination.
 4. Keep the default repository name and create the fork.
 
-Your fork is your personal copy. You may edit it, annotate the LaTeX sources, and connect it to services such as Overleaf. You do not have permission to push changes to the official course repository.
+Your fork is your personal copy. Your changes cannot alter the official course repository. Please do not submit pull requests to the official repository.
 
-Please do not submit pull requests to the official course repository. Student modifications are intended to remain in students' personal forks.
+## Keep official updates separate from your notes
 
-## Recommended branch setup
+The recommended branch arrangement in your fork is:
 
-Keep the `main` branch of your fork as a clean copy of the official notes. Create a separate branch for your own changes:
+- `main`: a clean copy of the official course notes;
+- `my-notes`: your annotations and personal changes.
+
+To create the personal branch in the browser:
 
 1. Open your fork on GitHub.
 2. Open the branch menu, which initially displays `main`.
 3. Enter `my-notes`.
 4. Select **Create branch: my-notes from main**.
 
-Make personal edits on `my-notes`, not on `main`. This keeps official course updates separate from your annotations.
+You can continue receiving course updates in your annotated version. First synchronize `main` with the official repository, and then merge the updated `main` into `my-notes`:
 
-## Receiving updates from the course repository
+```text
+official repository → your fork/main → your fork/my-notes
+```
 
-When new lecture material or corrections are published, first update the clean `main` branch of your fork:
+This update is not automatic. If your annotations and an official update change the same lines, Git will ask you to resolve a merge conflict by choosing what to keep.
 
-1. Open your fork on GitHub.
-2. Switch to its `main` branch.
-3. Click **Sync fork** and then **Update branch**.
+## Update and merge using the browser
 
-Next, merge the updated `main` branch into `my-notes`. Choose one of the methods below.
+First update the clean branch:
 
-### Recommended for beginners: GitHub Desktop
+1. Open your fork on GitHub and switch to `main`.
+2. Click **Sync fork**, followed by **Update branch**.
 
-[GitHub Desktop](https://desktop.github.com/) is a free graphical application for Windows and macOS. It lets you use Git without typing terminal commands.
-
-The first time you use it:
-
-1. Install GitHub Desktop and sign in to your GitHub account.
-2. In your fork on GitHub, click **Code**, select **Open with GitHub Desktop**, and choose where to save the repository on your computer.
-
-Whenever you want to incorporate new official notes:
-
-1. Synchronize `main` on the GitHub website using **Sync fork → Update branch**, as described above.
-2. Open your fork in GitHub Desktop.
-3. Select **Current Branch → main**.
-4. Click **Fetch origin**, followed by **Pull origin** if that button appears.
-5. Select **Current Branch → my-notes**.
-6. Click **Fetch origin**, followed by **Pull origin** if that button appears.
-7. Open **Current Branch** and select **Choose a branch to merge into my-notes**.
-8. Select `main`, then click **Merge main into my-notes**.
-9. Click **Push origin** to save the updated `my-notes` branch to your fork on GitHub.
-
-See GitHub's illustrated guide to [getting started with GitHub Desktop](https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop).
-
-### Browser-only method
-
-You can also merge the branches entirely on GitHub by opening a pull request **inside your own fork**:
+Then merge those updates into your annotated branch using a pull request inside your fork:
 
 1. Open the **Pull requests** tab of your fork and click **New pull request**.
-2. Set the **base repository** to `YOUR-USERNAME/WBPH001-10-Lectures`—your fork, not `daanmeerburg/WBPH001-10-Lectures`.
+2. Set the **base repository** to `YOUR-USERNAME/WBPH001-10-Lectures`, not the official repository.
 3. Set the **base branch** to `my-notes` and the **compare branch** to `main`.
-4. Create and merge the pull request in your fork.
-5. If GitHub offers to delete a branch afterward, do **not** delete `main` or `my-notes`; you will need both for later updates.
+4. Create and merge the pull request.
+5. Do not delete `main` or `my-notes` afterward; both are needed for future updates.
 
-This pull request belongs only to your personal fork. Do not create a pull request whose base repository is the official course repository.
+## Update and merge using GitHub Desktop
 
-### Advanced: terminal commands
+The first time:
 
-If you are comfortable using a terminal, replace `YOUR-USERNAME` with your GitHub username and run:
+1. Install GitHub Desktop and sign in.
+2. In your fork on GitHub, select **Code → Open with GitHub Desktop**.
+
+For later course updates:
+
+1. Synchronize `main` on GitHub using **Sync fork → Update branch**.
+2. In GitHub Desktop, select **Current Branch → main** and click **Fetch origin**, then **Pull origin** if offered.
+3. Select **Current Branch → my-notes** and fetch or pull that branch too.
+4. Select **Current Branch → Choose a branch to merge into my-notes**.
+5. Select `main`, click **Merge main into my-notes**, and then **Push origin**.
+
+See GitHub's [GitHub Desktop guide](https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop).
+
+## Update and merge using a terminal
+
+Replace `YOUR-USERNAME` with your GitHub username:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/WBPH001-10-Lectures.git
@@ -108,32 +136,18 @@ git merge main
 git push origin my-notes
 ```
 
-If your changes and an official update modify the same lines, Git will report a merge conflict. You must choose which version to keep before the merge can be completed. See GitHub's instructions for [resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts) and [synchronizing a fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork).
+The cloning commands are needed only once. For subsequent updates, start with `git switch main` inside the existing local folder.
 
-### New to Git and GitHub?
+For help, see:
 
-These introductory resources explain the terminology and basic workflow:
-
-- [Introduction to GitHub](https://github.com/skills/introduction-to-github): an interactive beginner course
-- [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop): a graphical workflow without terminal commands
-- [About Git](https://docs.github.com/en/get-started/using-git/about-git): a short explanation of repositories, commits, branches, and remotes
-
-## Using the notes with Overleaf
-
-If your Overleaf account includes GitHub synchronization:
-
-1. Connect Overleaf to your GitHub account.
-2. Create a new Overleaf project from **your fork**, not from the official course repository.
-3. After updating your fork, use Overleaf's GitHub integration to pull the new changes into your project.
-4. If you edit the project in Overleaf, push those changes only to your own fork.
-
-Overleaf does not synchronize continuously. You must explicitly pull changes from GitHub or push Overleaf changes back to GitHub. GitHub synchronization is an Overleaf premium feature; your institution may provide access. See the [Overleaf GitHub synchronization instructions](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization).
-
-If GitHub synchronization is unavailable on your Overleaf account, you can download your fork as a ZIP file and upload it to Overleaf. This works for importing the notes, but future updates must then be transferred manually.
+- [Introduction to GitHub](https://github.com/skills/introduction-to-github)
+- [About Git](https://docs.github.com/en/get-started/using-git/about-git)
+- [Synchronizing a fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork)
+- [Resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)
 
 ## Repository ownership
 
-The official repository is maintained by the course instructor. Students may freely modify their own forks, but changes in a fork cannot alter the official lecture notes unless the instructor explicitly accepts them.
+The official repository is maintained by the course instructor. Student modifications remain in personal forks unless the instructor explicitly accepts them.
 
 This public repository is generated from a separately maintained private course repository. Official source changes are made in the private repository and published here automatically.
 
