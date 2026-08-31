@@ -4,11 +4,11 @@ Lecture materials for WBPH001-10, covering mechanics and special relativity. Cor
 
 ## Choose how you want to use the notes
 
-### Option 1 — Read the PDFs on Brightspace
+### Option 1 — Read the ready-made PDFs
 
 This is the simplest option and is recommended if you only want to read the lecture notes.
 
-- Ready-to-read PDFs are provided on Brightspace.
+- Ready-to-read PDFs are provided on Brightspace and in [`lecture_pdf/`](lecture_pdf/).
 - You do not need GitHub, Git, LaTeX, or Overleaf.
 - Updated PDFs will be posted on Brightspace when appropriate.
 
@@ -39,10 +39,11 @@ The Git commands below work on macOS and Linux terminals and on Windows in Git B
 ## Repository contents
 
 - `Lectures/`: LaTeX source for Lectures 1–15
+- `lecture_pdf/`: automatically generated PDFs for Lectures 1–15 and the course schedule
 - `Course_Schedule.tex`: LaTeX source for the course schedule
 - `Figures/` and the PDF figures in the repository root: assets required to compile the notes
 
-Generated lecture and schedule PDFs are intentionally not stored here. The PDF files that remain are source figures required by the LaTeX documents.
+The files in `lecture_pdf/` are rebuilt automatically whenever lecture sources or the course schedule change. Other PDFs in the repository are source figures required to compile the LaTeX documents.
 
 From the repository root, compile a lecture with, for example:
 
