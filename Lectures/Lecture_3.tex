@@ -50,12 +50,12 @@ An \textbf{event} is a specific point in spacetime, defined by:
 \[
 (t, x, y, z).
 \]
-It occurs at a particular location and instant in time (which we have to add to our `position' vector). Events are the basic entities in relativity. All observers agree on whether two events occurred at the same place and time in their own frame, but may disagree on the simultaneity of events between frames. This is the reason why time has to be added. Since this time is frame dependent (as we saw in lecture 2), we refer to this time as {\bf coordinate time}. Since $\gamma \geq 1$, the clock for an observer at rest runs faster ($t \geq t'$). They are equal only if two observers are at rest with respect to each other (i.e., $S = S'$).
+It occurs at a particular location and instant in time (which we have to add to our `position' vector). Events are the basic entities in relativity. All observers agree on whether two events occurred at the same place and time in their own frame, but may disagree on the simultaneity of events between frames. This is the reason why time has to be added. Since this time is frame dependent (as we saw in lecture 2), we refer to this time as {\bf coordinate time}. Since $\gamma_u \geq 1$, the clock for an observer at rest runs faster ($t \geq t'$). They are equal only if two observers are at rest with respect to each other (i.e., $S = S'$).
 
 \subsection{Time Dilation}
 Derived from the light clock in lecture 2:
 \begin{equation}
-t= \gamma t', \quad \text{where } \gamma = \frac{1}{\sqrt{1 - v^2/c^2}}
+\Delta t= \gamma_u\Delta t', \quad \text{where } \gamma_u = \frac{1}{\sqrt{1 - u^2/c^2}}
 \end{equation}
 % \textbf{Proper time} $t_0$ is the time interval measured in the frame where the clock is at rest.
 Note that the above is assuming there is some zero point time, since this relation really only applies to intervals, i.e. $\Delta t \equiv t_2 - t_1$, where $t_2 > t_1$. Hence, the above implicitly assumes $t_1 =0$.  I am writing it like this here, since Morin tends to drop the $\Delta$.
@@ -64,9 +64,9 @@ Note that the above is assuming there is some zero point time, since this relati
 
 
 \subsection{Muon Decay}
-Muons created in the upper atmosphere have a half-life time $t_{1/2}' = 1.5\,\mu s$ in their rest frame $S'$. They travel at $v = 0.99c$. These cosmic muons are created at a height of $60$ km in the atmosphere. In a Galilean Universe, we would argue that it would take
+Muons created in the upper atmosphere have a half-life time $t_{1/2}' = 1.5\,\mu s$ in their rest frame $S'$. Their rest frame moves at $u = 0.99c$ relative to the Earth frame $S$. These cosmic muons are created at a height of $60$ km in the atmosphere. In a Galilean Universe, we would argue that it would take
 \be
-\Delta t = \Delta h / v = 60\;{\rm km}/ (0.99 c) \sim 200 \mu{\rm s}
+\Delta t = \Delta h / u = 60\;{\rm km}/ (0.99 c) \sim 200 \mu{\rm s}
 \ee
 to reach Earth. Given the half-life, you would thus get that
 \be
@@ -78,7 +78,7 @@ In SR, the lifetime is measured in the frame that is at rest with respect to the
 
 In the Earth's frame $S$, the lifetime of the muon is actually longer by
 \be
-\gamma(v = 0.99c) \simeq 7 \rightarrow t_{1/2} \simeq 10.5\;\mu{\rm s}.
+\gamma_u(u = 0.99c) \simeq 7 \rightarrow t_{1/2} \simeq 10.5\;\mu{\rm s}.
 \ee
 If SR is correct, we thus conclude that
 \be
@@ -93,15 +93,15 @@ So over 1 in $500.000$ reaches Earth, which matches observations.
 
 We derived that the length of an object that is moving with respect to an observer at rest is contracted:
 \begin{equation}
-L = L_0 \sqrt{1 - v^2/c^2} = \frac{L_0}{\gamma}.
+L = L_0 \sqrt{1 - u^2/c^2} = \frac{L_0}{\gamma_u}.
 \end{equation}
-Since $\gamma \geq 1$, $0\leq \gamma^{-1}\leq 1$, i.e., the length is contracted. Only for a (hypothetical) object that would move at $c$, the length would be contracted to zero.
+Since $\gamma_u \geq 1$, $0\leq \gamma_u^{-1}\leq 1$, i.e., the length is contracted. Only for a (hypothetical) object that would move at $c$, the length would be contracted to zero.
 
 \subsection*{Example 2: High-Speed Train}
-A train of proper length $L_0 = 500$ m moves at $v = 0.8c$. Find its length in the ground frame.
+A train of proper length $L_0 = 500$ m moves at $u = 0.8c$ relative to the ground frame. Find its length in the ground frame.
 
 \begin{align*}
-\gamma &= \frac{1}{\sqrt{1 - 0.64}} = \frac{1}{0.6} \approx 1.667 \\
+\gamma_u &= \frac{1}{\sqrt{1 - 0.64}} = \frac{1}{0.6} \approx 1.667 \\
 L &= \frac{500}{1.667} \approx 300 \text{ m}
 \end{align*}
 Note that while the train is already moving close to the speed of light, length contraction is still relatively minor. Since the Lorentz factor scales as the square root of the velocity, the velocity has to get exponentially close to $c$ to get large effects. It is also the reason why, in everyday life, we have no experience with relativistic effects.
