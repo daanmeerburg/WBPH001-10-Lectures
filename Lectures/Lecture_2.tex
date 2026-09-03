@@ -120,7 +120,7 @@ A person on a truck moving at 10 m/s drops a ball. What is its trajectory in the
 
 \section{Michelson-Morley Experiment}\label{sec:MM}
 
-The Michelson-Morley experiment was designed to detect the Earth's motion through the ``ether'' by comparing the time taken for light to travel along two perpendicular arms of an interferometer. The idea was that if the Earth moves through the ether with velocity $v$, the speed of light would differ along and perpendicular to the motion.
+The Michelson-Morley experiment was designed to detect the Earth's motion through the ``ether'' by comparing the time taken for light to travel along two perpendicular arms of an interferometer. Let $u$ denote the Earth's speed relative to the hypothetical ether frame. The idea was that the speed of light would differ along and perpendicular to this motion.
 
 \subsubsection{Setup of the Interferometer}
 \begin{itemize}
@@ -135,45 +135,45 @@ The Michelson-Morley experiment was designed to detect the Earth's motion throug
 Let $c$ be the speed of light in the ether. Along the parallel arm:
 
 \begin{itemize}
-  \item On the outbound trip, light travels against the ether wind: effective speed is $c - v$.
-  \item On the return trip, light travels with the ether wind: effective speed is $c + v$.
+  \item On the outbound trip, light travels against the ether wind: effective speed is $c-u$.
+  \item On the return trip, light travels with the ether wind: effective speed is $c+u$.
 \end{itemize}
 Thus, the total time $t_\parallel$ for the parallel arm is:
 \be
-t_\parallel = \frac{L}{c - v} + \frac{L}{c + v} = L\left( \frac{1}{c - v} + \frac{1}{c + v} \right).
+t_\parallel = \frac{L}{c-u} + \frac{L}{c+u} = L\left( \frac{1}{c-u} + \frac{1}{c+u} \right).
 \ee
 Using (show):
 \be
-\frac{1}{c - v} + \frac{1}{c + v} = \frac{2c}{c^2 - v^2},
+\frac{1}{c-u} + \frac{1}{c+u} = \frac{2c}{c^2-u^2},
 \ee
 we find:
 \be
-t_\parallel = \frac{2Lc}{c^2 - v^2} = \frac{2L}{c} \cdot \frac{1}{1 - (v/c)^2}.
+t_\parallel = \frac{2Lc}{c^2-u^2} = \frac{2L}{c} \cdot \frac{1}{1-(u/c)^2}.
 \ee
 
 \subsubsection{Perpendicular Arm}
-Perpendicular to the motion, light must follow a diagonal path to compensate for the ether drift. Using Pythagoras' theorem, the effective velocity of light perpendicular to motion: \( \sqrt{c^2 - v^2} \). This is true in both directions, hence the time for a round trip along the perpendicular arm is:
+Perpendicular to the motion, light must follow a diagonal path to compensate for the ether drift. Using Pythagoras' theorem, the effective velocity of light perpendicular to motion is \(\sqrt{c^2-u^2}\). This is true in both directions, hence the time for a round trip along the perpendicular arm is:
 \be
-t_\perp = \frac{2L}{\sqrt{c^2 - v^2}} = \frac{2L}{c} \cdot \frac{1}{\sqrt{1 - (v/c)^2}}.
+t_\perp = \frac{2L}{\sqrt{c^2-u^2}} = \frac{2L}{c} \cdot \frac{1}{\sqrt{1-(u/c)^2}}.
 \ee
 
 \subsubsection{Time Difference Between Arms}
 
 Let $\Delta t = t_\parallel - t_\perp$:
 \be
-\Delta t = \frac{2L}{c} \left( \frac{1}{1 - (v/c)^2} - \frac{1}{\sqrt{1 - (v/c)^2}} \right).
+\Delta t = \frac{2L}{c} \left( \frac{1}{1-(u/c)^2} - \frac{1}{\sqrt{1-(u/c)^2}} \right).
 \ee
-In Morin, it is shown that for $v\ll c$, we can use a Taylor series expansion. For reference (since you have not seen Taylor series), we can write (see clips)
+In Morin, it is shown that for $u\ll c$, we can use a Taylor series expansion. For reference (since you have not seen Taylor series), we can write (see clips)
 \be
-\left(1-\left(\frac{v}{c}\right)^2\right)^n \sim 1-n\left(\frac{v}{c}\right)^2,
+\left(1-\left(\frac{u}{c}\right)^2\right)^n \sim 1-n\left(\frac{u}{c}\right)^2,
 \ee
 hence 
 \be
-\left(1-\left(\frac{v}{c}\right)^2\right)^{-1} - \left(1-\left(\frac{v}{c}\right)^2\right)^{-1/2}  \simeq \frac{1}{2}\left(\frac{v}{c}\right)^2.
+\left(1-\left(\frac{u}{c}\right)^2\right)^{-1} - \left(1-\left(\frac{u}{c}\right)^2\right)^{-1/2}  \simeq \frac{1}{2}\left(\frac{u}{c}\right)^2.
 \ee
 Using this in the above, then leads to 
 \be
-\Delta t \simeq \frac{L v^2}{c^3},
+\Delta t \simeq \frac{L u^2}{c^3},
 \ee
 which indeed has the right dimensions of time. Michelson and Morley found no measurable shift:
 \[
@@ -230,27 +230,27 @@ In this frame, the time it takes for a light beam to travel up and down is given
 \Delta t' = \frac{2L}{c}.
 \ee
 \noindent 
-\item \textbf{In ground frame (S):} The clock moves horizontally with speed $v$ to the right. The speed of light in this frame is still the same. We use Pythagoras' theorem to obtain the vertical speed only 
+\item \textbf{In ground frame (S):} The clock moves horizontally with speed $u$ to the right. The speed of light in this frame is still the same. We use Pythagoras' theorem to obtain the vertical component of the light speed,
 \be
-v' = \sqrt{c^2-v^2}.
+c_y = \sqrt{c^2-u^2}.
 \ee
 Therefore time it takes 
 \be
-\Delta t = 2L/\sqrt{c^2-v^2}.
+\Delta t = 2L/\sqrt{c^2-u^2}.
 \ee
 \end{itemize}
 The relation between the two times is 
 \begin{tcolorbox}[colback=blue!5!white]
 \vspace{-1.3em}
 \be
-\Delta t =  \gamma \Delta t'
+\Delta t =  \gamma_u \Delta t'
 \ee
 \end{tcolorbox}
 \noindent
-with $\gamma = (1-v^2/c^2)^{-1/2}$, the Lorentz factor. \textbf{This is time dilation. A moving clock ticks more slowly.}\\
+with $\gamma_u = (1-u^2/c^2)^{-1/2}$, the Lorentz factor for the relative frame speed. \textbf{This is time dilation. A moving clock ticks more slowly.}\\
 
 \noindent
-Perhaps the most well-known example that deals with the aspect of time dilation is the twin paradox. In this example, a twin, Annie and Joy, are separated at the age of 20 as one of the two twins, Joy, travels to a distant planet 20 lightyears away with constant velocity $v$. After 50 years, Annie is 70 years old. Joy is about to return after her interplanetary travels. According to Annie, who has studied SR, Joy should have carried a clock that runs slowly. Hence, she should have aged less. At the same time, Joy, who has also studied SR, argues that Annie should have aged less, since in her frame, Annie is moving away. Who is correct? \\
+Perhaps the most well-known example that deals with the aspect of time dilation is the twin paradox. In this example, a twin, Annie and Joy, are separated at the age of 20 as one of the two twins, Joy, travels to a distant planet 20 lightyears away with constant speed $u$ relative to Annie. After 50 years, Annie is 70 years old. Joy is about to return after her interplanetary travels. According to Annie, who has studied SR, Joy should have carried a clock that runs slowly. Hence, she should have aged less. At the same time, Joy, who has also studied SR, argues that Annie should have aged less, since in her frame, Annie is moving away. Who is correct? \\
 
 \noindent
 The twin paradox will come back in different forms throughout this course. While the set-up might sometimes be more involved (triplets, both moving observers, etc.), in the end, it all comes down to the same principle. Clocks are either inertial or not. If they are not, they will always tick more slowly than an inertial clock. We refer to the time measured along any clock's worldline as proper time, while the time read directly from the time axis of a chosen inertial frame is coordinate time. Moore makes an effort to emphasize this distinction; in Morin it is less explicit, although it is present. A third time-related quantity is the spacetime interval $s$ or $\Delta s$, which we will discuss in the next lecture. For two timelike-separated events, $\Delta s/c$ equals the proper time along the inertial worldline connecting them. All three quantities coincide for a clock at rest in the chosen inertial frame. \\
@@ -271,20 +271,20 @@ Two mirrors are separated by a horizontal distance $L'$ (motion is parallel to t
 \be
 \Delta t' = \frac{2L'}{c}.
 \ee
-\item \textbf{In ground frame (S):} The length of the train in this frame is assumed to be $L$ (which may or may not be the same as $L'$). The relative speed as measured in the frame of the beam moving to the front of the train is $c-v$ (the front is moving away), while after it is reflected, the relative speed is $v+c$ (the back of the train is moving towards the beam). The total time it takes is therefore
+\item \textbf{In ground frame (S):} The length of the train in this frame is assumed to be $L$ (which may or may not be the same as $L'$). The relative speed as measured in the frame of the beam moving to the front of the train is $c-u$ (the front is moving away), while after it is reflected, the relative speed is $u+c$ (the back of the train is moving towards the beam). The total time it takes is therefore
 \be
-\Delta t = \frac{L}{c-v} + \frac{L}{c+v} = \frac{2 L c}{c^2-v^2} \equiv \frac{2L}{c} \gamma^2.
+\Delta t = \frac{L}{c-u} + \frac{L}{c+u} = \frac{2 L c}{c^2-u^2} \equiv \frac{2L}{c} \gamma_u^2.
 \ee
 \end{itemize}
 However, the time in the train should runs slow according to our notion of time dilation:
 \be
-\Delta t = \gamma \Delta t',
+\Delta t = \gamma_u \Delta t',
 \ee
 combining these two, then given us:
 \begin{tcolorbox}[colback=blue!5!white]
 \vspace{-1.3em}
 \be
-L  = \gamma^{-1} L'. 
+L  = \gamma_u^{-1} L'.
 \ee
 \end{tcolorbox}
 \noindent
@@ -303,17 +303,17 @@ Note also that contraction is symmetric, i.e., for a person on the train, anythi
 % \textbf{Given:}
 % \begin{itemize}
 %     \item $L_0 = 1.5$ m
-%     \item $v = 0.8c$
+%     \item $u = 0.8c$
 % \end{itemize}
 
 % \textbf{Compute:}
 % \[
 % t_0 = \frac{2L_0}{c} = \frac{3}{c}, \quad
-% \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} = \frac{1}{\sqrt{1 - 0.64}} = \frac{1}{0.6} \approx 1.667
+% \gamma_u = \frac{1}{\sqrt{1 - u^2/c^2}} = \frac{1}{\sqrt{1 - 0.64}} = \frac{1}{0.6} \approx 1.667
 % \]
 
 % \[
-% t = \gamma t_0 = \frac{5}{c}
+% t = \gamma_u t_0 = \frac{5}{c}
 % \]
 
 % \textbf{Interpretation:} The moving clock appears to tick more slowly by a factor of $1.667$.
@@ -335,7 +335,7 @@ Note also that contraction is symmetric, i.e., for a person on the train, anythi
 % \end{itemize}
 
 % \section*{Challenge Problem (Optional)}
-% A muon is created 10 km above Earth's surface, traveling downward at $v = 0.995c$. Its rest lifetime is $\tau_0 = 2.2 \, \mu s$.
+% A muon is created 10 km above Earth's surface, traveling downward at $u = 0.995c$ relative to Earth. Its rest lifetime is $\tau_0 = 2.2 \, \mu s$.
 
 % \begin{itemize}
 %     \item How far would it travel classically?
@@ -349,10 +349,10 @@ Note also that contraction is symmetric, i.e., for a person on the train, anythi
 \ifshowboardquestion
 \section*{Board Question}
 \begin{tcolorbox}[colback=blue!5!white]
-Two lightning strikes hit the two ends of a train of proper length $L'=300\,{\rm m}$. The train moves at $v=0.6c$ relative to the ground, and the strikes are simultaneous in the ground frame.
+Two lightning strikes hit the two ends of a train of proper length $L'=300\,{\rm m}$. The train moves at $u=0.6c$ relative to the ground, and the strikes are simultaneous in the ground frame.
 \begin{enumerate}
     \item What is the train length measured in the ground frame?
-    \boardanswer{$\gamma=1.25$, so $L=L'/\gamma=240\,{\rm m}$.}
+    \boardanswer{$\gamma_u=1.25$, so $L=L'/\gamma_u=240\,{\rm m}$.}
     \item Are the strikes simultaneous in the train frame?
     \boardanswer{No. In the train frame, the front strike occurs first.}
     \item Explain your answer qualitatively. In the ground frame, consider how the midpoint of the moving train travels relative to the light from each strike. Then use the fact that light has the same speed in every inertial frame to infer which strike occurred first in the train frame.
