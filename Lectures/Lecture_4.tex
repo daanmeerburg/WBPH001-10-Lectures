@@ -48,8 +48,8 @@ We derived the most important transformation rules in SR:
 %\vspace{-1.3em}
 {\bf Lorentz Transformations}
 \be
-\Delta x &=& \gamma (\Delta x' + v \Delta t')\label{eq:xLT} \\
-\Delta t &=& \gamma (\Delta t' +  v\Delta x' /c^2) \\
+\Delta x &=& \gamma_u (\Delta x' + u \Delta t')\label{eq:xLT} \\
+\Delta t &=& \gamma_u (\Delta t' +  u\Delta x' /c^2) \\
 \Delta y &=& \Delta y' \\
 \Delta z &=& \Delta z'.
 \ee
@@ -59,9 +59,9 @@ We derived the most important transformation rules in SR:
 %\vspace{-1.3em}
 {\bf Einstein Velocity Transformations}
 \be
-v_x &=& \frac{v_x' + v}{1+v v_x'/c^2},\\
-v_y &=& \frac{v_y'}{\gamma(1+ v v_x'/c^2)},\\
-v_z &=& \frac{v_z'}{\gamma(1+ v v_x'/c^2)}.
+v_x &=& \frac{v_x' + u}{1+u v_x'/c^2},\\
+v_y &=& \frac{v_y'}{\gamma_u(1+ u v_x'/c^2)},\\
+v_z &=& \frac{v_z'}{\gamma_u(1+ u v_x'/c^2)}.
 \ee
 \end{tcolorbox}
 
@@ -95,14 +95,14 @@ This results in our definition of the invariant interval (Morin nomenclature):
 What we refer to as $\Delta d^2 = \Delta x^2 + \Delta y^2 + \Delta z^2$. In many cases, we assume 2D problems, and the interval reduces to $\Delta s^2 = c^2\Delta t^2 - \Delta x^2$. You can show that this interval is frame independent by applying the LTs, e.g.:
 \be
 \Delta s^2  &=& c^2 \Delta t^2 - \Delta x^2 \nonumber \\
-            &=& c^2 \left[\gamma (\Delta t' + v \Delta x'/c^2)\right]^2 - \left[\gamma (\Delta x' + v\Delta t')\right]^2 \nonumber \\
-            &=& \gamma^2 \left[c^2(1-\frac{v^2}{c^2}) \Delta t'^2 -(1-\frac{v^2}{c^2})\Delta x'^2\right] \nonumber \\
+            &=& c^2 \left[\gamma_u (\Delta t' + u \Delta x'/c^2)\right]^2 - \left[\gamma_u (\Delta x' + u\Delta t')\right]^2 \nonumber \\
+            &=& \gamma_u^2 \left[c^2(1-\frac{u^2}{c^2}) \Delta t'^2 -(1-\frac{u^2}{c^2})\Delta x'^2\right] \nonumber \\
             &=& c^2 \Delta t'^2 -\Delta x'^2 \equiv \Delta s'^2.
 \ee
-Here I used that the cross-terms $\propto \Delta x' \Delta t'$ cancel in going from line 2 to 3, and I used that $\gamma^2 = (1-(v/c)^2)^{-1}$ when going from line 3 to 4. So we have something that is indeed invariant under Lorentz transformations (similar to the radius $r$ of an object under rotations) and is therefore frame independent. \\
+Here I used that the cross-terms $\propto \Delta x' \Delta t'$ cancel in going from line 2 to 3, and I used that $\gamma_u^2 = (1-(u/c)^2)^{-1}$ when going from line 3 to 4. So we have something that is indeed invariant under Lorentz transformations (similar to the radius $r$ of an object under rotations) and is therefore frame independent. \\
 
 \noindent
-We can measure the spacetime interval with an inertial clock that is present at both events. Such an interval is unique, since the interval will be a straight worldline (see lecture 2) between two events (and there is only one such way to draw a worldline). The interval equates to the coordinate time interval $\Delta t$ only if $\Delta x = 0$, or otherwise, in a frame where there is no displacement, and say, e.g., an object or observer is at rest. Given the sign in front of $\Delta x$, it also means $c^2\Delta t^2\geq \Delta s^2$. \\
+For timelike-separated events, an inertial clock that is present at both events and follows the straight worldline between them measures $\Delta\tau=\Delta s/c$. This value is unique for that inertial path. More generally, any single clock present at both events measures its own proper time along its actual worldline; if that path is non-inertial, its elapsed proper time is smaller. The interval equates to the coordinate time interval $\Delta t$ only if $\Delta x = 0$, or otherwise, in a frame where there is no displacement and the clock is at rest. Given the sign in front of $\Delta x$, it also means $c^2\Delta t^2\geq \Delta s^2$. \\
 
 \noindent
 Given that interval, we can discuss 3 different types of separations:
@@ -199,7 +199,7 @@ As an example of the use of hyperbolic paper, we consider length contraction. Th
 \section{Causality}
 The three different intervals can also be related to causality. Timelike separated events can be causal; that is to say, in any frame, we can draw a lightcone, which is bordered by two rays of light going in opposite directions, centered around one of the events, and the coordinates of the other event will be within this lightcone. The notion of causality simply suggests that one event could have caused another event. For spacelike separated events, this is simply not possible, given the finite speed of causal information exchange (which is capped by the speed of light $c$). Any event can have a future light cone, which contains all possible coordinate events that it could cause, and a past light cone, which contains all coordinate events that could have caused the event.
 
-Causal events have the same temporal order in all frames. That is, if event $P$ happens at $t_1$ in frame $S$ and event $Q$ happens at $t_2$, and $t_1 < t_2$, if $P$ and $Q$ are causal (and thus timeline separated), event $P$ will happen before event $Q$ in any other frame as well. Suppose spacelike separated events, $P$ and $Q$ in frame $S$, where causal, as suggested in Fig.~\ref{fig:TO}. In this case, we would have to exchange information at ten times the speed of light (which we are aware is not possible, but bear with me). What are the coordinates of $P$ and $Q$ in any other reference frame that is moving with a speed $v <c$? We have to draw the coordinate axis of this new frame (it does not really matter what the speed of this new frame is, as long as it is less than the speed of light). In that case, we find that the temporal order has flipped! In $S'$, $Q$ now happens before $P$. This obviously is something that appears to be counterintuitive for any type of physical scenario. Since causality is capped by $c$, this indeed never happens in SR.
+Causal events have the same temporal order in all frames. That is, if event $P$ happens at $t_1$ in frame $S$ and event $Q$ happens at $t_2$, and $t_1 < t_2$, if $P$ and $Q$ are causal (and thus timelike or lightlike separated), event $P$ will happen before $Q$ in any other frame as well. Now consider spacelike-separated events $P$ and $Q$ in frame $S$, as suggested in Fig.~\ref{fig:TO}. If one tried to make them causally connected, information would have to travel faster than light (the figure uses ten times the speed of light only as an illustration). In another reference frame $S'$ moving with speed $u<c$ relative to $S$, their temporal order can flip: $Q$ can happen before $P$. This is not a causal paradox precisely because spacelike-separated events cannot influence each other. Since causal influence is capped by $c$, this reversal never occurs for causal event-pairs in SR.
 
 Can nothing move faster than the speed of light (and therefore violate causality, or flip temporal order)? The answer is no. Now, things can appear to move faster than light, and this is okay, as long as no information is being exchanged, i.e., one event does not cause another event. For example, if you have a powerful laser, you could point it at the moon. You can `move' the light of the laser across the surface of the moon at speeds that could exceed the speed of light. This is ok, there is no information exchange and no violation of causality, it is only an apparent (projected in this example) notion of motion.
 
