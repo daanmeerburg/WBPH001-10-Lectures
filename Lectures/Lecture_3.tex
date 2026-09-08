@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -110,10 +111,19 @@ Note that while the train is already moving close to the speed of light, length 
 Before deriving the Lorentz transformations algebraically, it is useful to know what the answer should look like on a spacetime diagram. Figure~\ref{fig:two-observer-diagram} shows the two-observer diagram that we will use as a guide. We use units with $c=1$, so light rays always have slope $\pm 1$.
 
 \begin{figure}
-\begin{center}
-\includegraphics[width=0.88\textwidth]{2ODa.pdf}
-\end{center}
-\caption{A two-observer diagram. The unprimed frame $S$ uses the vertical $t$ axis and horizontal $x$ axis. The moving frame $S'$ uses tilted $t'$ and $x'$ axes.}
+\centering
+\begin{tikzpicture}[scale=0.92,>=Stealth]
+  \draw[->] (-3.1,0) -- (3.3,0) node[right] {$x$};
+  \draw[->] (0,-0.25) -- (0,3.5) node[above] {$t$};
+  \draw[orange,thick] (-2.7,2.7) -- (0,0) -- (2.7,2.7);
+  \draw[blue,very thick,->] (0,0) -- (1.15,3.25) node[above] {$t'$};
+  \draw[blue,very thick,->] (0,0) -- (3.25,1.15) node[right] {$x'$};
+  \node[font=\small] at (2.55,2.9) {light};
+  \node[font=\small] at (-2.55,2.9) {light};
+  \node[font=\small,blue] at (1.55,2.85) {$x'=0$};
+  \node[font=\small,blue] at (2.85,1.55) {$t'=0$};
+\end{tikzpicture}
+\caption{A qualitative two-observer diagram in units with $c=1$. The primed axes are a coordinate grid for the moving frame; no tick marks or interval construction are needed yet.}
 \label{fig:two-observer-diagram}
 \end{figure}
 
@@ -124,7 +134,7 @@ Before deriving the Lorentz transformations algebraically, it is useful to know 
     \item Lines of constant $x'$ are parallel to the $t'$ axis; lines of constant $t'$ are parallel to the $x'$ axis.
 \end{itemize}
 
-The important lesson is that a Lorentz transformation is not a rotation in the Euclidean sense. It tilts the time and space axes toward the light cone while preserving the spacetime interval. This picture should be kept next to the algebra below: the equations tell us how to compute coordinates, while the diagram tells us what the computation means.
+The important lesson is that a Lorentz transformation is not a rotation in the Euclidean sense. It changes the coordinate grid while preserving the physical facts established so far: inertial motion remains inertial, and light has the same speed in every inertial frame. In Lecture 4, we will identify the precise spacetime quantity that is unchanged. This picture should be kept next to the algebra below: the equations tell us how to compute coordinates, while the diagram tells us what the computation means.
 
 \section{Lorentz transformations}\label{sec:LT}
 In Moore, the Lorentz transformations are derived only in {\bf Chapter 5}. In Morin, they are derived in {\bf section 5} of the first chapter. We will first use the spacetime diagram above as a guide, and then follow Morin's algebraic derivation. We will use some of the things we have just learned about clocks and lengths.
