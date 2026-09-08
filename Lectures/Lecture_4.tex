@@ -14,6 +14,8 @@
 \definecolor{lightred}{rgb}{0.9,0,0.1}
 \usepackage{wrapfig}
 \usepackage{tcolorbox}
+% Allow compilation from either the repository root or the Lectures directory.
+\graphicspath{{Figures/}{../Figures/}}
 
 \newcommand{\be}{\begin{eqnarray}}
 \newcommand{\non}{\nonumber \\ }
@@ -48,9 +50,9 @@ We derived the most important transformation rules in SR:
 %\vspace{-1.3em}
 {\bf Lorentz Transformations}
 \be
-\Delta x &=& \gamma_u (\Delta x' + u \Delta t')\label{eq:xLT} \\
-\Delta t &=& \gamma_u (\Delta t' +  u\Delta x' /c^2) \\
-\Delta y &=& \Delta y' \\
+\Delta x &=& \gamma_u (\Delta x' + u \Delta t'),\label{eq:xLT} \\
+\Delta t &=& \gamma_u (\Delta t' +  u\Delta x' /c^2), \\
+\Delta y &=& \Delta y', \\
 \Delta z &=& \Delta z'.
 \ee
 \end{tcolorbox}
@@ -76,7 +78,7 @@ The time it takes for a ray of light to move back and forth between the two mirr
 
 \noindent
 
-\item \textbf{In ground frame (S):} Note again that since the mirrors are displaced in the vertical direction, since the train is moving in the horizontal direction, the separation between the mirrors is not contracted. One of the key postulates of ST is that the speed of light in this frame is still the same. In this frame, the light has to actually cover extra distance. Let us denote this distance as $\Delta d$. The total distance the light has to travel is thus (using Pythagoras):
+\item \textbf{In ground frame (S):} Note again that since the mirrors are displaced in the vertical direction, since the train is moving in the horizontal direction, the separation between the mirrors is not contracted. One of the key postulates of SR is that the speed of light in this frame is still the same. In this frame, the light has to actually cover extra distance. Let us denote this distance as $\Delta d$. The total distance the light has to travel is thus (using Pythagoras):
 \be
 D_{\rm tot} =\sqrt{(2L)^2 + (\Delta d)^2},
 \ee
@@ -92,7 +94,7 @@ This results in our definition of the invariant interval (Morin nomenclature):
 \Delta s^2  = c^2 \Delta t^2 - \Delta d^2 \label{eq:SI}.
 \ee
 \end{tcolorbox}
-What we refer to as $\Delta d^2 = \Delta x^2 + \Delta y^2 + \Delta z^2$. In many cases, we assume 2D problems, and the interval reduces to $\Delta s^2 = c^2\Delta t^2 - \Delta x^2$. You can show that this interval is frame independent by applying the LTs, e.g.:
+Note that without loss of generality, we refer to as $\Delta d^2 = \Delta x^2 + \Delta y^2 + \Delta z^2$. In many cases, we assume 2D problems, and the interval reduces to $\Delta s^2 = c^2\Delta t^2 - \Delta x^2$. You can show that this interval is frame independent by applying the LTs, e.g.:
 \be
 \Delta s^2  &=& c^2 \Delta t^2 - \Delta x^2 \nonumber \\
             &=& c^2 \left[\gamma_u (\Delta t' + u \Delta x'/c^2)\right]^2 - \left[\gamma_u (\Delta x' + u\Delta t')\right]^2 \nonumber \\
@@ -147,11 +149,11 @@ You can consider the case in which $|\vec{v}|$ is time independent\footnote{This
 The multiplicative factor shows that $\Delta \tau = \Delta t$ only if $|\vec{v}| = v = 0$. Now, here we have to be a little careful, because it really has to be that it concerns an object at rest for these to be identical. The fact that say two events happened at the same place no longer suffices. Since we can have a path that connects two events at the same spatial coordinate (in a spacetime diagram parallel to the time coordinate axis), which is not a straight line, it's a path after all. You can also show that $\Delta \tau$ is frame independent. In SR units, where $c=1$, coordinate time, spacetime interval, and proper time can be expressed in the same units.
 
 \subsection{Spacetime diagrams (Minkowski diagrams)}
-In many cases, it is extremely helpful if we can draw a diagram that helps us better understand a particular scenario in SR. Let us first introduce a standard spacetime diagram. The first step to drawing such a diagram is to use SR units. In SR units\footnote{Alternatively, you can multiply the time coordinate axis by $c$ as is done in Morin.}, both the time and spatial axes have the same units (e.g., light seconds, light years). Several example diagrams are shown in Fig.~\ref{fig:STD}. One can draw events as points in such a diagram. Multiple events can be connected via a worldline. As mentioned in lecture 2, light will make a $45^\circ$ angle with the spatial axis. No worldline that belongs to a physical object can have an angle smaller than this, as it would suggest the object is moving faster than the speed of light.
+In many cases, it is extremely helpful if we can draw a diagram that helps us better understand a particular scenario in SR. We already introduced some of this in Lecture 2 and Lecture 3. But here we will do it more rigirously. Let us first introduce a standard spacetime diagram. The first step to drawing such a diagram is to use SR units. In SR units\footnote{Alternatively, you can multiply the time coordinate axis by $c$ as is done in Morin.}, both the time and spatial axes have the same units (e.g., light seconds, light years). Several example diagrams are shown in Fig.~\ref{fig:STD}. One can draw events as points in such a diagram. Multiple events can be connected via a worldline. As mentioned in lecture 2, light will make a $45^\circ$ angle with the spatial axis. No worldline that belongs to a physical object can have an angle smaller than this, as it would suggest the object is moving faster than the speed of light.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Figures/spacetimediagrams.pdf}
+    \includegraphics[width=1\linewidth]{spacetimediagrams.pdf}
     \caption{{\bf Top left:} spacetime diagram with units in light seconds. {\bf Middle left:} An event can be labelled as a point in a spacetime diagram with coordinates $(t_A, x_A)$. {\bf Bottom left:} multiple events in order. {\bf Top right:} these multiple events can be connected via a worldline (e.g., the trajectory of a particle). {\bf Middle right:} the speed of an object is determined as $v = \Delta x/ \Delta t$. In SR, $c =1$ and hence $\Delta x = \Delta t$, and light will make a $45^\circ$ angle with the spatial coordinate axis. {\bf Bottom right:} nothing can move faster than the speed of light, and thus no physical object can have a worldline that makes an angle that is smaller than $45^\circ$ with the spatial axis.}
     \label{fig:STD}
 \end{figure}
@@ -160,7 +162,7 @@ Suppose I am an observer at rest. I want to determine the coordinates of some ev
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Figures/radarmethod.pdf}
+    \includegraphics[width=1\linewidth]{radarmethod.pdf}
     \caption{Radar method. By reflecting a lightray of the event, an observer at rest is able to determine the coordinates of event $E$. In some sense, this is the way to synchronize clocks. }
     \label{fig:RM}
 \end{figure}
@@ -170,7 +172,7 @@ In many scenarios we have sketched so far, we compare two frames $S$ and $S'$, a
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Figures/2ODa.pdf}
+    \includegraphics[width=1\linewidth]{2ODa.pdf}
     \caption{Left: the time coordinate axis $t'$ of the frame $S'$ moving to the right with speed $u$ can be drawn from the worldline $x=ut=\beta t$ in units with $c=1$. Right: intervals of equal time (e.g., light second) as determined by the hyperbola that connects lines of equal spacetime intervals in a spacetime diagram.}
     \label{fig:2ODa}
 \end{figure}
@@ -184,14 +186,14 @@ As an example of the use of hyperbolic paper, we consider length contraction. Th
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/2ODb.pdf}
+    \includegraphics[width=0.5\linewidth]{2ODb.pdf}
     \caption{Using the radar method with event $A$ at $(-T,0)$ and $B$ at $(T,0)$ allows us to find event $E$ that should be located on the $x'$ coordinate axis by design ($t' = 0$). From there, we immediately conclude that $\alpha_1 = \alpha_2$, suggesting that we can obtain the $x'$ axis by drawing a line that obeys $x = \beta^{-1}t$. It should have been obvious from symmetry reasons and the fact that light always makes a $45^{\circ}$ angle with the spatial coordinate axis.}
     \label{fig:2ODb}
 \end{figure}
 
 \begin{figure}
     \centering
-\includegraphics[width=1\linewidth]{Figures/2ODlengthC.pdf}
+\includegraphics[width=1\linewidth]{2ODlengthC.pdf}
     \caption{Left: spacetime diagram with object of length $3$ lightseconds. The object at rest carves out a worldregion, where the ends of the object are worldlines that are parallel to $t$. Middle: two observer diagram, showing how to read off the length of the same object in another frame moving with $\beta = 0.5$ (half the speed of light). As expected, in that frame, the length of the object is contracted. Right: same, but now an object at rest in frame $S'$. This shows indeed that now the object has a length that is contracted in frame $S$ by exactly the same amount. }
     \label{fig:2ODlengthC}
 \end{figure}
@@ -205,7 +207,7 @@ Can nothing move faster than the speed of light (and therefore violate causality
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Figures/TO.pdf}
+    \includegraphics[width=1\linewidth]{TO.pdf}
     \caption{{\bf Left:} In frame $S$, $P$ happens before $Q$. In another frame $S'$, $Q$ happens before $P$. These events are spacelike separated and can not be causal. {\bf Right:} if they were causal, then in another frame $Q$ could cause $P$, which is something we do not experience (you break an egg, there is no frame in which the egg goes from a broken state to an unbroken state).}
     \label{fig:TO}
 \end{figure}
