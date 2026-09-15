@@ -91,7 +91,7 @@ Consider a source that flashes at frequency $\nu'$ in its own rest frame $S'$. R
 The relativistic Doppler effect has two contributions:
 \begin{itemize}
 \item Time dilation: There is more time between flashes in your frame ($S$), which means that the frequency $\nu$ in your frame should go down.
-\item Classic Doppler: similar to sound, if a source is moving towards you, there is less distance to travel to you (and more if it is moving away). This effect increases the frequency when a source is moving towards you, and reduces it when it is moving away. In the case of sound, you are familiar with a car passing by at high speed, or a siren on an ambulance. The sound will move from a high pitch to a low pitch as the source passes by.
+\item Classical (geometric) Doppler: similar to sound, this depends on the component of the source velocity along the line of sight. If a source moves towards you, its distance decreases and successive wavefronts arrive closer together; if it moves away, its distance increases. This increases the observed frequency for approach and reduces it for recession. A passing siren consequently changes from high to low pitch, but at the instant of closest approach its motion is transverse to the line of sight and the instantaneous classical shift is zero.
 \end{itemize}
 To obtain an actual expression for the Doppler effect, we first note that the time interval between the emissions as measured in frame $S'$ can be expressed as $\Delta t' = 1/\nu'$, i.e., one over the frequency of the flashes as measured in frame $S'$. We can apply time dilation to find that the time interval between emissions in frame $S$ is given by $\Delta t = \gamma_u \Delta t'$. Now this is not the time between the flashes as seen by the observer, since the source is moving and the distance to it changes between emissions. Specifically, the source has travelled $u\Delta t=u\gamma_u\Delta t'$ in between emissions. So the time $\Delta T$ between flashes as seen by the observer in $S$ is given by the difference in travel distance between the two emissions, divided by the speed of a flash ($c$), i.e.
 \be
@@ -117,7 +117,7 @@ If a source is moving away from you, $\beta_u>0$ and $\nu<\nu'$. The light of th
 
 
 \subsection{Transverse effect}
-The expression we derived in the previous section holds for sources that are either moving towards you or away from you, the so-called longitudinal Doppler effect. What happens when a source is not moving exactly away from you, but at a slight angle $\Theta$ (see right side Fig.~\ref{fig:Doppler}). In that case, our expression is simply modified by considering the projected velocity along the line of sight, $1+v\rightarrow 1 + v \cos \Theta$. Inserting that into the expression for the longitudinal Doppler Eq.~\eqref{eq:Doppler}, we find
+The expression we derived in the previous section holds for sources that are either moving directly towards you or directly away from you, the so-called longitudinal Doppler effect. What happens when a source is not moving exactly along the line of sight, but at an angle $\Theta$ (see the right side of Fig.~\ref{fig:Doppler})? The changing-distance contribution then involves the projected velocity, so $1+\beta_u\rightarrow 1+\beta_u\cos\Theta$. Inserting that into Eq.~\eqref{eq:Doppler}, we find
 \be
 \nu  = \gamma_u^{-1} (1+\beta_u \cos \Theta)^{-1} \nu'.
 \ee
@@ -125,22 +125,22 @@ We can consider the extreme case when the source is moving transverse to the obs
 \be
 \nu = \nu' \sqrt{(1-\beta_u^2)}.
 \ee
-Note that this is a second-order effect. It does not have an equivalent in classical theory. The above scenario is equivalent to `Case 2' in Morin.
+Note that this is a second-order effect. At the instant when a classical sound source moves transversely to the line of sight, its radial velocity is zero, so there is no instantaneous classical Doppler shift. For light, however, the source clock still runs slowly, which produces the transverse redshift. The above scenario is equivalent to `Case 2' in Morin.
 %[Have to think about a way to explain case 1; perhaps it is not possible with this simple example. ]
 
 \section{Rapidity}\label{sec:Rap}
 Recall that we could write the Lorentz transformations in matrix notation:
 \be
 \begin{pmatrix}
-\Delta x' \\
- c\Delta t'
+c\Delta t' \\
+\Delta x'
 \end{pmatrix} =
 \begin{pmatrix}
 \gamma_u & -\beta_u \gamma_u \\
 -\beta_u \gamma_u  & \gamma_u
 \end{pmatrix}\begin{pmatrix}
-\Delta x \\
-c\Delta t
+c\Delta t \\
+\Delta x
 \end{pmatrix}.
 \ee
 Now, let us define the rapidity $\phi_u$ of the boost as
@@ -166,15 +166,15 @@ and
 This allows us to write the Lorentz transformation as
 \be
 \begin{pmatrix}
-\Delta x' \\
- c\Delta t'
+c\Delta t' \\
+\Delta x'
 \end{pmatrix} =
 \begin{pmatrix}
 \cosh \phi_u & -\sinh \phi_u \\
 -\sinh \phi_u  & \cosh \phi_u
 \end{pmatrix}\begin{pmatrix}
-\Delta x \\
-c\Delta t
+c\Delta t \\
+\Delta x
 \end{pmatrix},
 \ee
 which is remarkably similar to rotations around an angle $\alpha$ in Euclidean space:
