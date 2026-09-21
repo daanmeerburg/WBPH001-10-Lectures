@@ -266,18 +266,18 @@ These transformation rules are the cornerstone of SR, and from these, everything
 We can consider the limit $u\rightarrow 0$. In that case, we know $\gamma \rightarrow 1$ and $\Delta t = \Delta t'$ (as $u/c \ll 1$) while $\Delta x = \Delta x' + u \Delta t'$, i.e., the Galilean transformations.
 
 \subsection{Matrix notation}
-We can write the Lorentz transformation in matrix notation if we use SR units:
+Using the time-first convention, we can write the Lorentz transformation in matrix notation as
 \be
 \begin{pmatrix}
-\Delta x' \\
-\Delta t'
+c\Delta t' \\
+\Delta x'
 \end{pmatrix} =
 \begin{pmatrix}
 \gamma & -\beta \gamma \\
 -\beta \gamma  & \gamma
 \end{pmatrix}\begin{pmatrix}
-\Delta x \\
-\Delta t
+c\Delta t \\
+\Delta x
 \end{pmatrix},
 \ee
 with $\beta = u/c$.  Note that I have considered the inverse transformations (going from frame $S$ to $S'$). In that case we pick up a minus sign in the boost speed, since from the perspective of an observer at rest in frame $S'$, anyone comoving\footnote{I will often use comoving, which often is short-hand for stating that an observer is at rest with respect to some coordinate frame, and moving with (=comoving) the frame as observed from any other inertial reference frame.} with frame $S$ is now moving in the opposite direction.
