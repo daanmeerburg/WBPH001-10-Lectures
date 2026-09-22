@@ -43,7 +43,7 @@
 \end{enumerate}
 
 \section{Statics}\label{sec:statics}
-Before we start discussing dynamics and important conservation laws, let us briefly discuss statics. If an object is motionless and remains motionless, then Newton's second law ${\bf F} = m {\bf a}$ tells us that the total net force on that object must be zero. For any statics problem, it is thus perilous to identify all the relevant forces. In addition, because force is a vector (it has a direction), for any given problem, it is important to consider the right set of coordinates to solve the problem. 
+Before we start discussing dynamics and important conservation laws, let us briefly discuss statics. If an object is motionless and remains motionless, then Newton's second law ${\bf F} = m {\bf a}$ tells us that the total net force on that object must be zero. For any statics problem, it is thus imperative to identify all the relevant forces. In addition, because force is a vector (it has a direction), for any given problem, it is important to consider the right set of coordinates to solve the problem.
 
 Before we work out some examples, let us consider the different forces that typically play a role in many statics problems. 
 
@@ -52,7 +52,7 @@ Before we work out some examples, let us consider the different forces that typi
 
 \item {\bf Normal Force:} The normal force is the support force exerted by a surface on an object resting on it. It acts perpendicular to the surface, balancing some or all of the object's weight. It can be thought of as the tension of a compressed spring.  
 
-\item {\bf Friction:} Friction is the resistive force that opposes motion or the tendency of motion between two surfaces in contact. It acts parallel to the surface and opposite the direction of relative motion (or intended motion). Static friction concerns objects that are at rest relative to each other. The maximum force attributed to static friction $F =  \mu_s N$, with $\mu_s$ the coefficient of static friction and $N$ the normal force. Once the objects start moving w.r.t. another, this force should decrease. 
+\item {\bf Friction:} Friction is the resistive force that opposes motion or the tendency of motion between two surfaces in contact. It acts parallel to the surface and opposite the direction of relative motion (or intended motion). Static friction concerns objects that are at rest relative to each other and adjusts as needed up to $|F_s|\leq \mu_s N$, with $\mu_s$ the coefficient of static friction and $N$ the normal force. Once surfaces slide relative to one another, kinetic friction is often modelled as $|F_k|=\mu_kN$, typically with $\mu_k<\mu_s$.
 
 \item {\bf Gravity: }Gravity is the attractive force exerted by the Earth (or another massive body) that pulls objects toward its center, i.e., 
 \be
@@ -107,7 +107,7 @@ Note that the absolute sign here was strictly introduced because the friction ha
 \be
 |\tan \theta - 1| \leq\mu_s (1 + \tan \theta).
 \ee
-Considering $\tan \theta \geq 1$, we find 
+For $0\leq\mu_s<1$, considering $\tan \theta \geq 1$, we find
 \be
 \tan \theta \leq \frac{1+\mu_s}{1-\mu_s},
 \ee
@@ -163,15 +163,15 @@ How do objects move? From statics, we want to move to dynamics. Classical dynami
 Before Lagrange and Hamilton, we used forces as described by Newton's laws. 
 Newton's laws are 
 \begin{itemize}
-\item {\bf First Law:} A body moves with constant velocity unless acted upon by a force. It also defines an initial reference frame, the frames we have discussed earlier, to which special relativity applies. Here, the definition of an inertial frame can be defined as a frame where Newton's first law applies.  
-\item {\bf Second Law:} The time rate of change of the momentum of a body equals the force acting on the body. In classical mechanics (three) momentum is defined as ${\bf p} = m{\bf v}$ or ${\bf F} = m{\bf a}$, since ${\bf a} \equiv \frac{d{\bf v}}{dt}$. This law only holds in an inertial frame, as stated by the first law. It is not simply a definition of force, since some forces do not depend on the particles on which they act, but still, the rate of change of the momentum og these particles will be equivalent to the force. This law holds for all particles, i.e., if we act with the same force on two particles (of different or equal mass), the ratio of their acceleration is proportional to the ratio of their inverse masses.  
-\item {\bf Third Law:} For every force on one body, there is an equal and opposite force on another body. Consider two particles with masses $m_1$ and $m_2$ that only interact with each other and nothing else. The total change in momentum is given by 
+\item {\bf First Law:} A body moves with constant velocity unless acted upon by a net force. It identifies inertial frames: frames in which Newton's first law holds. These are the same kind of inertial frames to which special relativity applies.
+\item {\bf Second Law:} The time rate of change of the momentum of a body equals the net force acting on the body. In classical mechanics, momentum is ${\bf p}=m{\bf v}$, so for constant mass ${\bf F}=m{\bf a}$, with ${\bf a}\equiv d{\bf v}/dt$. This law holds in inertial frames. It expresses an empirical relation between a particle's motion and the net force on it: applying the same net force to particles of different masses produces accelerations inversely proportional to their masses.
+\item {\bf Third Law:} For every force on one body, there is an equal and opposite force on another body. Consider two particles with masses $m_1$ and $m_2$ that interact only with each other. The total rate of change of momentum is
 \be
 \frac{d{\bf p}_{\rm total}}{dt} = \frac{d{\bf p}_{1}}{dt} + \frac{d{\bf p}_{2}}{dt} = {\bf F}_1 + {\bf F}_2 
 \ee
-with ${\bf F}_1$ and ${\bf F}_2$ the forces acting on the two masses. If the total momentum is conserved (assuming this is a fully isolated system), then ${\bf F}_1 = - {\bf F}_2$. In other words, we will never find a particle accelerating unless there is some other particle accelerating elsewhere. 
+with ${\bf F}_1$ and ${\bf F}_2$ the forces acting on the two masses. Newton's third law gives ${\bf F}_1=-{\bf F}_2$, so the total momentum is conserved. For a closed two-particle system, the two particles exchange equal and opposite momentum.
 \end{itemize}
-As Morin points out, these laws are of intellectual importance, but we should not attach too much significance to them. They are approximations of more fundamental theories, and we will see that the third law, for example, breaks down in special relativity, where (3) momentum is not conserved, even if there are only particles around and we have an isolated system\footnote{Some new form of momentum, which we call relativistic momentum, is conserved}. 
+As Morin points out, these laws are of intellectual importance, but we should not attach too much significance to them. They are approximations to more fundamental theories. In special relativity, the instantaneous pairwise form of the third law is not generally adequate: for example, electromagnetic fields can carry momentum. The momentum of the particles alone then need not be conserved, but the total momentum of particles and fields is conserved. For a particle, the relativistic momentum is ${\bf p}=\gamma m{\bf v}$, and energy and momentum are naturally combined into a 4-vector.
 
 Using the second law, we can actually derive quantitative results. By means of collecting all forces of a given system, we can determine if that system is accelerating. We can distinguish two types of problems. The first concerns problems where we consider a physical situation, and as in the examples above, we have to collect all the forces, which generally act in different directions, and determine if an object is accelerating (there is a net force). The second set of problems concerns problems where the force is given as a function of, e.g., position, time, and velocity. We then have to solve a mathematical equality, i.e., by considering ${\bf F} = m {\bf a} = m \ddot{\bf x}$. For now, we will focus on the first of these problems. The second of these will be discussed in Diederik's lectures.  
 
@@ -214,7 +214,7 @@ We can integrate the total force (see your calculus class):
 \int_{x_0}^{x} F(x') dx' &= &\int_{v_0}^{v} m v' dv' \nonumber \\
 &= &\frac{1}{2} mv^2 - \frac{1}{2} m v_0^2.  
 \ee
-By equating $E =\frac{1}{2} m v_0^2 $, we then write 
+Defining the integration constant $E=\frac{1}{2} m v_0^2$, we then write
 \be
 E = \frac{1}{2} m v^2 - \int_{x_0}^{x} F(x') dx'.
 \ee
@@ -268,7 +268,7 @@ Next, we use $GM/r^2 = g$, and we find the familiar result $V = mgy$. \\
 \be
 W_{\rm total} = \int_{x_1}^{x_2} F_{\rm total} dx,
 \ee
-then the force is called conservative if the force only depends on position (or is constant). This theorem is true only for forces in one dimension. Only if the force is conservative can we talk about the associated potential energy (since we would like to be able to label each value of $x$ with a unique number $V(x)$. The gravitational force is an example of a force that is conservative, even in three dimensions. 
+then, in one dimension, any force that depends only on position is conservative. In more than one dimension, position dependence alone is not sufficient: the work must also be path independent. Only for a conservative force can we assign a single-valued potential energy to each position. The gravitational force is an example of a conservative force, also in three dimensions.
 \\
 
 \noindent
@@ -302,7 +302,7 @@ Since we can't assume the human body is not 100\% efficient, your potential ener
 The main point is that you can look at a setup in different ways, depending on what you pick as your system. Potential energy, in one way, might show up as work in another. The main point is that the total energy is conserved for a closed system.\\ 
 
 \noindent
-Let us now consider forces in three dimensions. We again assume forces that only depend on position, i.e., ${\bf F }={\bf F }({\bf r})$, since such forces are the only ones that we could expect to be conservative. We can write 
+Let us now consider forces in three dimensions. We again consider forces that depend only on position, i.e., ${\bf F }={\bf F }({\bf r})$. This is necessary but not sufficient for a force to be conservative. We can write
 \be
 {\bf F} \cdot d{\bf r} = m {\bf v}\cdot d {\bf v},
 \ee
@@ -324,9 +324,9 @@ E = \frac{1}{2} mv^2 + V({\bf r}).
 \ee
 The sum of the kinetic energy and the potential energy is constant. 
 
-Now let's come back to conservative forces. In three dimensions, the necessary condition for force to be conservative is that the curl of the force is zero, i.e., $\nabla \times {\bf F} = {\bf 0}$, in that case, the force will be path independent, even in three dimensions. See Morin for proof. The simpler and quicker proof is provided on page 151. If indeed the force is conservative, the potential is uniquely defined. We can then write down the differential form:
+Now let's come back to conservative forces. In a simply connected region of three-dimensional space, a force is conservative if and only if its curl vanishes: $\nabla \times {\bf F}={\bf 0}$. Then the work is path independent and the potential is uniquely defined (up to an additive constant). We can then write down the differential form:
 \be
-dV = -{\bf F}({\bf r}) \cdot d({r}) \equiv - (F_x dx + F_y dy + F_z dz).
+dV = -{\bf F}({\bf r}) \cdot d{\bf r} \equiv - (F_x dx + F_y dy + F_z dz).
 \ee
 At the same time, we can expand the differential of the potential as 
 \be
@@ -334,7 +334,7 @@ dV = \frac{\partial V}{\partial x} dx + \frac{\partial V}{\partial y} dy + \frac
 \ee
 and hence:
 \be
-F_{X} =- \frac{\partial V}{\partial X} \Rightarrow {\bf F}({\bf r}) = - \nabla V({\bf r}),
+F_X=- \frac{\partial V}{\partial X} \Rightarrow {\bf F}({\bf r}) = - \nabla V({\bf r}),
 \ee
 with $X = x,y,z$. In other words, the force is the gradient of the potential. Now we can take the curl of this, i.e. 
 \be
@@ -359,7 +359,7 @@ Hence, the total momentum of an isolated system is conserved. This is a vector e
 
 The example above is for two particles, but can naturally be extended to a system of $n$ particles. We simply define the force of particle $j$ on particle $i$ as ${\bf F}_{ij}$ (where $i,j$ run from $1$ to $n$): 
 \be
-\int \Delta {\bf p}_i = \int \left(\sum_j {\bf F}_{ij}\right) dt.
+\Delta {\bf p}_i = \int \left(\sum_j {\bf F}_{ij}\right) dt.
 \ee
 The change in total momentum of all particles is 
 \be
@@ -396,7 +396,7 @@ We can define the position of the center of mass:
 \be
 R_{\rm CM} \equiv \frac{\sum m_i {\bf r}_i}{M}.
 \ee
-The center of mass does not move with respect to the center of mass frame. We can therefore choose the center of mass to be the origin of the center of mass frame. If we take two derivatives with respect to time of the center of mass position vector and multiply by $M$, we find 
+For an isolated system, the center of mass does not move with respect to the center-of-mass frame. We can therefore choose the center of mass to be the origin of that frame. If we take two derivatives with respect to time of the center-of-mass position vector and multiply by $M$, we find
 \be
 M {\bf a}_{\rm CM} = \sum_i m_i {\bf a}_i = \sum_i {\bf F}_i  = {\bf F}_{\rm total}.
 \ee
@@ -451,7 +451,7 @@ v_M^f = \frac{2mv_m^i}{m + M},
 \ee
 consistent with our previous results. \\
 
-In classical dynamics for one-dimensional elastic scatterings, the relative velocity of the two particles after the collision is the negative of the relative velocity before the collision. This can be directly shown using Eqs.~\eqref{eq:conservation} and assuming $v_M^i\neq 0$. We can rearrange those to find 
+In classical dynamics for one-dimensional elastic scatterings, the relative velocity of the two particles after the collision is the negative of the relative velocity before the collision. This can be directly shown using Eqs.~\eqref{eq:conservation}, provided the collision is nontrivial ($v_m^i\neq v_m^f$). We can rearrange those to find
 \be
 m(v_m^i -v_m^f) &=& M (v_M^f - v_M^i), \\
 m((v_m^i)^2 - (v_m^f)^2) &=& M ((v_M^f)^2 -(v_M^i)^2).
