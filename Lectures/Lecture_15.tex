@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, physics, graphicx, tikz}
+\graphicspath{{../}}
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -42,38 +43,54 @@
     \item \href{sec:UAF}{Uniformly accelerating frame}
 \end{enumerate}
 
-\section{Recap lecture 14}
+\section{Recap lecture 14}\label{sec:recap}
+In Lecture 14, we recast relativistic dynamics in four-vector language. Starting from the spacetime displacement $dS=(dt,d\mathbf{x})$ (in units with $c=1$), differentiation with respect to the invariant proper time $d\tau$ gives the four-velocity $V=\gamma(1,\mathbf v)$. Multiplying by the mass gives the four-momentum,
+\be
+P=mV=(E,\mathbf p),
+\ee
+so relativistic energy and three-momentum are the time and spatial components of one object.  Its invariant norm gives
+\be
+P\cdot P=E^2-|\mathbf p|^2=m^2,
+\ee
+and the Lorentz transformation of $P$ reproduces the energy--momentum transformation rules from Lectures 10 and 11.
+
+Taking one further proper-time derivative gives the four-acceleration and four-force,
+\be
+A=\frac{dV}{d\tau},\qquad
+F=\frac{dP}{d\tau}=mA,
+\ee
+for constant mass.  These equations are covariant: if they hold in one inertial frame, they hold in every inertial frame.  By contrast, the three-vector equation $\mathbf F=m\mathbf a$ is not generally valid in special relativity, because the longitudinal and transverse components of the coordinate acceleration transform differently.  The useful three-force law remains $\mathbf F=d\mathbf p/dt$.
+
+We also used instantaneous comoving inertial frames: at any event on a timelike worldline, one may choose an inertial frame in which the particle is momentarily at rest.  This is the bridge to today's topic.  We will use local inertial frames and accelerated observers to ask what can, and cannot, be distinguished locally from a gravitational field.
 
 \section{The equivalence principle}\label{sec:EP}
-States that it is impossible to distinguish between gravity and acceleration locally. 
+The equivalence principle states that, in a sufficiently small region of spacetime, the effects of a uniform gravitational field are indistinguishable from those seen by an accelerated observer. The word \emph{locally} is essential: near a real gravitating body, gravitational field lines are not exactly parallel, and tidal effects over a sufficiently large region can reveal the presence of gravity.
 
-Morin provides several examples; the main point is here locally. That is, you consider the field lines of the gravitational field to be parallel. Around any given massive object, field lines will point towards the gravitational center of the object. And hence, measured over sufficiently large distances, you would observe field lines not to run parallel. 
-
-The equivalence principle states that gravitational mass, as defined through $F=GMm_g/r^2=m_g g$, is equivalent to the inertial mass that appears in $F=m_i a$. Hence, an object dropped on Earth accelerates as $a=(m_g/m_i)g$. Experiments have found the ratio $m_g/m_i$ to be the same for all tested materials; the equivalence principle asserts that this universality is exact. \\
+Historically, the principle is tied to the observed equality of gravitational and inertial mass. If $F=m_g g=m_i a$, then a freely falling body has $a=(m_g/m_i)g$. Experiments find the ratio $m_g/m_i$ to be universal; the equivalence principle takes this universality to be exact. In the following, we use the principle to predict gravitational clock effects from an accelerated rocket.
 
 \noindent 
-{\bf Time dilation} Consider an instantaneous inertial frame, $S$ of a rocket of height $h$ far away from a gravitational field. At $t = 0$, the rocket is at rest, after which it accelerates with $g$. Now consider a light source near the top of the rocket (at height $h$) that emits flashes at time intervals $t_s$. At time $t$, the rocket has traveled a distance $\Delta d = gt^2/2$. If we assume that $t_s$ is very small, we can assume that many light pulses have been emitted before the rocket has moved appreciably. The speed of the rocket, $v = gt$ is also quite small. We will therefore ignore the motion of the rocket, as far as the light source is concerned. 
-
-The light will take a finite time to reach a receiver at the bottom of the rocket. By then, the receiver will have moved. Hence, we can not ignore the motion of the rocket when we consider the receiver. The time it takes for the light to reach the receiver is $h/c$. At this point, the receiver should have a velocity $v = g(h/c)$. The classical Doppler effect would thus tell us that the interval between the pulses measured by the receiver is related to the impulses as emitted by the source:
+{\bf Gravitational time dilation from an accelerated rocket.} Consider an instantaneous inertial frame $S$ in which a rocket of height $h$ is initially at rest, far from gravitating bodies. It then accelerates upward with acceleration $g$. A source at the top emits downward light pulses separated by a short interval $t_s$. We work to first order in $gh/c^2\ll1$. During the flight of one pulse, the source moves only negligibly, but the receiver at the bottom does not: the flight time is approximately $h/c$, so the receiver has acquired the small upward speed
+\be
+v\simeq g\frac{h}{c}.
+\ee
+The receiver therefore moves toward each downward-moving pulse. In the instantaneous inertial frame $S$, the light still travels at speed $c$; the relevant $c+v$ is only the closing speed of the pulse and receiver. To first order, the Doppler argument gives
 \be
 t_r = \frac{t_s}{1+v/c}.
 \ee
-In frame $S$, every light pulse still moves at speed $c$. The factor $c+v$ is the closing speed between a downward-moving pulse and the receiver, which is moving upward at speed $v$; it is not the speed of light in this frame.
-
-The frequencies, $\nu_r = 1/t_r$ and $\nu_s = 1/t_s$ are related as 
+Thus the receiver at the bottom measures a blueshift,
 \be
 \nu_r = \left(1+\frac{v}{c}\right) \nu_s = \left(1+ \frac{gh}{c^2}\right)\nu_s.
 \ee
-Hence, a clock that is at some height $h$ is running faster by a factor $1+gh/c^2$ as observed by a receiver at the base of the rocket. The equivalence principle will tell us the result should also hold for a tower on Earth emitting a flash from the top to the bottom at height $h$, and this tower is in a uniform gravitational field (of the Earth). In other words, we should see time dilation for clocks that are either higher or lower up in a gravitational potential (field), with clocks that are running faster, as they are further away from the source of the gravitational field. 
+Equivalently, a clock at the top runs faster than a clock at the bottom by the factor $1+gh/c^2$, to this order. By the equivalence principle, the same local result applies to a tower in a uniform gravitational field: clocks higher in the gravitational potential run faster.
 
 \subsection*{Example 1: Airplane speed}
 A plane flies at constant speed $v$. What should the height $h$ of the plane be so that an observer on the ground sees the plane's clock tick at the same rate as the ground clock? Assume a uniform gravitational field pointing straight down and a plane that is moving in the $x$ direction. 
 
-Clock $A$ is the clock on the ground. Two clocks are placed between two positions along the plane's flight trajectory, $B_1$ and $B_2$. A fourth clock is located on the plane. We know from the previous section that $\Delta t_B = (1+gh/c^2)\Delta t_A$, where $\Delta t_B$ is both the time elapsed on clock $B_1$ and $B_2$. As the plane is flying by $B_1$ and $B_2$, we have $\Delta t_C = \Delta B / \gamma$. We thus have 
+Let clock $A$ remain on the ground. Place identical, synchronized clocks $B_1$ and $B_2$ at height $h$ along the flight path, and let clock $C$ be carried by the plane. When the plane passes $B_1$ and then $B_2$, the elapsed time on the two stationary height-$h$ clocks is $\Delta t_B$. The gravitational result above gives $\Delta t_B=(1+gh/c^2)\Delta t_A$, while time dilation for the moving plane gives $\Delta t_C=\Delta t_B/\gamma$. Hence
 \be
 \Delta t_C = \frac{\Delta t_B}{\gamma} = \frac{1+gh/c^2}{\gamma} \Delta t_A = \sqrt{1-v^2/c^2}(1+gh/c^2) \Delta t_A.
 \ee
-We can take the limit $v\ll c$. In that case, we can use the binomial formula to expand the inverse Lorentz factor:
+For $v\ll c$ and $gh/c^2\ll1$, retain the terms $v^2/c^2$ and $gh/c^2$, but neglect their product. Expanding the inverse Lorentz factor gives
 \be
 \Delta t_C \simeq (1-\frac{v^2}{2c^2} + \frac{gh}{c^2}) \Delta t_A
 \ee
@@ -81,12 +98,14 @@ For $\Delta t_A = \Delta t_C$, we need
 \be
 (1-\frac{v^2}{2c^2} + \frac{gh}{c^2}) = 1\rightarrow h = \frac{v^2}{2g}.
 \ee
-\section{Uniformly accelerating frame}
-Consider a particle of mass $m$. Let the frame where the particle is (instantaneously) at rest be $S'$, and it starts at rest in the inertial frame $S$ (the lab frame). The longitudinal force (the force along the direction of motion) should be the same in both frames (based on our derivations). Let us denote this force with $f$. We know that the 3-force is equivalent to $dp/dt$. Assuming a constant force on the particle, we can write (note that in the following we silently assume in frame $S$ that $\Delta t = t - t_0$ and $t_0 = 0$, and $\Delta x = x- x_0$ with $x_0 = 0$)
+\section{Uniformly accelerating frame}\label{sec:UAF}
+We first recall the constant-force example from Lecture 12's blackboard discussion (Board 3). We then use it to derive the hyperbolic worldline and construct an accelerated frame.
+
+Use units with $c=1$ throughout this section. Consider a particle of mass $m$, initially at rest at $x=0$ in an inertial lab frame $S$, subject to a constant longitudinal three-force $\mathbf F=(F_x,0,0)$ with $F_x>0$. Let $S'$ be its instantaneous rest frame. As in Lectures 12 and 14, $F_x=dp_x/dt$ and the longitudinal force is unchanged by the boost into $S'$, so $F_x'=F_x$. In that instantaneous rest frame, $F_x'=m a_x'$. Thus $g\equiv F_x/m=a_x'$ is the particle's constant \emph{proper acceleration}. Taking $t_0=x_0=0$ in $S$, we obtain
 \be
-m\gamma v  = f t,
+p_x=m\gamma v=F_x t,
 \ee
-where $t$ is the time measured in $S$. Now we assume $g = f/m$, and we write (in SR units)
+where $t$ is the time measured in $S$. Substituting $g=F_x/m$ gives
 \be
 gt  = \gamma v \rightarrow (gt)^2 = \frac{v^2}{1-v^2} \rightarrow v = \frac{gt}{\sqrt{1+(gt)^2}}. 
 \ee
@@ -96,23 +115,23 @@ We can calculate the position of the particle in frame $S$ at time $t$:
 \be
 x = \int_{0}^t v(t') dt'  = \int_{0}^t \frac{gt'}{\sqrt{1+(gt')^2}} dt' = \frac{1}{g}\left(\sqrt{1+(gt)^2} - 1\right).\label{eq:x}
 \ee
-In the limit $t\ll 1$, we find $x \simeq gt^2/2$. 
+For $gt\ll1$, this reduces to the Newtonian result $x\simeq gt^2/2$.
 
-Next consider a point $P$, with coordinates $(t_P, x_P) = (0,-1/g)$ (see fig.~\ref{fig:spacetime1}). We can compute:
+Next consider the point $P$ with coordinates $(t_P,x_P)=(0,-1/g)$ (see Fig.~\ref{fig:spacetime1}). Equation \eqref{eq:x} immediately gives
 \be
-(x-x_P)^2 - t^2 = x^2 - 2x x_P + x_P^2 -t^2
+x-x_P=x+\frac{1}{g}=\frac{\sqrt{1+(gt)^2}}{g}.
 \ee
-with $x$ given by equation \eqref{eq:x} and $x_P = -1/g$:
+Therefore,
 \be
-&&\frac{1}{g^2} \left( 1+(gt)^2 - 2 (\sqrt{1+(gt)^2}-1)+1 \right) + \frac{2}{g^2}(\sqrt{1+(gt)^2}-1) + \frac{1}{g^2} - t^2 \nonumber \\
-&=& \frac{4}{g^2} - \frac{3}{g^2} = \frac{1}{g^2}. 
+(x-x_P)^2-t^2
+=\frac{1+(gt)^2}{g^2}-t^2=\frac{1}{g^2}.
 \ee
 The equation $(x-x_P)^2-t^2 = 1/g^2$ describes a hyperbola with the intersection of the asymptotes at point $P$. This is the worldline of the particle. 
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{SpaceTimeA_Ch14.pdf}
-    \caption{Spacetime diagram showing point $P$ and point $A$ as described in the text. At the instantaneous inertial frame at point $A$ the coordinate $x'$ and $t'$ axes are shown. Particle $A$ moves along the blue worldline. Its distance to $P$ (as measured in the frame comoving with $A$) is constant). }
+    \caption{Spacetime diagram showing point $P$ and an event $A$ on the particle's worldline. In the instantaneous inertial frame at $A$, the $x'$ and $t'$ axes are shown. The particle follows the blue worldline, and its distance to $P$, measured in its instantaneous rest frame, is constant.}
     \label{fig:spacetime1}
 \end{figure}
 
@@ -120,13 +139,15 @@ Now consider another point $A$ on the particle's hyperbolic worldline. We write:
 \be
 (t_A, x_A) = \left(t_A, \frac{1}{g}\left(\sqrt{1+(gt_A)^2} - 1\right)\right).
 \ee
-The slope of the line $PA$ is given by (note that Morin is quite sloppy here, dropping labels whenever he pleases):
+The slope of the line $PA$ is
 \be
 \frac{t_A- t_P}{x_A - x_P} = \frac{gt_A}{\sqrt{1+(gt_A)^2}} = v_A,
 \ee
 i.e., the velocity at point $A$ by virtue of the equation for the velocity we derived earlier. This is also the slope of the particle's instantaneous $x'$ axis in the particle's frame $S'$. 
 
-We have not specifically made assumptions about $A$, except that it should be along the worldline of the particle. Hence, the notion that the slope of the line $PA$ is equivalent to the velocity at point $A$ is true for an arbitrary point $t_A$. Points along $x'$ (and parallel to $x'$) are simultaneous. This is true no matter where the particle is (along the worldline). Hence, $P$ will be simultaneous with an event located at the particle, as measured in the instantaneous inertial frame $S'$ of the particle. For a particle along the hyperbolic worldline, $P$ always happens now. This is very similar to the event horizon of a black hole; as seen by the accelerating particle, time seems to stand still at $P$ (since at any moment $t$ $P$ will be now). For a faraway observer around a black hole, time will appear to stand still at the horizon. This again shows the equivalence principle. 
+Hence the slope construction works at every event along the worldline. For each such event $A$, the line through $A$ parallel to the instantaneous $x'$ axis is that instantaneous rest frame's line of simultaneity, and it passes through $P$. Thus $P$ is simultaneous with $A$ in \emph{each different} instantaneous rest frame. This does not define one global, observer-independent ``now'': the instantaneous rest frame changes continuously along the accelerated trajectory.
+
+The common null asymptotes of these hyperbolae will become the Rindler horizons below. They provide a useful, limited analogy with horizons near black holes, but they are coordinate-dependent features of flat spacetime, not curvature singularities.
 
 We can also find the distance between point $P$ and point $A$ as measured in $S'$. The Lorentz factor between $S$ and $S'$ is given by:
 \be
@@ -150,18 +171,24 @@ Let us consider two particles, $A$ and $B$. As in the previous example, their wo
     \centering
     \includegraphics[width=0.45\linewidth]{STDB.pdf}
     \includegraphics[width=0.45\linewidth]{STDC.pdf}
-    \caption{Left: Two particles follow different hyperbolic worldlines with the same null asymptotes through $P$. Initially their proper distances from $P$ are $a$ and $b$, with $g_A=1/a$ and $g_B=1/b$. The events $E_A$, $E_B$, and $P$ lie on a common accelerated-frame simultaneity line. Right: after particle $A$ detaches and follows an inertial straight worldline, it crosses the grey dashed Rindler horizon in finite proper time. Observers who remain at fixed Rindler positions assign the horizon crossing an infinite accelerated coordinate time. This resembles the coordinate description of an observer approaching a black-hole horizon.}
+    \caption{Left: Two particles follow different hyperbolic worldlines with the same null asymptotes through $P$. Initially their proper distances from $P$ are $a$ and $b$, with $g_A=1/a$ and $g_B=1/b$. The events $E_A$, $E_B$, and $P$ lie on a common accelerated-frame simultaneity line. Right: after particle $A$ detaches and follows an inertial straight worldline, it crosses the thick grey dashed Rindler horizon in finite proper time. The thin blue dashed straight lines through $P$ are successive simultaneity lines (the spatial coordinate axes) of $B$'s instantaneous rest frames. They approach the horizon as Rindler time tends to infinity, explaining why the crossing has no finite Rindler time.}
     \label{fig:spacetime2}
 \end{figure}
 
 
-Let us assume the proper distance to point $P$ is given by $a$ (for particle $A$) and $b$ for particle $b$. From Eq.~\eqref{eq:distance}, for points (particles) centered around $P$, we then know that the acceleration must be given by $g_A = 1/a$ and $g_B = 1/b$ (by construction $(t_P,x_P)=(0,-1/g)$). Thus, to make all points (particles) centered around $P$, we simply have to make sure their proper accelerations are inversely proportional to their initial distance to point $P$. 
+Let the proper distances from $P$ be $a$ for particle $A$ and $b$ for particle $B$. In the $c=1$ units of this section, Eq.~\eqref{eq:distance} gives the required proper accelerations
+\be
+g_A=\frac{1}{a},\qquad g_B=\frac{1}{b}.
+\ee
+(With $c$ restored, these read $g_A=c^2/a$ and $g_B=c^2/b$.) Thus, to keep the particles at fixed separations in the accelerated frame, their proper accelerations must be inversely proportional to their distance from $P$.
 
-Now consider two events $E_A$ and $E_B$, such that $P$, $E_A$ and $E_B$ are collinear. The line that passes through these points by construction is the $x'$ axis for both particles $A$ and $B$. In addition, we know that $A$ is always a distance $a$ away from $P$ and $B$ is a distance $b$ away from $P$. For both particles, we measure `length' along the $x'$ axis, and hence the distance between $A$ and $B$ equals $b-a$, and this is constant (independent of time) as we have shown when discussing the single particle. This would therefore present a static frame and is referred to as a Rindler space. An observer in this frame would observe a static world, where acceleration due to gravity takes the form $g(z) \propto 1/z$, and $z$ is the distance to some magical point $P$ which is located at the end of the known `universe'. 
+Now consider two events $E_A$ and $E_B$, such that $P$, $E_A$ and $E_B$ are collinear. The line that passes through these points is, by construction, the $x'$ axis for both particles $A$ and $B$. In addition, $A$ is always a distance $a$ from $P$ and $B$ is always a distance $b$ from $P$. For both particles, length is measured along this $x'$ axis, so the distance between $A$ and $B$ is $b-a$, independent of time. This gives a static accelerated frame, called a Rindler frame. If $\rho$ denotes the instantaneous proper distance to $P$, observers fixed at different Rindler positions require different proper accelerations, $g(\rho)=1/\rho$ (or $c^2/\rho$ with $c$ restored). This is the acceleration needed to remain at rest in these coordinates; it is not a Newtonian gravitational field sourced by matter at $P$.
 
 If this observer detaches from the accelerating frame and subsequently follows an inertial worldline, the accelerated-frame description resembles free fall. The observer crosses the null Rindler horizon in finite proper time, because the straight inertial worldline intersects the common asymptote of the hyperbolic worldlines (see the right side of Fig.~\ref{fig:spacetime2}). The observer does not pass through the event $P$ in general.
 
-Observers who remain at fixed positions in the accelerating frame use Rindler time. In these coordinates, the detached observer approaches the horizon only as the accelerated coordinate time tends to infinity. The horizon is therefore a boundary of the accelerated coordinate system, even though the underlying Minkowski spacetime is regular there.
+Observers who continue accelerating along the hyperbolic worldlines remain at fixed Rindler positions. Using their accelerated coordinate system, the detached observer approaches the horizon as Rindler time tends to infinity. The detached observer nevertheless crosses the horizon in finite proper time; nothing singular happens there locally. The horizon is a boundary of the accelerated coordinate system, while the underlying Minkowski spacetime is regular there.
+
+The thin blue dashed straight lines in the right-hand panel of Fig.~\ref{fig:spacetime2} show how this works geometrically. At each event on $B$'s hyperbolic worldline, the spatial axis of its instantaneous rest frame passes through $P$ and selects the events simultaneous with that event on $B$. As $B$ continues accelerating, these simultaneity lines tilt toward the future Rindler horizon. Let $H$ denote the event where the detached particle crosses that horizon. For $H$ to lie on one of these simultaneity lines, the line through $P$ would have to coincide with the horizon itself. This alignment is approached only as Rindler time tends to infinity; no instantaneous rest frame at a finite time on $B$ assigns $H$ to its current simultaneity line. This is a statement about assigning coordinate time, not about receiving light signals, and it does not prevent the detached particle from reaching $H$ in finite proper time.
 
 This provides a useful local analogy with a black hole. A freely falling observer crosses a black-hole horizon in finite proper time, while Schwarzschild coordinates assign the crossing an infinite coordinate time; signals received far away become increasingly delayed and redshifted. The equivalence principle motivates the local connection between acceleration and gravity, but the global structure of a black-hole spacetime requires general relativity and is not derived from the Rindler analogy alone.
 
