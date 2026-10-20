@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage{xcolor}
 \definecolor{sectionrectanglecolor}{rgb}{0.25,0.5,0.75}
 \definecolor{sectiontitlecolor}{rgb}{0.2,0.4,0.65}
@@ -69,27 +70,65 @@ The equivalence principle states that, in a sufficiently small region of spaceti
 Historically, the principle is tied to the observed equality of gravitational and inertial mass. If $F=m_g g=m_i a$, then a freely falling body has $a=(m_g/m_i)g$. Experiments find the ratio $m_g/m_i$ to be universal; the equivalence principle takes this universality to be exact. In the following, we use the principle to predict gravitational clock effects from an accelerated rocket.
 
 \noindent 
-{\bf Gravitational time dilation from an accelerated rocket.} Consider an instantaneous inertial frame $S$ in which a rocket of height $h$ is initially at rest, far from gravitating bodies. It then accelerates upward with acceleration $g$. A source at the top emits downward light pulses separated by a short interval $t_s$. We work to first order in $gh/c^2\ll1$. During the flight of one pulse, the source moves only negligibly, but the receiver at the bottom does not: the flight time is approximately $h/c$, so the receiver has acquired the small upward speed
+{\bf Gravitational time dilation from an accelerated rocket.} Consider an instantaneous inertial frame $S$ in which a rocket of height $h$ is initially at rest, far from gravitating bodies (Fig.~\ref{fig:accelerating-rocket}). It then accelerates upward with acceleration $g$. A source at the top emits downward light pulses. Let $\delta t_s$ be the short interval between successive emissions, measured by the source clock, and $\delta t_r$ the corresponding interval between receptions, measured by the receiver clock. These are pulse spacings, not pulse durations. We take the pulses closely spaced near the initial rest event, so that the source's velocity changes negligibly during emission, and work to first order in $gh/c^2\ll1$.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        scale=0.85,
+        rocketlabel/.style={font=\scriptsize,align=center,fill=white,inner sep=1pt},
+        rocketarrow/.style={-{Latex[length=3mm]},thick}
+    ]
+        \draw[thick,rounded corners=3pt] (-1,-2) rectangle (1,2);
+        \draw[fill=orange!15,draw=black] (-0.55,1.15) rectangle (0.55,1.65);
+        \node[rocketlabel] at (0,1.4) {source};
+        \draw[fill=blue!10,draw=black] (-0.55,-1.65) rectangle (0.55,-1.15);
+        \node[rocketlabel] at (0,-1.4) {receiver};
+        \draw[rocketarrow,red] (0,1.08) -- (0,-1.08)
+            node[midway,rocketlabel,right] {light};
+        \draw[rocketarrow,gray!70!black] (1.35,-1.6) -- (1.35,1.6)
+            node[midway,rocketlabel,right] {$g$};
+        \draw[<->] (-1.35,-1.4) -- (-1.35,1.4)
+            node[midway,rocketlabel,left] {$h$};
+        \node[rocketlabel] at (0,-2.35) {accelerating rocket};
+    \end{tikzpicture}
+    \caption{A rocket accelerates upwards while light pulses travel from the source to the receiver a distance $h$ below it. The upward arrow indicates the rocket's acceleration; the downward arrow indicates the light propagation. The pulse spacings $\delta t_s$ and $\delta t_r$ are measured by the source and receiver clocks, respectively.}
+    \label{fig:accelerating-rocket}
+\end{figure}
+
+In contrast, $\Delta t_{\rm light}\simeq h/c$ denotes the travel time of one pulse in $S$. During that flight the receiver acquires the small upward speed
 \be
-v\simeq g\frac{h}{c}.
+v\simeq g\,\Delta t_{\rm light}\simeq g\frac{h}{c}.
 \ee
 The receiver therefore moves toward each downward-moving pulse. In the instantaneous inertial frame $S$, the light still travels at speed $c$; the relevant $c+v$ is only the closing speed of the pulse and receiver. To first order, the Doppler argument gives
 \be
-t_r = \frac{t_s}{1+v/c}.
+\delta t_r\simeq\frac{\delta t_s}{1+v/c}.
 \ee
-Thus the receiver at the bottom measures a blueshift,
+With pulse repetition frequencies $\nu_s=1/\delta t_s$ and $\nu_r=1/\delta t_r$, the receiver at the bottom measures a blueshift,
 \be
-\nu_r = \left(1+\frac{v}{c}\right) \nu_s = \left(1+ \frac{gh}{c^2}\right)\nu_s.
+\nu_r\simeq\left(1+\frac{v}{c}\right)\nu_s\simeq\left(1+\frac{gh}{c^2}\right)\nu_s.
 \ee
 Equivalently, a clock at the top runs faster than a clock at the bottom by the factor $1+gh/c^2$, to this order. By the equivalence principle, the same local result applies to a tower in a uniform gravitational field: clocks higher in the gravitational potential run faster.
 
 \subsection*{Example 1: Airplane speed}
 A plane flies at constant speed $v$. What should the height $h$ of the plane be so that an observer on the ground sees the plane's clock tick at the same rate as the ground clock? Assume a uniform gravitational field pointing straight down and a plane that is moving in the $x$ direction. 
 
-Let clock $A$ remain on the ground. Place identical, synchronized clocks $B_1$ and $B_2$ at height $h$ along the flight path, and let clock $C$ be carried by the plane. When the plane passes $B_1$ and then $B_2$, the elapsed time on the two stationary height-$h$ clocks is $\Delta t_B$. The gravitational result above gives $\Delta t_B=(1+gh/c^2)\Delta t_A$, while time dilation for the moving plane gives $\Delta t_C=\Delta t_B/\gamma$. Hence
+Let clock $A$ remain on the ground. Place identical, synchronized clocks $B_1$ and $B_2$ at height $h$ along the flight path, and let clock $C$ be carried by the plane. The difference between the readings of $B_2$ at the second passage and $B_1$ at the first passage defines $\Delta t_B$.
+
+\paragraph{From short intervals to finite elapsed times.}
+The pulse argument establishes a local clock-rate relation. For corresponding short intervals, the gravitational result and velocity time dilation give
+\[
+\delta t_B\simeq\left(1+\frac{gh}{c^2}\right)\delta t_A,
+\qquad
+\delta t_C=\frac{\delta t_B}{\gamma}
+\simeq\frac{1+gh/c^2}{\gamma}\,\delta t_A.
+\]
+In a stationary gravitational field, with the plane at constant height $h$ and constant speed $v$, this rate factor stays constant. Adding the short intervals therefore gives the same relation for the finite elapsed times $\Delta t_A$, $\Delta t_B$, and $\Delta t_C$:
 \be
-\Delta t_C = \frac{\Delta t_B}{\gamma} = \frac{1+gh/c^2}{\gamma} \Delta t_A = \sqrt{1-v^2/c^2}(1+gh/c^2) \Delta t_A.
+\Delta t_C = \frac{\Delta t_B}{\gamma} \simeq \frac{1+gh/c^2}{\gamma} \Delta t_A = \sqrt{1-v^2/c^2}(1+gh/c^2) \Delta t_A.
 \ee
+The short-pulse assumption is used to establish the local rate; it does not require the total flight duration to be short. The accumulated relation retains the accuracy of the original clock-rate approximation. If the speed or height changes, the factor varies and we must integrate the local rate instead of multiplying by one constant factor.
+
 For $v\ll c$ and $gh/c^2\ll1$, retain the terms $v^2/c^2$ and $gh/c^2$, but neglect their product. Expanding the inverse Lorentz factor gives
 \be
 \Delta t_C \simeq (1-\frac{v^2}{2c^2} + \frac{gh}{c^2}) \Delta t_A
