@@ -212,6 +212,29 @@ The 3 acceleration in $S'$, where $v'=0$ and $\gamma' = 1$, should be related to
 This also follows from Eq.~\eqref{eq:AtoA'}: since $a_y=v^2/r$, it gives
 $a'_y=\gamma^2v^2/r$.
 
+\paragraph{What is the physical point?}
+Constant speed does not mean zero acceleration: the velocity changes direction, just as in Newtonian circular motion. Changing frame does not create an additional physical acceleration; we are describing the same motion using different coordinate times and velocities. For this boost along $x$, the transverse four-acceleration component is unchanged, $A'_2=A_2$, but the ordinary three-accelerations are different:
+\[
+a_y=\frac{v^2}{r},\qquad
+A_2=\gamma^2a_y=A'_2=a'_y,\qquad
+\boxed{a'_y=\gamma^2a_y.}
+\]
+The last equality uses $\gamma'=1$ in the instantaneous rest frame. An accelerometer carried by the particle measures the \emph{proper acceleration}, namely the magnitude of the three-acceleration in that frame:
+\[
+\alpha=|\mathbf a'|=\gamma^2\frac{v^2}{r}.
+\]
+It does not measure the lab-frame coordinate acceleration $|\mathbf a|=v^2/r$. These values agree in the Newtonian limit $\gamma\simeq1$.
+
+\paragraph{An intuitive explanation of the factor $\gamma^2$.}
+Keep $S'$ as one fixed inertial frame, chosen to be comoving at the event under discussion. Over a short interval near that event, the transverse displacement is unchanged by the boost, $\Delta y'=\Delta y$, while along the particle's motion $\Delta t'\simeq\Delta t/\gamma$ to leading order. Since the initial transverse velocity is zero in both frames,
+\[
+\Delta y\simeq\frac12a_y(\Delta t)^2,\qquad
+\Delta y'\simeq\frac12a'_y(\Delta t')^2.
+\]
+The same transverse displacement over the shorter coordinate-time interval therefore gives $a'_y=\gamma^2a_y$ in the limit of vanishing interval. This argument is local; it does not treat $S'$ as a frame that follows the particle throughout its circular orbit.
+
+Finally, \emph{momentarily at rest does not mean unaccelerated}. The particle has $\mathbf v'=0$ at this event, but its velocity in $S'$ is changing, so $\mathbf a'\ne0$.
+
 \section{The form of physical laws}\label{sec:physics}
 
 One of the key postulates of SR is that all inertial frames are equivalent. If a physical law holds in one inertial frame, it will hold in all frames. If not, we would be able to differentiate between frames. For example, we found that ${\bf F} = m{\bf a}$ can not be a physical law (although we long defended it to be!) since ${\bf F}$ transforms differently from ${\bf a}$ as we showed in the previous section. It might be true in one frame, but it certainly can not be true in all frames. 
