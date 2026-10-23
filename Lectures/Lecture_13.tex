@@ -310,7 +310,15 @@ Here we used the exact local relation $d\tau=\gamma^{-1}dt$. It holds instantane
 \be
 A = (\gamma^4 v \dot{v}, \gamma^4 v \dot{v} {\bf v}+ \gamma^2{\bf a}).
 \ee
-Here $d{\bf v}/dt = {\bf a}$ and $dv/dt = \dot{v}$. $A$ is known as the acceleration 4-vector. In the rest frame, $A = (0,{\bf a})$. If we assume the instantaneous velocity ${\bf v}  = (v_x,0,0)$ then we have $v = v_x$ and $\dot{v}_x = a_x$. Note that ${\bf a}$ is still allowed to point in any direction. We can write
+Here $d{\bf v}/dt = {\bf a}$ and $dv/dt = \dot{v}$. $A$ is known as the acceleration 4-vector. In the instantaneous inertial rest frame $S'$, it becomes $A'=(0,\mathbf a')$, where $\mathbf a'=d\mathbf v'/dt'$ is the \emph{rest-frame three-acceleration}.
+
+We define the \emph{proper acceleration} $\alpha$ to be its non-negative \emph{magnitude}, not the three-vector itself:
+\[
+\boxed{\alpha\equiv|\mathbf a'|=\sqrt{-A\cdot A}.}
+\]
+Indeed, our $(+,-,-,-)$ convention gives $A'\cdot A'=-|\mathbf a'|^2$, and the inner product is Lorentz invariant. Thus $\alpha$ is a scalar, whereas $\mathbf a'$ also specifies a direction in the chosen rest-frame axes. An ideal accelerometer carried by the particle measures this magnitude. Some authors also use ``proper acceleration'' for the rest-frame vector; throughout these notes, the term refers to the scalar $\alpha$.\footnote{For this scalar convention, see M.~R.~R.~Good, M.~Temirkhan and T.~Oikonomou, \href{https://arxiv.org/abs/1907.01751}{\textit{Stationary Worldline Power Distributions}} (2019), Eq.~(2).}
+
+If we assume the instantaneous velocity ${\bf v}=(v_x,0,0)$, then $v\dot v=v_xa_x$. Note that ${\bf a}$ is still allowed to point in any direction. We can write
 \be
 A = (\gamma^4 v_x a_x, \gamma^4 a_x, \gamma^2 a_y, \gamma^2 a_z).
 \ee
@@ -338,7 +346,7 @@ Using Eq.~\eqref{eq:4force} we then find
 \be
 {\bf F} = m(\gamma^3 a_x, \gamma a_y, \gamma a_z),
 \ee
-which is equivalent to Eq.~\eqref{eq:3force} (well, really the equation lower in the text). In the instantaneous inertial frame comoving with the object, $F = (0,{\bf F})$ (since $dE/dt = 0$). In addition, in that frame $A = {\bf a}$ and ${\bf F} = m{\bf a}$. 
+which is equivalent to Eq.~\eqref{eq:3force} (well, really the equation lower in the text). In the instantaneous inertial rest frame $S'$, $F'=(0,\mathbf F')$ (since $dE'/dt'=0$), $A'=(0,\mathbf a')$, and $\mathbf F'=m\mathbf a'$. The scalar proper acceleration is consequently $\alpha=|\mathbf a'|=|\mathbf F'|/m$.
 
 \section{Properties of 4-vectors}\label{sec:properties}
 

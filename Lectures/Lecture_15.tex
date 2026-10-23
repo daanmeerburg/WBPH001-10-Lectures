@@ -62,7 +62,7 @@ F=\frac{dP}{d\tau}=mA,
 \ee
 for constant mass.  These equations are covariant: if they hold in one inertial frame, they hold in every inertial frame.  By contrast, the three-vector equation $\mathbf F=m\mathbf a$ is not generally valid in special relativity, because the longitudinal and transverse components of the coordinate acceleration transform differently.  The useful three-force law remains $\mathbf F=d\mathbf p/dt$.
 
-We also used instantaneous comoving inertial frames: at any event on a timelike worldline, one may choose an inertial frame in which the particle is momentarily at rest.  This is the bridge to today's topic.  We will use local inertial frames and accelerated observers to ask what can, and cannot, be distinguished locally from a gravitational field.
+We also used instantaneous comoving inertial frames: at any event on a timelike worldline, one may choose an inertial frame in which the particle is momentarily at rest. In that frame, $A'=(0,\mathbf a')$. We call $\mathbf a'$ the \emph{rest-frame three-acceleration}, and its non-negative scalar magnitude $\alpha=|\mathbf a'|=\sqrt{-A\cdot A}$ the \emph{proper acceleration}. Thus $\alpha$ is the magnitude measured by an accelerometer, not another acceleration vector. This is the bridge to today's topic. We will use local inertial frames and accelerated observers to ask what can, and cannot, be distinguished locally from a gravitational field.
 
 \section{The equivalence principle}\label{sec:EP}
 The equivalence principle states that, in a sufficiently small region of spacetime, the effects of a uniform gravitational field are indistinguishable from those seen by an accelerated observer. The word \emph{locally} is essential: near a real gravitating body, gravitational field lines are not exactly parallel, and tidal effects over a sufficiently large region can reveal the presence of gravity.
@@ -140,7 +140,7 @@ For $\Delta t_A = \Delta t_C$, we need
 \section{Uniformly accelerating frame}\label{sec:UAF}
 We first recall the constant-force example from Lecture 12's blackboard discussion (Board 3). We then use it to derive the hyperbolic worldline and construct an accelerated frame.
 
-Use units with $c=1$ throughout this section. Consider a particle of mass $m$, initially at rest at $x=0$ in an inertial lab frame $S$, subject to a constant longitudinal three-force $\mathbf F=(F_x,0,0)$ with $F_x>0$. Let $S'$ be its instantaneous rest frame. As in Lectures 12 and 14, $F_x=dp_x/dt$ and the longitudinal force is unchanged by the boost into $S'$, so $F_x'=F_x$. In that instantaneous rest frame, $F_x'=m a_x'$. Thus $g\equiv F_x/m=a_x'$ is the particle's constant \emph{proper acceleration}. Taking $t_0=x_0=0$ in $S$, we obtain
+Use units with $c=1$ throughout this section. Consider a particle of mass $m$, initially at rest at $x=0$ in an inertial lab frame $S$, subject to a constant longitudinal three-force $\mathbf F=(F_x,0,0)$ with $F_x>0$. Let $S'$ be its instantaneous rest frame. As in Lectures 12 and 14, $F_x=dp_x/dt$ and the longitudinal force is unchanged by the boost into $S'$, so $F_x'=F_x$. In that instantaneous rest frame, $F_x'=m a_x'$. Since $a_x'>0$ is the only nonzero component, the scalar proper acceleration is $\alpha=|\mathbf a'|=a_x'$. We denote its constant value by $g\equiv\alpha=F_x/m$. Taking $t_0=x_0=0$ in $S$, we obtain
 \be
 p_x=m\gamma v=F_x t,
 \ee
@@ -186,7 +186,7 @@ i.e., the velocity at point $A$ by virtue of the equation for the velocity we de
 
 Hence the slope construction works at every event along the worldline. For each such event $A$, the line through $A$ parallel to the instantaneous $x'$ axis is that instantaneous rest frame's line of simultaneity, and it passes through $P$. Thus $P$ is simultaneous with $A$ in \emph{each different} instantaneous rest frame. This does not define one global, observer-independent ``now'': the instantaneous rest frame changes continuously along the accelerated trajectory.
 
-The common null asymptotes of these hyperbolae will become the Rindler horizons below. They provide a useful, limited analogy with horizons near black holes, but they are coordinate-dependent features of flat spacetime, not curvature singularities.
+The lightlike asymptotes will become the boundaries of the accelerated coordinate system constructed below. This gives a useful, limited analogy with horizons near black holes, but these boundaries belong to coordinates on flat spacetime; they are not curvature singularities.
 
 We can also find the distance between point $P$ and point $A$ as measured in $S'$. The Lorentz factor between $S$ and $S'$ is given by:
 \be
@@ -202,7 +202,10 @@ x_A' - x_P' = \gamma^{-1}(x_A - x_P) = \frac{1}{g} \label{eq:distance}.
 \ee
 Hence, the distance between $A$ and $P$ in frame $S'$ is independent of time. So, besides $P$ being simultaneous with any event along the worldline of the trajectory in the particle frame, $P$ is also always the same distance away. So while the particle is accelerating away from point $P$, as observed in the particle's frame, it does not get further away from $P$. This somewhat magical result is the consequence of the fact that, as you accelerate away, and therefore you are moving away from $P$, the distance between you and $P$ keeps contracting. Here we find that these effects exactly cancel.
 
-We can now put a collection of uniformly accelerating particles together to form a uniformly accelerating frame. If all particles accelerate with the same proper acceleration, $g$, the distances between the particles, as measured in the instantaneous inertial frame of the particle, grow larger (see problem 11.26). While this is fine, it is not a frame we would like to work with because of the equivalence principle. Since this states we can not distinguish between a uniformly accelerating frame and a uniform gravitational field, and hence we would like to make sure distances are not affected by moving to this uniformly accelerating frame. Instead, we want to construct a static frame, where distances do not change as measured by an observer comoving with that frame. 
+\paragraph{Coordinates adapted to accelerating observers.}
+Until now, we have described an accelerating particle using inertial laboratory coordinates $(t,x)$. We now want coordinates adapted to a whole family of accelerating observers, each remaining at a fixed spatial position in their shared accelerated frame. This coordinate system is called \emph{Rindler coordinates}.
+
+We construct it so that the observers' mutual proper separations remain constant. Giving every particle the same proper acceleration would not achieve this: their separations measured in instantaneous rest frames would grow (see problem 11.26). Instead, we use hyperbolic worldlines with different proper accelerations and common null asymptotes, as follows.
 
 Let us consider two particles, $A$ and $B$. As in the previous example, their worldlines are hyperbolas that share the same null asymptotes through the event $P$ (see the left side of Fig.~\ref{fig:spacetime2}). These null lines form the Rindler horizons; $P$ itself is their intersection, or bifurcation event.
 
@@ -221,7 +224,13 @@ g_A=\frac{1}{a},\qquad g_B=\frac{1}{b}.
 \ee
 (With $c$ restored, these read $g_A=c^2/a$ and $g_B=c^2/b$.) Thus, to keep the particles at fixed separations in the accelerated frame, their proper accelerations must be inversely proportional to their distance from $P$.
 
-Now consider two events $E_A$ and $E_B$, such that $P$, $E_A$ and $E_B$ are collinear. The line that passes through these points is, by construction, the $x'$ axis for both particles $A$ and $B$. In addition, $A$ is always a distance $a$ from $P$ and $B$ is always a distance $b$ from $P$. For both particles, length is measured along this $x'$ axis, so the distance between $A$ and $B$ is $b-a$, independent of time. This gives a static accelerated frame, called a Rindler frame. If $\rho$ denotes the instantaneous proper distance to $P$, observers fixed at different Rindler positions require different proper accelerations, $g(\rho)=1/\rho$ (or $c^2/\rho$ with $c$ restored). This is the acceleration needed to remain at rest in these coordinates; it is not a Newtonian gravitational field sourced by matter at $P$.
+Now consider two events $E_A$ and $E_B$, such that $P$, $E_A$ and $E_B$ are collinear. The line that passes through these points is, by construction, the $x'$ axis for both particles $A$ and $B$. In addition, $A$ is always a distance $a$ from $P$ and $B$ is always a distance $b$ from $P$. For both particles, length is measured along this $x'$ axis, so the distance between $A$ and $B$ is $b-a$, independent of time. This gives the desired static accelerated frame, also called a Rindler frame.
+
+The spatial coordinate $\rho$ labels each hyperbolic worldline by its distance from $P$, measured along an instantaneous rest-frame spatial axis. An observer following that worldline is therefore at fixed Rindler position $\rho$, although moving and accelerating in the laboratory frame. Different fixed positions require different proper accelerations, $g(\rho)=1/\rho$ (or $c^2/\rho$ with $c$ restored). This is the acceleration needed to remain at rest in these coordinates; it is not a Newtonian gravitational field sourced by matter at $P$.
+
+The straight simultaneity lines through $P$ define equal \emph{Rindler time}. We can use the proper time of one chosen accelerating observer, such as $B$, to label these successive lines: each line receives the clock reading at its intersection with $B$'s worldline. This provides a shared coordinate time, which does not equal the proper time of every clock at every position. Clocks at different fixed Rindler positions accumulate different amounts of proper time between the same two simultaneity lines.
+
+No new spacetime has been introduced: these are accelerated coordinates on flat Minkowski spacetime. They cover the right-hand wedge between the common null asymptotes through $P$. These boundaries are the Rindler horizons; the spacetime itself is regular there.
 
 If this observer detaches from the accelerating frame and subsequently follows an inertial worldline, the accelerated-frame description resembles free fall. The observer crosses the null Rindler horizon in finite proper time, because the straight inertial worldline intersects the common asymptote of the hyperbolic worldlines (see the right side of Fig.~\ref{fig:spacetime2}). The observer does not pass through the event $P$ in general.
 
